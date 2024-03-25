@@ -11,7 +11,7 @@
     + [組み合わせ・確率](./math/probability/index.md)
         * [べき級数の利用](./math/probability/use_of_power_series.md)
     + [その他](./math/others/index.md)
-        * [直前に見ておきたいもの](./math/others/kasu_miss.md)
+        * [直前に見るもの](./math/others/cheat_sheet.md)
 
 - [物理](./physics/index.md)
     + [力学](./physics/mechanics/index.md)
