@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>べき級数の利用 - Alyth&#x27;s note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="../../math/integral/famous_integral.html"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html" class="active"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth&#x27;s note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="べき級数の利用"><a class="header" href="#べき級数の利用">べき級数の利用</a></h2>
+<p>東工大の 2024 年の大問 4 に触発された。</p>
+<h3 id="導入"><a class="header" href="#導入">導入</a></h3>
+<p>独立な試行と冪級数は相性が良い。</p>
+<p>例えば、普通のコインを投げたときの表が出る回数 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。全事象から、係数の和は必ず \(1\) となる。</p>
+<p>\(1\) 回投げることは \(\dfrac 12 x^0 + \dfrac 12 x^1 \) と表せる。 では \(2\) 回投げるときはどうだろうか？</p>
+<p>計算してみると \( \dfrac 14 x^0 + \dfrac 12 x^1 + \dfrac 14 x^2 = \left( \dfrac 12 x^0 + \dfrac 12 x^1 \right)^2 \) となることが分かる。</p>
+<p>このようにべき乗で表すことができるのは、べき級数の項どうしの積が、表が出る回数の和を取ることと対応しているからである。</p>
+<h3 id="導入2"><a class="header" href="#導入2">導入2</a></h3>
+<p>\(\Big\{\) \(1\) マス左に動く, 留まる, \(1\) マス右に動く \(\Big\}\) を等確率で選ぶロボットの位置 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。</p>
+<p>\(1\) 回の試行は \(\dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \) と表せるから、\(n\) 回の試行は \( \left( \dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \right)^n \) と対応する。</p>
+<p>ここで、次のような問題を考えてみよう。</p>
+<blockquote>
+<p>\(n\) 回試行した後、ロボットの位置が偶数マス目である確率を求めよ。</p>
+</blockquote>
+<p>\( f(x) = \left( \dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \right)^n \) と置く。</p>
+<p>ここで、\( \displaystyle f(x) = \sum p_k x^k \) と表されているとき、\(x = -1\) を代入することを考えてみよう。</p>
+<p>\( (-1)^k = \left\{ \begin{array}{l} 1 &amp;(\text{if} ~~ 2 \mid k) \\ -1 &amp;(\text{if} ~~ 2 \nmid k) \end{array} \right. \) であるから、\( \displaystyle f(-1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} -p_k \) と分かる。</p>
+<p>同様に \(x = 1\) を考えると \( \displaystyle f(1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} p_k \) が分かる。</p>
+<p>求めたい確率は \( \displaystyle \sum_{2 \mid k} p_k \) であるから、これは \( \dfrac{f(-1) + f(1)}{2} \) と等しい。</p>
+<p>ところで、私たちは \(f(x)\) が具体的に何なのかを既に知っている。代入することで \( \displaystyle f(-1) = - 1 / 3^n, ~ f(1) = 1 \) が得られる。</p>
+<p>以上より、求める確率は \( \displaystyle \frac{f(-1) + f(1)}{2} = \frac{1 - 1/3^n}{2} \) である。</p>
+<br>
+<p>これは確率漸化式でも解くことができる。しかし、ロボットの位置が \(3\) の倍数のマス目である確率だったらどうだろうか？</p>
+<p>確率漸化式を使うには \(3\) つの確率列を用いる必要がある。しかし、べき級数なら \( \dfrac{f(\omega) + f(\omega^{-1})}{2} \) で一発である。</p>
+<p>（とはいえ、操作が独立でないときは確率漸化式が必要になる。あくまで、ある条件を満たすときの、一つの方法である。）</p>
+<br>
+<p>他にも、こんな問題を考えてみよう。この答えは明らかに \(0\) であるが、興味深い方法なので紹介する。</p>
+<blockquote>
+<p>\(n\) 回試行した後の、ロボットの位置の期待値を求めよ。</p>
+</blockquote>
+<p>期待値とは \(\displaystyle \sum kp_k \) の値である。</p>
+<p>ここで、\(\displaystyle f(x) = \sum p_kx^k \) を微分すると \( \displaystyle f'(x) = \sum kp_kx^{k-1} \) となるから、求める値は \( f'(1) \) と等しい。( \(k=0\) のときが不安になるが、係数の \(k\) で消えるため問題ない。)</p>
+<p>これを具体的表現から計算すると、</p>
+<p>\[
+\begin{eqnarray}
+f'(1) &amp;=&amp; \frac d{dx} ~ \left( \frac 13 x^{-1} + \frac 13 x^0 + \frac 13 x^1 \right)^n \Bigg|_{x=1} \\
+&amp;=&amp; \frac{1}{3^n} n (-x^{-2} + 1) (x^{-1} + 1 + x)^{n-1} \Bigg|_{x=1} \\
+&amp;=&amp; 0
+\end{eqnarray}
+\]</p>
+<p>と分かる。</p>
+<hr />
+<p>べき級数は <a href="https://www.youtube.com/watch?v=bOXCLR3Wric">3b1b さんの動画</a> でも紹介されている。面白いので見よう。</p>
+<h3 id="例題1"><a class="header" href="#例題1">例題1</a></h3>
+<blockquote>
+<p>\(n\) 枚の硬貨を投げる。\(k\) 枚目の硬貨を投げて表が出る確率は \(p_k\) である。それぞれ表が出た枚数が奇数である確率をを求めよ。</p>
+<p>(1) \( p_k = 1/3 \)</p>
+<p>(2) \( p_k = \dfrac{1}{2(k+1)} \)</p>
+<p>(3) \( n = 3m, ~ p_k = \left\{ \begin{array}{l} \dfrac{1}{3m} &amp;(\text{if} ~~ 0 &lt; k \leq m) \\ \dfrac{2}{3m} &amp;(\text{if} ~~ m &lt; k \leq 2m) \\ \dfrac{1}{m} &amp;(\text{if} ~~ 2m &lt; k \leq 3m) \end{array} \right. \) として \( m \to \infty \) での確率</p>
+<p>東京工業大学 2024 年</p>
+</blockquote>
+<p>表が \(k\) 枚出る確率を \(x^k\) の係数と対応させたべき級数 \(f(x)\) を考える。このとき、求める確率は \(\dfrac{f(1) - f(-1)}{2}\) と等しい。</p>
+<p>(1) 対応したべき級数は \( f_1(x) = \left(\dfrac 13 x + \dfrac 23\right)^n \) である。</p>
+<p>よって、求める確率は \( \dfrac{f_1(1) - f_1(-1)}{2} = \dfrac{1 - (-1/3)^n}{2} \)</p>
+<p>(2) 対応したべき級数は \( \displaystyle f_2(x) = \prod_{k=1}^n \left( \frac{1}{2(k+1)} x + \frac{2k+1}{2(k+1)} \right) \) である。</p>
+<p>よって、求める確率は \( \displaystyle \frac{f_2(1) - f_2(-1)}{2} = \frac 12 \left( 1 - \frac{1}{n+1} \right) = \frac{n}{2(n+1)} \)</p>
+<p>(3) 対応したべき級数は</p>
+<p>\[
+f_3(x) = \left( \frac{1}{3m} x + \frac{3m-1}{3m} \right)^m \left( \frac{2}{3m} x + \frac{3m-2}{3m} \right)^m \left( \frac{1}{m} x + \frac{m-1}{m} \right)^m
+\]</p>
+<p>である。また、明らかに \( f_3(1) = 1 \) である。</p>
+<p>\[
+\begin{eqnarray}
+\lim_{m \to \infty} f_3(-1) &amp;=&amp; \lim_{m \to \infty} \left( \frac{3m-2}{3m} \right)^m \left( \frac{3m-4}{3m} \right)^m \left( \frac{m-2}{m} \right)^m \\
+&amp;=&amp; \lim_{m \to \infty} \left( 1-\frac{2}{3m} \right)^m \left( 1-\frac{4}{3m} \right)^m \left( 1-\frac{2}{m} \right)^m \\
+&amp;=&amp; e^{-2/3} \cdot e^{-4/3} \cdot e^{-2} \\
+&amp;=&amp; e^{-4}
+\end{eqnarray}
+\]</p>
+<p>より、求める確率は \( \displaystyle \lim_{m \to \infty} \frac{f(1) - f(-1)}{2} = \frac{1 - e^{-4}}{2} \)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../math/probability/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../math/others/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../math/probability/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../math/others/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

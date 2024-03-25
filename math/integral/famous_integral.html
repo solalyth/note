@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>有名な積分 - Alyth&#x27;s note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="../../math/integral/famous_integral.html" class="active"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth&#x27;s note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="有名な積分"><a class="header" href="#有名な積分">有名な積分</a></h2>
+<h3 id="sin2-cos2-tan-の有理式の積分"><a class="header" href="#sin2-cos2-tan-の有理式の積分">sin^2, cos^2, tan の有理式の積分</a></h3>
+<p>cf. <a href="./famous_substitution.html#tan-%E7%BD%AE%E6%8F%9B">有名置換#tan置換</a></p>
+<p>\( \sin^2 \theta, \, \cos^2 \theta \) は \( \tan \theta \) の有理式で書ける。</p>
+<p>\( t = \tan \theta \) と置換すると、\( \sin^2 \theta, \, \cos^2 \theta, \, \tan \theta, \, d\theta \) が全て \(t\) の有理式で表せる。</p>
+<h4 id="例題1"><a class="header" href="#例題1">例題1</a></h4>
+<blockquote>
+<p>\( \displaystyle \int \frac 1{\cos^4 \theta} ~ d\theta \) を求めよ。</p>
+</blockquote>
+<p>\( t = \tan \theta \) と置換すると、</p>
+<p>\[
+\int \frac 1{\cos^4 \theta} ~ d\theta
+= \int (\tan^2 \theta + 1)^2 ~ d\theta
+= \int (t^2 + 1) ~ dt
+= \frac 1 3 \tan^3 \theta + \tan \theta
+\]</p>
+<p>を得る。</p>
+<h3 id="cos-の負の奇数乗の積分"><a class="header" href="#cos-の負の奇数乗の積分">cos の負の奇数乗の積分</a></h3>
+<p>\( \displaystyle I_n = \int \frac{1}{\cos^{2n+1} \theta} ~ d\theta \) と置く。
+気合いの \( \tan \) による部分積分・同型出現によって漸化式を得る。</p>
+<p>\[
+\begin{eqnarray}
+I_n
+&amp;=&amp; \int \frac{1}{\cos^2\theta} \cdot \frac{1}{\cos^{2n-1}\theta} ~ d\theta \\
+&amp;=&amp; \tan\theta \cdot \frac{1}{\cos^{2n-1}\theta} - \int \tan\theta \cdot \frac{(2n-1)\sin\theta}{\cos^{2n}\theta} ~ d\theta \quad \\
+&amp;=&amp; \frac{\sin\theta}{\cos^{2n}\theta} - (2n-1)\int \frac{1-\cos^2\theta}{\cos^{2n+1}\theta} ~ d\theta \\
+&amp;=&amp; \frac{\sin\theta}{\cos^{2n}\theta} - (2n-1)(I_n - I_{n-1})
+\end{eqnarray}
+\]</p>
+<p>より、\( 2nI_n = \dfrac{\sin\theta}{\cos^{2n}\theta} + (2n-1)I_{n-1} \) を得る。</p>
+<p>\( \displaystyle I_0 = \int \frac{1}{\cos\theta} ~ d\theta = \frac12 \, \log \, \left|\frac{1+\sin\theta}{1-\sin\theta}\right| \) であるから、再帰的に得られる。</p>
+<p>この漸化式を覚えるというよりは、こう変形するとよい、ということを覚えたい。</p>
+<p>この他にも、積分漸化式として <a href="https://en.wikipedia.org/wiki/Integration_by_reduction_formulae">wikipedia</a> に多くの例が書いてある。</p>
+<h4 id="例題1-1"><a class="header" href="#例題1-1">例題1</a></h4>
+<blockquote>
+<p>\( \displaystyle \int \dfrac{1}{\cos^3\theta} ~ d\theta \) を求めよ。</p>
+</blockquote>
+<p>すごい出てくる気がする。</p>
+<p>上と同様に部分積分する。同型出現させる意識を持つ！</p>
+<p>\[
+\begin{eqnarray}
+\int \frac{1}{\cos^3\theta} ~ d\theta
+&amp;=&amp; \tan\theta \cdot \frac{1}{\cos\theta} - \int \tan\theta \cdot \frac{\sin\theta}{\cos^2\theta} ~ d\theta \\
+&amp;=&amp; \frac{\sin\theta}{\cos^2\theta} - \int \frac{1 - \cos^2\theta}{\cos^3\theta} ~ d\theta \\
+&amp;=&amp; \frac{\sin\theta}{\cos^2\theta} - \int \frac{1}{\cos^3\theta} ~ d\theta + \int \frac{1}{\cos\theta} ~ d\theta
+\end{eqnarray}
+\]</p>
+<p>したがって、\(\displaystyle \int \frac{1}{\cos^3\theta} ~ d\theta = \frac{\sin\theta}{\cos^2\theta} + \frac 12 \, \log \, \left|\frac{1 + \sin\theta}{1 - \sin\theta}\right| \)</p>
+<h3 id="逆三角関数逆双曲線関数が関わる積分"><a class="header" href="#逆三角関数逆双曲線関数が関わる積分">逆三角関数・逆双曲線関数が関わる積分</a></h3>
+<p>逆三角関数・逆双曲線関数の微分は綺麗な形になる。</p>
+<p>特に \( \mathrm{arctanh} \) は綺麗な式になるため、関数が直接入った形はよく出る気がする。</p>
+<p>\[
+\begin{eqnarray}
+\int \frac{1}{\sqrt{1 - x^2}} ~ dx &amp;=&amp; \arcsin x \\
+\int \frac{1}{\sqrt{1 + x^2}} ~ dx &amp;=&amp; \mathrm{arcsinh} ~ x = \log(x + \sqrt{x^2 + 1})\\
+\int \frac{1}{1 + x^2} ~ dx &amp;=&amp; \arctan x \\
+\int \frac{1}{1 - x^2} ~ dx &amp;=&amp; \mathrm{arctanh} ~ x = \frac 12 \, \log \frac{1+x}{1-x} \\
+\longrightarrow \int \frac{f'}{1 - f^2} ~ dx &amp;=&amp; \frac 12 \, \log \frac{1+f}{1-f}
+\end{eqnarray}
+\]</p>
+<p>逆に、逆三角関数・逆双曲線関数そのものが被積分関数に入っている場合、部分積分で微分する側にする。</p>
+<h4 id="例題1-2"><a class="header" href="#例題1-2">例題1</a></h4>
+<blockquote>
+<p>\( \displaystyle \int \frac{1}{\cos \theta} ~ d\theta \) を求めよ。</p>
+</blockquote>
+<p>\( \displaystyle \int \frac{1}{\cos \theta} ~ d\theta = \int \frac{\cos \theta}{1 - \sin^2 \theta} ~ d\theta = \frac 12 \, \log \, \left|\frac{1+\sin\theta}{1-\sin\theta}\right| \quad \because \mathrm{arctanh} f \) の式</p>
+<h4 id="例題2"><a class="header" href="#例題2">例題2</a></h4>
+<blockquote>
+<p>\( \displaystyle \int \arctan x ~ dx \) を求めよ。</p>
+</blockquote>
+<p>\( \displaystyle \int \arctan x ~ dx = x \arctan x - \int \frac{x}{1 + x^2} dx = x \arctan x - \frac 12 \, \log (1+x^2) \)</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../math/integral/famous_substitution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../math/probability/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../math/integral/famous_substitution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../math/probability/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
