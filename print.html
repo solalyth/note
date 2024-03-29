@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -91,7 +92,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">はじめに</a></li><li class="chapter-item expanded "><a href="math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="math/integral/famous_integral.html"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li class="chapter-item expanded "><a href="physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">はじめに</a></li><li class="chapter-item expanded "><a href="math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="math/integral/famous_integral.html"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/mechanics/solve_flowchart.html"><strong aria-hidden="true">2.1.1.</strong> 解くときの流れ</a></li></ol></li><li class="chapter-item expanded "><a href="physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="memo.html"><strong aria-hidden="true">3.</strong> メモ</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -182,13 +183,21 @@
 <p>致命的な間違いがありましたら何らかの手段で教えていただけると助かります。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="数学"><a class="header" href="#数学">数学</a></h1>
 <p>数学について書きます。</p>
-<h2 id="ことわりがき"><a class="header" href="#ことわりがき">ことわりがき</a></h2>
-<ul>
-<li>積分定数は省略しています。</li>
-</ul>
+<pre><code class="language-admonish warning title=&quot;注意&quot;">+ 積分定数は省略しています。
+</code></pre>
+<h2 id="小話という名の自分語り"><a class="header" href="#小話という名の自分語り">小話という名の自分語り</a></h2>
+<p>中学 3 年生で数学検定準一級、高校 1 年生で数学検定一級を取りました。うれしい。</p>
+<p>「数検受けたいな～」と思ってサイトを見てみると申し込み最終日で笑った記憶があります。それまで大学範囲の数学の勉強といえば深夜にヨビノリの動画を見て寝落ちする程度でしたが、面白そうだったので気の向くまま申し込みをしました。</p>
+<p>受検まで残り 1 ヶ月程度。学校の図書館に数検の本がいくつかあり、準一級のときはお世話になったのですが、しかしなぜか一級の本は無く、ずっと図書館でパソコンとにらめっこしていました。一次試験の解説解答を掲載しているサイトがあったので数個解いてみると、線形代数と極限和関連と微分方程式が分からなかったので、金沢工業大学の <a href="https://w3e.kanazawa-it.ac.jp/math/">KIT数学ナビゲーション</a> というサイトを前から埋めていました。</p>
+<p>Amazon で買った問題集が届いて見てみると本当に難しくて、届いた日から試験当日まで「これ多分受からないな」と思っていました。後からなら何とでも言えるので言いますが、あれが解けたら数検なんて余裕そう。</p>
+<p>受験当日、一級を受ける人が 7 人くらいしか居なくてめちゃくちゃ驚きました。一次は計算量が多い問題があったもののなんとか全部書き、二次は運が良かったからか選択 2 つ・必答 1 つがすんなり解けて体感 3 完 1 半でした。</p>
+<p>結果、受かってました。内訳は一次は 5完2半 (5/7点) で二次は 2完2半 (3/4点) でした。一次は合格点ギリギリです。でもやはり合格した人の中でトップクラスに勉強できていない自信があります。あんまり実感は無かったです。</p>
+<hr />
+<p>勉強といっても大学範囲を少しかじった程度でしたが、あの 1 ヶ月はとても楽しい時間だったなと思います。Twitter で見かける謎の暗号みたいなツイートが若干読めたりして楽しかったりもします。</p>
+<p>このノートを書いているのも、数検で得た諸々を忘れつつあるのが惜しい、というのが理由の一つだったりします。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="基礎"><a class="header" href="#基礎">基礎</a></h1>
 <p>数学の基礎的なこと、もとい、ジャンル付けが難しいな～と思ったことを書き連ねます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="双曲線関数"><a class="header" href="#双曲線関数">双曲線関数</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="双曲線関数"><a class="header" href="#双曲線関数">双曲線関数</a></h2>
 <div class="table-wrapper"><table><thead><tr><th style="text-align: center">定義</th><th style="text-align: center">定義域・値域</th></tr></thead><tbody>
 <tr><td style="text-align: center">\( \cosh\theta = \dfrac{e^\theta + e^{-\theta}}2 \)</td><td style="text-align: center">\( \mathbb R \to [1, \infty) \)</td></tr>
 <tr><td style="text-align: center">\( \sinh\theta = \dfrac{e^\theta - e^{-\theta}}2 \)</td><td style="text-align: center">\( \mathbb R \to \mathbb R \)</td></tr>
@@ -196,12 +205,12 @@
 </tbody></table>
 </div>
 <p>\( \cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}2, ~ \sin \theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i} \) から \(i\) を取った形になっている。</p>
-<h2 id="性質"><a class="header" href="#性質">性質</a></h2>
+<h3 id="性質"><a class="header" href="#性質">性質</a></h3>
 <p>三角関数と比べて \(i\) が無い分、三角関数よりも "素直" な式が成り立つ。</p>
 <p>三角関数と似た性質としては、</p>
 <ul>
 <li>
-<p>\( \cosh \) は偶関数で、\( \sinh, ~ \tanh \) は奇関数。</p>
+<p>\( \cosh \) は偶関数、\( \sinh, \tanh \) は奇関数。</p>
 </li>
 <li>
 <p>\( \cosh^2\theta - \sinh^2\theta = 1 \) が成り立つ。</p>
@@ -216,10 +225,14 @@
 <p>微分: \( (\cosh\theta)' = \sinh\theta, ~ (\sinh\theta)' = \cosh\theta, ~ (\tanh\theta)' = \dfrac1{\cosh^2\theta} \)</p>
 </li>
 <li>
-<p>おまけ: \(j^2 = 1\) を満たす非実数 \(j\) (分解型複素数) を用いて、\(e^{j\theta} = \cosh \theta + j\sinh \theta \) が成り立つ。</p>
+<p>\(j^2 = 1\) を満たす非実数 \(j\) を用いて、\(e^{j\theta} = \cosh \theta + j\sinh \theta \) が成り立つ。</p>
+<ul>
+<li>この \(j\) は分解型複素数と呼ばれる。</li>
+</ul>
 </li>
 </ul>
-<p>三角関数にない特徴としては</p>
+<br>
+<p>三角関数にない特徴としては、</p>
 <ul>
 <li>
 <p>\( \cosh\theta + \sinh\theta = e^\theta, ~ \cosh\theta - \sinh\theta = e^{-\theta} \) が成り立つ。</p>
@@ -238,7 +251,7 @@
 </li>
 </ul>
 <p>などがある。</p>
-<h2 id="積分への利用"><a class="header" href="#積分への利用">積分への利用</a></h2>
+<h3 id="積分での利用"><a class="header" href="#積分での利用">積分での利用</a></h3>
 <p>\( x = \sinh \theta \) と置換することで \( \sqrt{1+x^2} \) を解消することができる。</p>
 <p>\[
 \int f(x, \sqrt{1+x^2}) dx = \int f(\sinh\theta, \cosh\theta) \cdot \cosh\theta ~ d\theta
@@ -382,46 +395,59 @@ I_n
 <p>東工大の 2024 年の大問 4 に触発された。</p>
 <h3 id="導入"><a class="header" href="#導入">導入</a></h3>
 <p>独立な試行と冪級数は相性が良い。</p>
-<p>例えば、普通のコインを投げたときの表が出る回数 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。全事象から、係数の和は必ず \(1\) となる。</p>
-<p>\(1\) 回投げることは \(\dfrac 12 x^0 + \dfrac 12 x^1 \) と表せる。 では \(2\) 回投げるときはどうだろうか？</p>
+<p>例えば、普通のコインを何回か投げたときに表が出た回数 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。全事象から、係数の和は必ず \(1\) となる。</p>
+<p>\(1\) 回投げる試行は \(\dfrac 12 x^0 + \dfrac 12 x^1 \) と表せる。 では \(2\) 回投げるときはどうだろうか？</p>
 <p>計算してみると \( \dfrac 14 x^0 + \dfrac 12 x^1 + \dfrac 14 x^2 = \left( \dfrac 12 x^0 + \dfrac 12 x^1 \right)^2 \) となることが分かる。</p>
-<p>このようにべき乗で表すことができるのは、べき級数の項どうしの積が、表が出る回数の和を取ることと対応しているからである。</p>
+<p>このように表すことができるのは、分配法則が事象の積と対応しているからである。</p>
 <h3 id="導入2"><a class="header" href="#導入2">導入2</a></h3>
-<p>\(\Big\{\) \(1\) マス左に動く, 留まる, \(1\) マス右に動く \(\Big\}\) を等確率で選ぶロボットの位置 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。</p>
-<p>\(1\) 回の試行は \(\dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \) と表せるから、\(n\) 回の試行は \( \left( \dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \right)^n \) と対応する。</p>
+<p>\(\big\{ 0, 1, 2 \big\}\) マス動くことを等確率で選ぶロボットをがある。ロボットの位置 \(k\) に対して、そうなる確率が \(x^k\) の係数となるように考えてみる。</p>
+<p>\(1\) 回の試行は \( \dfrac {x^0 + x^1 + x^2}3 \) と表せるから、\(n\) 回の試行は \( \dfrac{(1 + x + x^2)^n}{3^n} \) と対応する。</p>
 <p>ここで、次のような問題を考えてみよう。</p>
-<blockquote>
-<p>\(n\) 回試行した後、ロボットの位置が偶数マス目である確率を求めよ。</p>
-</blockquote>
-<p>\( f(x) = \left( \dfrac 13 x^{-1} + \dfrac 13 x^0 + \dfrac 13 x^1 \right)^n \) と置く。</p>
-<p>ここで、\( \displaystyle f(x) = \sum p_k x^k \) と表されているとき、\(x = -1\) を代入することを考えてみよう。</p>
-<p>\( (-1)^k = \left\{ \begin{array}{l} 1 &amp;(\text{if} ~~ 2 \mid k) \\ -1 &amp;(\text{if} ~~ 2 \nmid k) \end{array} \right. \) であるから、\( \displaystyle f(-1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} -p_k \) と分かる。</p>
-<p>同様に \(x = 1\) を考えると \( \displaystyle f(1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} p_k \) が分かる。</p>
-<p>求めたい確率は \( \displaystyle \sum_{2 \mid k} p_k \) であるから、これは \( \dfrac{f(-1) + f(1)}{2} \) と等しい。</p>
-<p>ところで、私たちは \(f(x)\) が具体的に何なのかを既に知っている。代入することで \( \displaystyle f(-1) = - 1 / 3^n, ~ f(1) = 1 \) が得られる。</p>
-<p>以上より、求める確率は \( \displaystyle \frac{f(-1) + f(1)}{2} = \frac{1 - 1/3^n}{2} \) である。</p>
-<br>
-<p>これは確率漸化式でも解くことができる。しかし、ロボットの位置が \(3\) の倍数のマス目である確率だったらどうだろうか？</p>
-<p>確率漸化式を使うには \(3\) つの確率列を用いる必要がある。しかし、べき級数なら \( \dfrac{f(\omega) + f(\omega^{-1})}{2} \) で一発である。</p>
-<p>（とはいえ、操作が独立でないときは確率漸化式が必要になる。あくまで、ある条件を満たすときの、一つの方法である。）</p>
-<br>
-<p>他にも、こんな問題を考えてみよう。この答えは明らかに \(0\) であるが、興味深い方法なので紹介する。</p>
-<blockquote>
-<p>\(n\) 回試行した後の、ロボットの位置の期待値を求めよ。</p>
-</blockquote>
-<p>期待値とは \(\displaystyle \sum kp_k \) の値である。</p>
-<p>ここで、\(\displaystyle f(x) = \sum p_kx^k \) を微分すると \( \displaystyle f'(x) = \sum kp_kx^{k-1} \) となるから、求める値は \( f'(1) \) と等しい。( \(k=0\) のときが不安になるが、係数の \(k\) で消えるため問題ない。)</p>
-<p>これを具体的表現から計算すると、</p>
-<p>\[
-\begin{eqnarray}
-f'(1) &amp;=&amp; \frac d{dx} ~ \left( \frac 13 x^{-1} + \frac 13 x^0 + \frac 13 x^1 \right)^n \Bigg|_{x=1} \\
-&amp;=&amp; \frac{1}{3^n} n (-x^{-2} + 1) (x^{-1} + 1 + x)^{n-1} \Bigg|_{x=1} \\
-&amp;=&amp; 0
-\end{eqnarray}
-\]</p>
-<p>と分かる。</p>
+<pre><code class="language-admonish question title=&quot;問題&quot;">\\(n\\) 回試行した後、ロボットの位置が偶数マス目である確率を求めよ。
+</code></pre>
+<p>この問題はべき級数を使うことで「偶数次数の係数の和を求めよ」という問題に帰着できる。</p>
+<pre><code class="language-admonish success title=&quot;解答&quot;">
+\\( f(x) = \dfrac{(1 + x + x^2)^n}{3^n} \\) と置く。
+
+ここで、\\( \displaystyle f(x) = \sum p_k x^k \\) と表されているとき、\\(x = -1\\) を代入することを考えてみよう。
+
+\\( (-1)^k = \left\\{ \begin{array}{l} 1 &amp;(\text{if} ~~ 2 \mid k) \\\\ -1 &amp;(\text{if} ~~ 2 \nmid k) \end{array} \right. \\) であるから、\\( \displaystyle f(-1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} -p_k \\) と分かる。
+
+同様に \\(x = 1\\) を考えると \\( \displaystyle f(1) = \sum_{2 \mid k} p_k + \sum_{2 \nmid k} p_k \\) が分かる。
+
+求めたい確率は \\( \displaystyle \sum_{2 \mid k} p_k \\) であるから、これは \\( \dfrac{f(1) + f(-1)}{2} \\) と等しい。
+
+ところで、私たちは \\(f(x)\\) が具体的に何なのかを既に知っている。代入することで \\( \displaystyle f(1) = 1, ~ f(-1) = 1/3^n \\) が得られる。
+
+よって、求める確率は \\( \displaystyle \frac{f(-1) + f(1)}{2} = \frac{1 + 1/3^n}{2} \\) と分かる。
+
+</code></pre>
+<p>これは確率漸化式でも解くことができる。しかし、ロボットの位置が \(3\) の倍数のマス目である確率は、べき級数ならば同様に \( \dfrac{f(\omega) + f(\omega^2)}{2} \) を計算するだけで求められる。</p>
+<p>他にも、こんな問題を考えてみよう。</p>
+<pre><code class="language-admonish question title=&quot;問題&quot;">\\(n\\) 回試行した後の、ロボットの位置の期待値を求めよ。
+</code></pre>
+<p>期待値とは \(\displaystyle \sum kp_k \) の値である。微分することで係数に \(k\) を掛けることができる。</p>
+<pre><code class="language-admonish success title=&quot;解答&quot;">
+\\(\displaystyle f(x) = \sum p_kx^k \\) を微分すると \\( \displaystyle f'(x) = \sum kp_kx^{k-1} \\) となるから、求める値は \\( f'(1) \\) と等しい。
+
+( \\(k=0\\) のときが不安になるが、係数の \\(k\\) で消えるため問題ない。)
+
+これを具体的表現から計算すると、
+
+\\[
+    \begin{eqnarray}
+        f'(1) &amp;=&amp; \frac d{dx} ~ \dfrac{(1 + x + x^2)^n}{3^n} ~ \Bigg|\_{x=1} \\\\
+        &amp;=&amp; \dfrac{n(1 + 2x)(1 + x + x^2)^{n-1}}{3^n} ~ \Bigg|\_{x=1} \\\\
+        &amp;=&amp; n
+    \end{eqnarray}
+\\]
+
+と分かる。
+
+</code></pre>
 <hr />
-<p>べき級数は <a href="https://www.youtube.com/watch?v=bOXCLR3Wric">3b1b さんの動画</a> でも紹介されている。面白いので見よう。</p>
+<p>このように、べき級数は独立な試行の繰り返し・一定間隔な条件に強い。</p>
+<p><a href="https://www.youtube.com/watch?v=bOXCLR3Wric">3b1b さんの動画</a> でも紹介されている。面白いので見よう。</p>
 <h3 id="例題1-5"><a class="header" href="#例題1-5">例題1</a></h3>
 <blockquote>
 <p>\(n\) 枚の硬貨を投げる。\(k\) 枚目の硬貨を投げて表が出る確率は \(p_k\) である。それぞれ表が出た枚数が奇数である確率をを求めよ。</p>
@@ -453,6 +479,7 @@ f_3(x) = \left( \frac{1}{3m} x + \frac{3m-1}{3m} \right)^m \left( \frac{2}{3m} x
 <div style="break-before: page; page-break-before: always;"></div><h1 id="直前に見るもの"><a class="header" href="#直前に見るもの">直前に見るもの</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="物理"><a class="header" href="#物理">物理</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="力学"><a class="header" href="#力学">力学</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="解くときの流れ"><a class="header" href="#解くときの流れ">解くときの流れ</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="熱力学"><a class="header" href="#熱力学">熱力学</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h2 id="ポアソンの法則の導出"><a class="header" href="#ポアソンの法則の導出">ポアソンの法則の導出</a></h2>
 <blockquote>
@@ -461,17 +488,17 @@ f_3(x) = \left( \frac{1}{3m} x + \frac{3m-1}{3m} \right)^m \left( \frac{2}{3m} x
 <p>ボイル・シャルルの法則 \( T/pV = \mathrm{const.} \) より \( TV^{\gamma - 1} = \mathrm{const.} \) と同値である。</p>
 <p>ただし、\( \gamma \) は比熱比 \( C_P/C_V \) であり、単分子理想気体なら \( \gamma = 5/3 \) である。</p>
 </blockquote>
-<p><strong>準静的</strong> であるとは、つまるところ「<strong>ゆっくり</strong>遷移した」ということ。</p>
+<p><strong>準静的</strong> であるとは、超大雑把に言えば「<strong>ゆっくり</strong>遷移した」ということ。</p>
 <p>例えば、断熱自由膨張（気体が入った容器と真空容器を連結していて、<strong>突然</strong>栓を開けた場合など）では成立しない。
 このとき気体は仕事をせず、熱力学第一法則から温度変化は無いことが分かる。</p>
-<p>ごまかさず言えば、各瞬間において均一系と見なせるということ。上の場合では、栓を開けた瞬間は圧力が均一と見なせないため、成立しない。</p>
+<p>ごまかさず言えば「各瞬間において均一系と見なせる」ということ。上の場合では、栓を開けた瞬間は圧力が均一と見なせないため、成立しない。</p>
 <p>「物理攻略のヒント」p.70 にいろいろ書いてある。</p>
 <h3 id="導出"><a class="header" href="#導出">導出</a></h3>
 <p>微小時間が経過したときに成立するか考える。二次の微小量は無視して等号を結ぶ。</p>
-<p>\( \dfrac{d}{dt} pV^\gamma = V^\gamma dp + \gamma p V^{\gamma-1} dV \) であるから、 \( V dp + \gamma p \, dV = 0 \) を示せば良い。</p>
+<p>\( (pV^\gamma)' = V^\gamma dp + \gamma p V^{\gamma-1} dV \) であるから、 \( V dp + \gamma p \, dV = 0 \) を示せば良い。</p>
 <hr />
 <p>マイヤーの関係式から \( \gamma = 1 + R/C_V \) であることに注意する。</p>
-<p>理想気体の状態方程式を両辺微分して \( V \, dp + p \, dV = nR \, dT \) を得る。</p>
+<p>準静的性より、理想気体の状態方程式が時間経過の前後で成立する。両辺微分して \( V \, dp + p \, dV = nR \, dT \) を得る。</p>
 <p>ここで</p>
 <p>\[
 \begin{eqnarray}
@@ -481,6 +508,17 @@ W &amp;=&amp; p \, dV
 \]</p>
 <p>であり、断熱変化であるから \( \Delta U + W = 0 \) が成立する。</p>
 <p>これを変形していくと \( V dp + \gamma p \, dV = 0 \) が得られる。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="メモ"><a class="header" href="#メモ">メモ</a></h1>
+<h2 id="admonish"><a class="header" href="#admonish">Admonish</a></h2>
+<p><a href="https://tommilligan.github.io/mdbook-admonish">Book</a> にだいたい書いてある。</p>
+<pre><code class="language-admonish question title=&quot;問題&quot;">ここに問題を書く。
+</code></pre>
+<pre><code class="language-admonish success title=&quot;解答&quot;">ここに解答を書く。
+</code></pre>
+<pre><code class="language-Rust">fn main() {
+    println!("{}", 52);
+}
+</code></pre>
 
                     </main>
 

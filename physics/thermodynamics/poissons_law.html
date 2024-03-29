@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././mdbook-admonish.css">
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -90,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="../../math/integral/famous_integral.html"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html" class="active"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="../../math/integral/famous_integral.html"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/solve_flowchart.html"><strong aria-hidden="true">2.1.1.</strong> 解くときの流れ</a></li></ol></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html" class="active"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">3.</strong> メモ</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -182,17 +183,17 @@
 <p>ボイル・シャルルの法則 \( T/pV = \mathrm{const.} \) より \( TV^{\gamma - 1} = \mathrm{const.} \) と同値である。</p>
 <p>ただし、\( \gamma \) は比熱比 \( C_P/C_V \) であり、単分子理想気体なら \( \gamma = 5/3 \) である。</p>
 </blockquote>
-<p><strong>準静的</strong> であるとは、つまるところ「<strong>ゆっくり</strong>遷移した」ということ。</p>
+<p><strong>準静的</strong> であるとは、超大雑把に言えば「<strong>ゆっくり</strong>遷移した」ということ。</p>
 <p>例えば、断熱自由膨張（気体が入った容器と真空容器を連結していて、<strong>突然</strong>栓を開けた場合など）では成立しない。
 このとき気体は仕事をせず、熱力学第一法則から温度変化は無いことが分かる。</p>
-<p>ごまかさず言えば、各瞬間において均一系と見なせるということ。上の場合では、栓を開けた瞬間は圧力が均一と見なせないため、成立しない。</p>
+<p>ごまかさず言えば「各瞬間において均一系と見なせる」ということ。上の場合では、栓を開けた瞬間は圧力が均一と見なせないため、成立しない。</p>
 <p>「物理攻略のヒント」p.70 にいろいろ書いてある。</p>
 <h3 id="導出"><a class="header" href="#導出">導出</a></h3>
 <p>微小時間が経過したときに成立するか考える。二次の微小量は無視して等号を結ぶ。</p>
-<p>\( \dfrac{d}{dt} pV^\gamma = V^\gamma dp + \gamma p V^{\gamma-1} dV \) であるから、 \( V dp + \gamma p \, dV = 0 \) を示せば良い。</p>
+<p>\( (pV^\gamma)' = V^\gamma dp + \gamma p V^{\gamma-1} dV \) であるから、 \( V dp + \gamma p \, dV = 0 \) を示せば良い。</p>
 <hr />
 <p>マイヤーの関係式から \( \gamma = 1 + R/C_V \) であることに注意する。</p>
-<p>理想気体の状態方程式を両辺微分して \( V \, dp + p \, dV = nR \, dT \) を得る。</p>
+<p>準静的性より、理想気体の状態方程式が時間経過の前後で成立する。両辺微分して \( V \, dp + p \, dV = nR \, dT \) を得る。</p>
 <p>ここで</p>
 <p>\[
 \begin{eqnarray}
@@ -211,6 +212,9 @@ W &amp;=&amp; p \, dV
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="../../memo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -222,6 +226,9 @@ W &amp;=&amp; p \, dV
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="../../memo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
