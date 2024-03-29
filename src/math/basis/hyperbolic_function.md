@@ -1,4 +1,4 @@
-# 双曲線関数
+## 双曲線関数
 
 |定義|定義域・値域|
 |:-:|:-:|
@@ -8,13 +8,13 @@
 
 \\( \cos \theta = \dfrac{e^{i\theta} + e^{-i\theta}}2, ~ \sin \theta = \dfrac{e^{i\theta} - e^{-i\theta}}{2i} \\) から \\(i\\) を取った形になっている。
 
-## 性質
+### 性質
 
 三角関数と比べて \\(i\\) が無い分、三角関数よりも "素直" な式が成り立つ。
 
 三角関数と似た性質としては、
 
-+ \\( \cosh \\) は偶関数で、\\( \sinh, ~ \tanh \\) は奇関数。
++ \\( \cosh \\) は偶関数、\\( \sinh, \tanh \\) は奇関数。
 
 + \\( \cosh^2\theta - \sinh^2\theta = 1 \\) が成り立つ。
     - 点 \\((\cosh\theta, \sinh\theta)\\) は、双曲線 \\( x^2 - y^2 = 1 \\) の \\( 1 \leq x \\) 部分を動く。
@@ -23,9 +23,12 @@
 
 + 微分: \\( (\cosh\theta)' = \sinh\theta, ~ (\sinh\theta)' = \cosh\theta, ~ (\tanh\theta)' = \dfrac1{\cosh^2\theta} \\)
 
-+ おまけ: \\(j^2 = 1\\) を満たす非実数 \\(j\\) (分解型複素数) を用いて、\\(e^{j\theta} = \cosh \theta + j\sinh \theta \\) が成り立つ。
++ \\(j^2 = 1\\) を満たす非実数 \\(j\\) を用いて、\\(e^{j\theta} = \cosh \theta + j\sinh \theta \\) が成り立つ。
+    - この \\(j\\) は分解型複素数と呼ばれる。
 
-三角関数にない特徴としては
+<br>
+
+三角関数にない特徴としては、
 
 + \\( \cosh\theta + \sinh\theta = e^\theta, ~ \cosh\theta - \sinh\theta = e^{-\theta} \\) が成り立つ。
 
@@ -42,7 +45,7 @@
 
 
 
-## 積分への利用
+### 積分での利用
 
 \\( x = \sinh \theta \\) と置換することで \\( \sqrt{1+x^2} \\) を解消することができる。
 

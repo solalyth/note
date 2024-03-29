@@ -15,5 +15,8 @@
 
 - [物理](./physics/index.md)
     + [力学](./physics/mechanics/index.md)
+        * [解くときの流れ](./physics/mechanics/solve_flowchart.md)
     + [熱力学](./physics/thermodynamics/index.md)
         * [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
+
+- [メモ](memo.md)

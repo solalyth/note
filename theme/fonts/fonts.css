@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Noto Serif JP';
+    src: local('Noto Serif JP'), url('NotoSerifJP-Regular.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'Source Han Code JP';
+    src: local('Source Han Code JP'), url('SourceHanCodeJP.ttc') format('otf');
+}
