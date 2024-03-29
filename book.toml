@@ -7,6 +7,7 @@ title = "Alyth's note"
 
 [output.html]
 mathjax-support = true
+git-repository-url = "https://github.com/solalyth/note"
 additional-css = ["./mdbook-admonish.css"]
 
 [preprocessor.admonish]
