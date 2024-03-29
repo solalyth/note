@@ -14,10 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+      - uses: jontze/action-mdbook@v3
         with:
-          mdbook-version: "latest"
+          token: ${{secrets.GITHUB_TOKEN}}
+          use-admonish: true
+      
+      # - name: Setup mdBook
+      #   uses: peaceiris/actions-mdbook@v1
+      #   with:
+      #     mdbook-version: "latest"
       
       - run: mdbook build
       
