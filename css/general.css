@@ -9,7 +9,7 @@
 }
 
 html {
-    font-family: Arial, "Noto Serif JP", sans-serif;
+    font-family: "Noto Serif", "Noto Serif JP", sans-serif;
     color: var(--fg);
     background-color: var(--bg);
     text-size-adjust: none;

@@ -1,9 +1,9 @@
-@font-face {
-    font-family: 'Noto Serif JP';
-    src: local('Noto Serif JP'), url('NotoSerifJP-Regular.otf') format('otf');
-}
+@import "https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300..700;1,100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&display=swap";
 
 @font-face {
-    font-family: 'Source Han Code JP';
-    src: local('Source Han Code JP'), url('SourceHanCodeJP.ttc') format('otf');
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: url('source-code-pro-v11-all-charsets-500.woff2') format('woff2');
 }

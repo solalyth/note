@@ -180,6 +180,24 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="メモ"><a class="header" href="#メモ">メモ</a></h1>
+<h2 id="フォント"><a class="header" href="#フォント">フォント</a></h2>
+<p><code>book</code> からファイルを持ってくると、build 時に自動で該当部分を置き換えられる。</p>
+<p><code>theme</code> フォルダを作って、以下のようにする。</p>
+<ul>
+<li><code>css</code> フォルダ
+<ul>
+<li><code>general.css</code>: <code>font-family</code> を変更する</li>
+<li><code>variables.css</code>: <code>--mono-font</code> を変更する</li>
+</ul>
+</li>
+<li><code>fonts</code> フォルダ
+<ul>
+<li>フォントファイルを入れる</li>
+<li><code>fonts.css</code>: <code>@font-face</code> を書く</li>
+</ul>
+</li>
+</ul>
+<p>罠: <code>@font-face</code> の <code>format</code> を OpenType に指定したいときは <code>format('otf')</code> じゃなくて <code>format('opentype')</code> だった。</p>
 <h2 id="admonish"><a class="header" href="#admonish">Admonish</a></h2>
 <p><a href="https://tommilligan.github.io/mdbook-admonish">Book</a> にだいたい書いてある。</p>
 <div id="admonition-問題" class="admonition admonish-question">
@@ -200,8 +218,18 @@
 <p>ここに解答を書く。</p>
 </div>
 </div>
+<h2 id="テスト"><a class="header" href="#テスト">テスト</a></h2>
+<h1 id="h1-sample"><a class="header" href="#h1-sample">h1 Sample</a></h1>
+<h2 id="h2-sample"><a class="header" href="#h2-sample">h2 Sample</a></h2>
+<h3 id="h3-sample"><a class="header" href="#h3-sample">h3 Sample</a></h3>
+<h4 id="h4-sample"><a class="header" href="#h4-sample">h4 Sample</a></h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 <pre><code class="language-Rust">fn main() {
-    println!("{}", 52);
+    let mut three = 3;
+    let four = { three += 1; three };
+    
+    // Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    // 隣の客はよく柿喰う客だ
 }
 </code></pre>
 
