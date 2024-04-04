@@ -27,6 +27,14 @@
 ここに解答を書く。
 ```
 
+```admonish warning title="注意することなど"
+ここになにか書く。
+```
+
+```admonish note title="開閉可能なノート" collapsible=true
+開閉できる。
+```
+
 ## テスト
 
 # h1 Sample
