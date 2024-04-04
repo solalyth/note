@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>有名な積分 - Alyth&#x27;s note</title>
+        <title>有名置換 - Alyth&#x27;s note</title>
 
 
         <!-- Custom HTML head -->
@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/index.html"><strong aria-hidden="true">1.1.</strong> 基礎</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis/hyperbolic_function.html"><strong aria-hidden="true">1.1.1.</strong> 双曲線関数</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/integral/index.html"><strong aria-hidden="true">1.2.</strong> 積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/integral/famous_substitution.html"><strong aria-hidden="true">1.2.1.</strong> 有名な置換</a></li><li class="chapter-item expanded "><a href="../../math/integral/famous_integral.html" class="active"><strong aria-hidden="true">1.2.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.3.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">1.3.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.4.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.4.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/solve_flowchart.html"><strong aria-hidden="true">2.1.1.</strong> 解くときの流れ</a></li></ol></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">3.</strong> メモ</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">はじめに</a></li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 数学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/basis.html"><strong aria-hidden="true">1.1.</strong> 必ず覚えるもの一覧</a></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">1.2.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">1.3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html" class="active"><strong aria-hidden="true">1.3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">1.3.2.</strong> 有名な積分</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">1.4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">1.4.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/others/index.html"><strong aria-hidden="true">1.5.</strong> その他</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/others/cheat_sheet.html"><strong aria-hidden="true">1.5.1.</strong> 直前に見るもの</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">2.</strong> 物理</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">2.1.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/solve_flowchart.html"><strong aria-hidden="true">2.1.1.</strong> 解くときの流れ</a></li></ol></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">2.2.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">2.2.1.</strong> ポアソンの法則の導出</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">3.</strong> メモ</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -179,87 +179,77 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="有名な積分"><a class="header" href="#有名な積分">有名な積分</a></h2>
-<h3 id="sin2-cos2-tan-の有理式の積分"><a class="header" href="#sin2-cos2-tan-の有理式の積分">sin^2, cos^2, tan の有理式の積分</a></h3>
-<p>cf. <a href="./famous_substitution.html#tan-%E7%BD%AE%E6%8F%9B">有名置換#tan置換</a></p>
-<p>\( \sin^2 \theta, \, \cos^2 \theta \) は \( \tan \theta \) の有理式で書ける。</p>
-<p>\( t = \tan \theta \) と置換すると、\( \sin^2 \theta, \, \cos^2 \theta, \, \tan \theta, \, d\theta \) が全て \(t\) の有理式で表せる。</p>
+                        <h2 id="有名置換"><a class="header" href="#有名置換">有名置換</a></h2>
+<h3 id="sin-置換"><a class="header" href="#sin-置換">sin 置換</a></h3>
+<p>\( x = \sin \theta \) と置換する方法。</p>
+<p>\( \cos \theta = \sqrt{1-x^2} \) と表すならば \( 0 \leq \cos \theta \) を満たす範囲で置換する必要がある。
+よく \( [-\pi/2, \pi/2] \) が使われる。</p>
+<p>\[
+\int f(x, \sqrt{1-x^2}) dx \longrightarrow \int f(\sin \theta, \cos \theta) \cdot \cos \theta ~ d\theta
+\]</p>
+<h3 id="tan-置換"><a class="header" href="#tan-置換">tan 置換</a></h3>
+<p>\( x = \tan \theta \) と置換する方法。</p>
+<p>\[
+\int f(\tan \theta) ~ d\theta \longrightarrow \int f(x) \cdot \frac{1}{x^2 + 1} ~ dx
+\]</p>
+<p>\( \cos^2 \theta, ~ \sin^2 \theta \) が \( \tan \theta \) で書けるから、これらで構成された有理関数は積分できる。</p>
+<h3 id="双曲線関数による置換"><a class="header" href="#双曲線関数による置換">双曲線関数による置換</a></h3>
+<p>\( x = \sin \theta \) によって \( 1 - x^2 \) が解消できるように、\( x = \sinh \theta \) と置換することで \( 1 + x^2 \) を解消できる。</p>
+<p>双曲線関数に関する性質を学ぶ必要があるが、双曲線関数を背景とした問題はそこそこある気がするので、覚える価値はあると思う。</p>
+<h3 id="euler-置換"><a class="header" href="#euler-置換">Euler 置換</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Euler_substitution">Wikipedia(en)</a> を見よう。これは Euler first substitution と紹介されているものである。</p>
+<p>\( \displaystyle \int f(x, \sqrt{ax^2 + bx + c}) ~ dx \) という形に対し \( \sqrt{ax^2 + bx + c} = t - \sqrt{a} x \) と置換する方法。
+\( x, dx \) が \( t \) の有理式で書けるため、一般的に解ける。</p>
+<p>置換式を \(2\) 乗すると \(x^2\) の項が消えるのが嬉しいポイントなのだと思う。</p>
 <h4 id="例題1"><a class="header" href="#例題1">例題1</a></h4>
 <blockquote>
-<p>\( \displaystyle \int \frac 1{\cos^4 \theta} ~ d\theta \) を求めよ。</p>
+<p>\( \displaystyle \int \frac{1}{\sqrt{x^2 + 1}} ~ dx\) を求めよ。</p>
 </blockquote>
-<p>\( t = \tan \theta \) と置換すると、</p>
-<p>\[
-\int \frac 1{\cos^4 \theta} ~ d\theta
-= \int (\tan^2 \theta + 1)^2 ~ d\theta
-= \int (t^2 + 1) ~ dt
-= \frac 1 3 \tan^3 \theta + \tan \theta
-\]</p>
-<p>を得る。</p>
-<h3 id="cos-の負の奇数乗の積分"><a class="header" href="#cos-の負の奇数乗の積分">cos の負の奇数乗の積分</a></h3>
-<p>\( \displaystyle I_n = \int \frac{1}{\cos^{2n+1} \theta} ~ d\theta \) と置く。
-気合いの \( \tan \) による部分積分・同型出現によって漸化式を得る。</p>
-<p>\[
-\begin{eqnarray}
-I_n
-&amp;=&amp; \int \frac{1}{\cos^2\theta} \cdot \frac{1}{\cos^{2n-1}\theta} ~ d\theta \\
-&amp;=&amp; \tan\theta \cdot \frac{1}{\cos^{2n-1}\theta} - \int \tan\theta \cdot \frac{(2n-1)\sin\theta}{\cos^{2n}\theta} ~ d\theta \quad \\
-&amp;=&amp; \frac{\sin\theta}{\cos^{2n}\theta} - (2n-1)\int \frac{1-\cos^2\theta}{\cos^{2n+1}\theta} ~ d\theta \\
-&amp;=&amp; \frac{\sin\theta}{\cos^{2n}\theta} - (2n-1)(I_n - I_{n-1})
-\end{eqnarray}
-\]</p>
-<p>より、\( 2nI_n = \dfrac{\sin\theta}{\cos^{2n}\theta} + (2n-1)I_{n-1} \) を得る。</p>
-<p>\( \displaystyle I_0 = \int \frac{1}{\cos\theta} ~ d\theta = \frac12 \, \log \, \left|\frac{1+\sin\theta}{1-\sin\theta}\right| \) であるから、再帰的に得られる。</p>
-<p>この漸化式を覚えるというよりは、こう変形するとよい、ということを覚えたい。</p>
-<p>この他にも、積分漸化式として <a href="https://en.wikipedia.org/wiki/Integration_by_reduction_formulae">wikipedia</a> に多くの例が書いてある。</p>
+<p>\( \sqrt{x^2+1} = t-x \) と Euler 置換する。</p>
+<p>\(2\) 乗して変形すると \( x = \dfrac{t^2 - 1}{2t} \) となる。微分して \( dx = \dfrac{t^2 + 1}{2t^2} dt \) を得る。</p>
+<p>以上より、</p>
+<p>\[\begin{eqnarray}
+\int \frac{1}{\sqrt{x^2+1}} ~ dx
+= \int \frac{1}{t-\frac{t^2-1}{2t}} \cdot \dfrac{t^2 + 1}{2t^2} ~ dt
+= \int \frac{1}{t} ~ dt
+= \log t
+= \log(x + \sqrt{x^2+1})
+\end{eqnarray}\]</p>
+<p>である。</p>
+<p>これは他の置換でも解くことができるが、被積分関数の分母が \( x^2 + c \) でなくても統一的に置換できる。</p>
+<p>最終手段的置換とも言えるかもしれない。</p>
+<h3 id="weierstrass-置換"><a class="header" href="#weierstrass-置換">Weierstrass 置換</a></h3>
+<p>いわゆる \( t = \tan \dfrac{\theta}2 \) 置換。
+三角関数が \( t \) の有理式で表わすことができ、一般的に解ける。</p>
+<p>\( \displaystyle \int f(\cos \theta, \sin \theta) ~ d\theta = \int f \Big( \frac{1-t^2}{1+t^2}, \frac{2t}{1+t^2} \Big) ~ \frac{2}{1+t^2} ~ dt \) と変形できる。</p>
+<p>置換後の値は</p>
+<p>\( \cos \theta = \dfrac{\cos^2 \dfrac{\theta}2 - \sin^2 \dfrac{\theta}2}{\cos^2 \dfrac{\theta}2 + \sin^2 \dfrac{\theta}2} = \dfrac{1-t^2}{1+t^2}, ~ \sin \theta = \dfrac{2 \sin \dfrac{\theta}2 \cdot \cos \dfrac{\theta}2}{\cos^2 \dfrac{\theta}2 + \sin^2 \dfrac{\theta}2} = \dfrac{2t}{1+t^2}, \)</p>
+<p>\( \dfrac{dt}{d\theta} = \dfrac{1 + t^2}{2} \quad \because (\tan x)' = 1 + \tan^2 x \quad \) (あるいは \(\theta = 2\arctan t\) の微分)</p>
+<p>と計算する方法が、若干天下り感があるがすっきりしていると思う。</p>
+<p>複素数平面での座標の一致 \( \cos \dfrac\theta2 + i\sin \dfrac\theta2 = \dfrac{1}{\sqrt{1+t^2}} (1 + ti) \) より、</p>
+<p>ド・モアブルの定理を使いつつ両辺 \( 2 \) 乗して実部・虚部を比較する方法を、どこかで見た。</p>
+<p>こちらも最終手段的置換と言われがち。</p>
+<h3 id="king-property"><a class="header" href="#king-property">King property</a></h3>
+<p>\( \displaystyle \int_a^b f(x) ~ dx = \int_a^b f(a+b-x) ~ dx \) という変形を King property と呼んだりする。</p>
+<p>直感的には、\( a \to b \) で積分した面積と、\(y\) 軸で反転した後 \( b \to a \) に対応した部分の面積は一致することから従う。</p>
+<p>やけに対称性があるぞと思ったとき、特に、被積分関数が三角関数で構成されているとき、うまくいくことが (ときどき) ある。</p>
 <h4 id="例題1-1"><a class="header" href="#例題1-1">例題1</a></h4>
 <blockquote>
-<p>\( \displaystyle \int \dfrac{1}{\cos^3\theta} ~ d\theta \) を求めよ。</p>
+<p>\( \displaystyle I = \int_0^{\pi/2} \frac{\sin \theta}{\sin \theta + \cos \theta} ~ d\theta \) を求めよ。</p>
 </blockquote>
-<p>すごい出てくる気がする。</p>
-<p>上と同様に部分積分する。同型出現させる意識を持つ！</p>
-<p>\[
-\begin{eqnarray}
-\int \frac{1}{\cos^3\theta} ~ d\theta
-&amp;=&amp; \tan\theta \cdot \frac{1}{\cos\theta} - \int \tan\theta \cdot \frac{\sin\theta}{\cos^2\theta} ~ d\theta \\
-&amp;=&amp; \frac{\sin\theta}{\cos^2\theta} - \int \frac{1 - \cos^2\theta}{\cos^3\theta} ~ d\theta \\
-&amp;=&amp; \frac{\sin\theta}{\cos^2\theta} - \int \frac{1}{\cos^3\theta} ~ d\theta + \int \frac{1}{\cos\theta} ~ d\theta
-\end{eqnarray}
-\]</p>
-<p>したがって、\(\displaystyle \int \frac{1}{\cos^3\theta} ~ d\theta = \frac{\sin\theta}{\cos^2\theta} + \frac 12 \, \log \, \left|\frac{1 + \sin\theta}{1 - \sin\theta}\right| \)</p>
-<h3 id="逆三角関数逆双曲線関数が関わる積分"><a class="header" href="#逆三角関数逆双曲線関数が関わる積分">逆三角関数・逆双曲線関数が関わる積分</a></h3>
-<p>逆三角関数・逆双曲線関数の微分は綺麗な形になる。</p>
-<p>特に \( \mathrm{arctanh} \) は綺麗な式になるため、関数が直接入った形はよく出る気がする。</p>
-<p>\[
-\begin{eqnarray}
-\int \frac{1}{\sqrt{1 - x^2}} ~ dx &amp;=&amp; \arcsin x \\
-\int \frac{1}{\sqrt{1 + x^2}} ~ dx &amp;=&amp; \mathrm{arcsinh} ~ x = \log(x + \sqrt{x^2 + 1})\\
-\int \frac{1}{1 + x^2} ~ dx &amp;=&amp; \arctan x \\
-\int \frac{1}{1 - x^2} ~ dx &amp;=&amp; \mathrm{arctanh} ~ x = \frac 12 \, \log \frac{1+x}{1-x} \\
-\longrightarrow \int \frac{f'}{1 - f^2} ~ dx &amp;=&amp; \frac 12 \, \log \frac{1+f}{1-f}
-\end{eqnarray}
-\]</p>
-<p>逆に、逆三角関数・逆双曲線関数そのものが被積分関数に入っている場合、部分積分で微分する側にする。</p>
-<h4 id="例題1-2"><a class="header" href="#例題1-2">例題1</a></h4>
-<blockquote>
-<p>\( \displaystyle \int \frac{1}{\cos \theta} ~ d\theta \) を求めよ。</p>
-</blockquote>
-<p>\( \displaystyle \int \frac{1}{\cos \theta} ~ d\theta = \int \frac{\cos \theta}{1 - \sin^2 \theta} ~ d\theta = \frac 12 \, \log \, \left|\frac{1+\sin\theta}{1-\sin\theta}\right| \quad \because \mathrm{arctanh} f \) の式</p>
-<h4 id="例題2"><a class="header" href="#例題2">例題2</a></h4>
-<blockquote>
-<p>\( \displaystyle \int \arctan x ~ dx \) を求めよ。</p>
-</blockquote>
-<p>\( \displaystyle \int \arctan x ~ dx = x \arctan x - \int \frac{x}{1 + x^2} dx = x \arctan x - \frac 12 \, \log (1+x^2) \)</p>
+<p>\( \pi/2 - \theta = \theta'\) と置換すると
+\( \displaystyle \int_0^{\pi/2} \frac{\sin \theta}{\sin \theta + \cos \theta} = \int_0^{\pi/2} \frac{\cos \theta'}{\sin \theta' + \cos \theta'} \) が分かる。</p>
+<p>置換した結果とを足して \( 2 \) で割ることで \( I = \displaystyle \frac 12 \int_0^{\pi/2} 1 ~ d\theta = \pi/4 \) を得る。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../math/integral/famous_substitution.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../math/calculus/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/probability/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../math/calculus/famous_integral.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -269,11 +259,11 @@ I_n
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../math/integral/famous_substitution.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../math/calculus/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/probability/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../math/calculus/famous_integral.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
