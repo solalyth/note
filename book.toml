@@ -3,7 +3,7 @@ authors = ["Alyth"]
 language = "jp"
 multilingual = false
 src = "src"
-title = "Alyth's note"
+title = "Alyth note"
 
 [output.html]
 mathjax-support = true

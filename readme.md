@@ -1,6 +1,4 @@
-# はじめに
-
-このノートは、Alyth ([@alyth_sol](https://twitter.com/alyth_sol)) という名の高校生が書いている自分用のメモ書きです。
+このノートは、Alyth ([@alyth_sol](https://twitter.com/alyth_sol)) という高校生が書いている自分用のメモ書きです。
 
 自分の興味のあるもの・忘れがちなものなどを書き連ねたものなので、足りなかったら調べてください。
 

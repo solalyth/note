@@ -1,5 +1,21 @@
 # メモ
 
+## 数式置き場
+
+\\(
+    \newcommand{\disp}{\displaystyle}
+    \newcommand{\v}[1]{\boldsymbol #1}
+    \newcommand{\Arrowlr}{\Longleftrightarrow}
+    \let\frac=\dfrac
+\\)
+
+\\(
+    \left\\{ \begin{array}{}
+        1 \\\\
+        2
+    \end{array} \right.
+\\)
+
 ## フォント
 
 `book` からファイルを持ってくると、build 時に自動で該当部分を置き換えられる。
