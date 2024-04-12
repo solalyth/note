@@ -30,7 +30,7 @@
     \end{align}\right.
 \\]
 
-+ \\(\\)
++ Ravi 変換: \\(a = x+y,~ b = y+z,~ c = z+x\\) と変換したとき、三角形成立 \\(\Longleftrightarrow x,y,z > 0\\)
 
 
 円関連

@@ -12,14 +12,11 @@
 - [組み合わせ・確率](./math/probability/index.md)
     + [べき級数の利用](./math/probability/use_of_power_series.md)
 - [双曲線関数](./math/hyperbolic_function.md)
-- [その他](./math/others/index.md)
-    + [直前に見るもの](./math/others/cheat_sheet.md)
 
 # 物理
 
 - [初めに](./physics/index.md)
 - [力学](./physics/mechanics/index.md)
-    * [解くときの流れ](./physics/mechanics/solve_flowchart.md)
 - [熱力学](./physics/thermodynamics/index.md)
     * [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
 
