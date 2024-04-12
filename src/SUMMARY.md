@@ -1,6 +1,6 @@
 # Summary
 
-[readme](../readme.md)
+[readme](./readme.md)
 
 # 数学
 
