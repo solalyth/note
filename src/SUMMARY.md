@@ -12,12 +12,26 @@
 - [組み合わせ・確率](./math/probability/index.md)
     + [べき級数の利用](./math/probability/use_of_power_series.md)
 - [双曲線関数](./math/hyperbolic_function.md)
+- [単発記事集](./math/singles.md)
 
 # 物理
 
 - [初めに](./physics/index.md)
 - [力学](./physics/mechanics/index.md)
 - [熱力学](./physics/thermodynamics/index.md)
-    * [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
+    + [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
+
+# 化学
+
+- [理論](./chemistry/theoretical/index.md)
+- [無機](./chemistry/inorganic/index.md)
+- [有機](./chemistry/organic/index.md)
+
+# 英語
+
+- [授業ノート](./english/notes/index.md)
+    + [１冊目](./english/notes/1.md)
+
+# 自分用
 
 - [メモ](memo.md)

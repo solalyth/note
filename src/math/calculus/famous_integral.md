@@ -65,7 +65,7 @@ cf. [有名置換#tan置換](./famous_substitution.md#tan-置換)
     \end{eqnarray}
 \\]
 
-したがって、\\(\displaystyle \int \frac{1}{\cos^3\theta} ~ d\theta = \frac{\sin\theta}{\cos^2\theta} + \frac 12 \\, \log \\, \left|\frac{1 + \sin\theta}{1 - \sin\theta}\right| \\)
+したがって、\\(\displaystyle \int \frac{1}{2\cos^3\theta} ~ d\theta = \frac{\sin\theta}{\cos^2\theta} + \frac 14 \\, \log \\, \left|\frac{1 + \sin\theta}{1 - \sin\theta}\right| \\)
 
 
 ### 逆三角関数・逆双曲線関数が関わる積分
