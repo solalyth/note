@@ -9,6 +9,7 @@
 - [微積分](./math/calculus/index.md)
     + [有名置換](./math/calculus/famous_substitution.md)
     + [有名な積分](./math/calculus/famous_integral.md)
+    + [積分方程式](./math/calculus/integral_equation.md)
 - [組み合わせ・確率](./math/probability/index.md)
     + [べき級数の利用](./math/probability/use_of_power_series.md)
 - [双曲線関数](./math/hyperbolic_function.md)
@@ -18,6 +19,7 @@
 
 - [初めに](./physics/index.md)
 - [力学](./physics/mechanics/index.md)
+- [電磁気](./physics/electromagnetism/index.md)
 - [熱力学](./physics/thermodynamics/index.md)
     + [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
 
@@ -25,6 +27,9 @@
 
 - [理論](./chemistry/theoretical/index.md)
 - [無機](./chemistry/inorganic/index.md)
+    + [金属イオン](./chemistry/inorganic/metal_ions.md)
+    + [非金属](./chemistry/inorganic/non_metal.md)
+    + [酸化物](./chemistry/inorganic/oxide.md)
 - [有機](./chemistry/organic/index.md)
 
 # 英語
