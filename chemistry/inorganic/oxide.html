@@ -1,0 +1,270 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>酸化物 - Alyth note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././mdbook-admonish.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../math/basis.html"><strong aria-hidden="true">2.</strong> 必ず覚えるもの一覧</a></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../../math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">5.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/singles.html"><strong aria-hidden="true">6.</strong> 単発記事集</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">7.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">8.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/electromagnetism/index.html"><strong aria-hidden="true">9.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">10.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">10.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/index.html"><strong aria-hidden="true">11.</strong> 理論</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/index.html"><strong aria-hidden="true">12.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">12.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">12.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/oxide.html" class="active"><strong aria-hidden="true">12.3.</strong> 酸化物</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/organic/index.html"><strong aria-hidden="true">13.</strong> 有機</a></li><li class="chapter-item expanded affix "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../../english/notes/index.html"><strong aria-hidden="true">14.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../english/notes/1.html"><strong aria-hidden="true">14.1.</strong> １冊目</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">15.</strong> メモ</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/solalyth/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="酸化物"><a class="header" href="#酸化物">酸化物</a></h2>
+<p>金属酸化物は、水と反応して水酸化物になり、酸とは中和が起こる。このことから、金属酸化物は「塩基と同様のはたらきをする物質」と考えることができるため、<strong>塩基性酸化物</strong> と呼ぶ。</p>
+<p>同様に、非金属酸化物は、水と反応してオキソ酸(後述)になり、塩基とは中和が起こる。非金属酸化物は「酸と同様のはたらきをする物質」と考えることができるため、<strong>酸性酸化物</strong> と呼ぶ。</p>
+<h3 id="オキソ酸"><a class="header" href="#オキソ酸">オキソ酸</a></h3>
+<p>オキソ酸とは \(\mathrm{-OH, =O}\) が付いた酸のこと。</p>
+<p>非金属酸化物と水を反応させると、対応したオキソ酸になる。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">14族</th><th style="text-align: center">15族</th><th style="text-align: center">16族</th><th style="text-align: center">17族</th></tr></thead><tbody>
+<tr><td style="text-align: center">酸化数: +4</td><td style="text-align: center">酸化数: +5</td><td style="text-align: center">酸化数: +6</td><td style="text-align: center">酸化数: +7</td></tr>
+<tr><td style="text-align: center">炭酸 (弱酸)<br>\(\mathrm{CO_2 \to H_2CO_3}\)</td><td style="text-align: center">硝酸 (強酸)<br>\(\mathrm{(N_2O_5) \to HNO_3}\)</td><td style="text-align: center">-</td><td style="text-align: center">-</td></tr>
+<tr><td style="text-align: center">ケイ酸 (弱酸)<br>\(\mathrm{SiO_2 \to H_2SiO_3}\)</td><td style="text-align: center">リン酸 (弱酸)<br>\(\mathrm{P_4O_{10} \to H_3PO_4}\)</td><td style="text-align: center">硫酸 (強酸)<br>\(\mathrm{SO_3 \to H_2SO_4}\)</td><td style="text-align: center">過塩素酸 (強酸)\(\mathrm{Cl_2O_7 \to HClO_3}\)</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">臭素酸 (強酸?)\(\mathrm{(Br_2O_7) \to HBrO_3}\)</td></tr>
+<tr><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center"></td><td style="text-align: center">ヨウ素酸 (強酸?)\(\mathrm{(I_2O_7) \to HIO_3}\)</td></tr>
+</tbody></table>
+</div>
+<p>また、通常のオキソ酸から配位結合した酸素を 1 つ減らすと「亜～」、2 つ減らすと「次亜～」という名前になる。逆に 1 つ増やすと「過～」という名前になる。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">酸化数: +3</th><th style="text-align: center">酸化数: +5</th></tr></thead><tbody>
+<tr><td style="text-align: center">亜硝酸 (弱酸) \(\mathrm{HNO_2}\)</td><td style="text-align: center">硝酸 (強酸) \(\mathrm{HNO_3}\)</td></tr>
+<tr><td style="text-align: center">亜硝酸イオン \(\mathrm{NO_2^-}\)</td><td style="text-align: center">硝酸イオン \(\mathrm{NO_3^-}\)</td></tr>
+</tbody></table>
+</div><br>
+<p>塩素系統は漂白性を持つ。特に次亜塩素酸ナトリウム \(\mathrm{NaClO}\) は塩素系漂白剤として用いられる。</p>
+<p>なんで塩素酸だけデフォルトが「過」なのかは分からなかった。しかも過塩素酸は過酸ではないらしい？</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">酸化数: +2</th><th style="text-align: center">酸化数: +6</th><th style="text-align: center">酸化数: +8</th></tr></thead><tbody>
+<tr><td style="text-align: center">次亜塩素酸 (弱酸) \(\mathrm{HClO}\)</td><td style="text-align: center">塩素酸 (強酸) \(\mathrm{HClO_3}\)</td><td style="text-align: center">過塩素酸 (強酸) \(\mathrm{HClO_4}\)</td></tr>
+<tr><td style="text-align: center">次亜塩素酸イオン \(\mathrm{ClO^-}\)</td><td style="text-align: center">塩素酸イオン \(\mathrm{ClO_3^-}\)</td><td style="text-align: center">過塩素酸イオン \(\mathrm{ClO_4^-}\)</td></tr>
+</tbody></table>
+</div>
+<p>※亜塩素酸はあまり登場しないため(横幅的に)省略した。</p>
+<br>
+<p>他にも、クロム(VI) や マンガン(VII) 由来の酸化物・オキソ酸も存在する。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">酸化数 +6</th><th style="text-align: center"></th><th style="text-align: center">酸化数: +7</th></tr></thead><tbody>
+<tr><td style="text-align: center">クロム酸 (強酸)<br>\(\mathrm{CrO_3 \to H_2CrO_4}\)</td><td style="text-align: center">二クロム酸 (強酸)<br>\(\mathrm{CrO_3 \to H_2Cr_2O_7}\)</td><td style="text-align: center">過マンガン酸 (強酸)<br>\(\mathrm{Mn_2O_7 \to HMnO_4}\)</td></tr>
+<tr><td style="text-align: center">クロム酸イオン \(\mathrm{CrO_4^{2-}}\)</td><td style="text-align: center">二クロム酸イオン \(\mathrm{Cr_2O_7^{2-}}\)</td><td style="text-align: center">過マンガン酸イオン \(\mathrm{MnO_4^-}\)</td></tr>
+</tbody></table>
+</div>
+<p>クロム(VI) を含むものは「六価クロム」と呼ばれ、\(\mathrm{Cr^{6+} \to Cr^{3+}}\) による酸化性を持つ。私が高 3 のときに六価クロム槽に落ちた猫の危険性で事件になった。</p>
+<p>マンガンは 2, 4, 7 価のイオンになる。過マンガン酸カリウム \(\mathrm{KMnO_4}\) は \(\mathrm{Mn^{7+} \to Mn^{4+}, Mn^{2+}}\) による <strong>強い</strong> 酸化剤で知られる。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../chemistry/inorganic/non_metal.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../chemistry/organic/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../chemistry/inorganic/non_metal.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../chemistry/organic/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
