@@ -1,0 +1,397 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>化学 - Alyth note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href=".././mdbook-admonish.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../math/typical_techniques.html"><strong aria-hidden="true">2.</strong> 典型一覧</a></li><li class="chapter-item expanded "><a href="../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> べき級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../math/hyperbolic_function.html"><strong aria-hidden="true">5.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../math/singles.html"><strong aria-hidden="true">6.</strong> 単発記事集</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../physics/index.html"><strong aria-hidden="true">7.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../physics/mechanics/index.html"><strong aria-hidden="true">8.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../physics/electromagnetism/index.html"><strong aria-hidden="true">9.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../physics/thermodynamics/index.html"><strong aria-hidden="true">10.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">10.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../chemistry/theoretical/index.html"><strong aria-hidden="true">11.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chemistry/theoretical/half_reaction.html"><strong aria-hidden="true">11.1.</strong> 半反応式</a></li><li class="chapter-item expanded "><a href="../chemistry/theoretical/electrolysis_and_battery.html"><strong aria-hidden="true">11.2.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="../chemistry/inorganic/index.html"><strong aria-hidden="true">12.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">12.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">12.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../chemistry/inorganic/oxide.html"><strong aria-hidden="true">12.3.</strong> 酸化物</a></li></ol></li><li class="chapter-item expanded "><a href="../chemistry/organic/index.html"><strong aria-hidden="true">13.</strong> 有機</a></li><li class="chapter-item expanded affix "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../english/notes/index.html"><strong aria-hidden="true">14.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../english/notes/1.html"><strong aria-hidden="true">14.1.</strong> １冊目</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../memo.html"><strong aria-hidden="true">15.</strong> メモ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="../isct/chemistry.html" class="active"><strong aria-hidden="true">16.</strong> 化学</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/solalyth/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="東京科学大-化学"><a class="header" href="#東京科学大-化学">東京科学大 化学</a></h1>
+<p>\(
+\newcommand{\disp}{\displaystyle}
+\newcommand{\v}[1]{\boldsymbol #1}
+\newcommand{\Arrowlr}{\Longleftrightarrow}
+\let\frac=\dfrac
+\newcommand{\down}{\hspace{-3pt}\downarrow}
+\newcommand{\up}{\hspace{-3pt}\uparrow}
+\)</p>
+<h2 id="2024"><a class="header" href="#2024">2024</a></h2>
+<p>(1) 気体元素の推定 (正誤)</p>
+<ul>
+<li>\(\mathrm{H_2S + Cl_2 \to S + 2HCl}\) 酸化還元という意識が無かった。</li>
+</ul>
+<p>(2) 金属元素の推定 (正誤)</p>
+<ul>
+<li>\(\mathrm{Pb}\) は遷移元素ではない。濃硝酸には溶ける。</li>
+<li>\(\mathrm{Ag, Fe, Pb, Zn}\) の元素番号、というか位置？
+<ul>
+<li>主要元素は周期表の位置を覚えておきたいよな～</li>
+</ul>
+</li>
+<li>\(\mathrm{[Zn(NH_3)_4]^{2+}}\) を \(\mathrm{H_2S}\) に通じると \(\mathrm{ZnS}\) が沈殿する？(todo)</li>
+</ul>
+<p>(3) 電気分解 (計算)</p>
+<ul>
+<li>するだけ。</li>
+</ul>
+<p>(4) pH (計算)</p>
+<ul>
+<li>酢酸ナトリウムの加水分解定数っていうやつ知らなかった！(todo)</li>
+</ul>
+<p>(5) 結晶格子 (計算)</p>
+<ul>
+<li>面心立方格子・六方最密構造のどちらも最密構造であるから \(V_B/V_A = \frac{\text{B の原子の体積}}{\text{A の原子の体積}} = \frac{\text{Bの単位格子あたり個数} \times {r_B}^3}{\text{Aの単位格子あたり個数} \times {r_A}^3}\) となるのはすごい</li>
+</ul>
+<p>(6) 理論 (正誤)</p>
+<ul>
+<li>電気陰性度のことあんまり分かってないかも。</li>
+<li>イオン結晶はイオン間の距離が小さいほどクーロン力が強くなるため、イオン半径が小さいほど沸点が高い。</li>
+<li>硫化銅と硫化鉄の溶解度積の大小、解説がゴミ。多分イオン化傾向なのかな……</li>
+</ul>
+<p>(7) 反応速度、酵素など (正誤)</p>
+<ul>
+<li>するだけ。</li>
+</ul>
+<p>(8) 熱化学方程式 (計算)</p>
+<ul>
+<li>するだけ。</li>
+</ul>
+<p>(9) 浸透圧</p>
+<ul>
+<li>イオンが通り抜けられる半透膜では、イオンの物質量はファントホッフの法則の \(n\) にはカウントしないっぽい。溶媒とみれば自然？</li>
+</ul>
+<p>(11) \(\mathrm{C_5H_{12}O}\) で表される物質 (正誤)</p>
+<ul>
+<li>すべて書くだけ。</li>
+</ul>
+<p>(12) \(\mathrm{C_{30}H_{32}O_6}\) の推定 (正誤)</p>
+<ul>
+<li>芳香族周りの知識欠けてるな～
+<ul>
+<li>ナトリウムフェノキシドに二酸化炭素付けて希硫酸作用させるとサリチル酸になる。</li>
+<li>E から C を特定するところがよく分からなかった。</li>
+<li>選択肢 3. 間違えた。</li>
+<li>アセチルサリチル酸・サリチル酸メチルを覚える。</li>
+</ul>
+</li>
+</ul>
+<p>(13) 単糖・二糖の混合物 (計算)</p>
+<ul>
+<li>単糖・二糖を覚えよう！判別・特徴を知ってたらいけそうかも。</li>
+</ul>
+<p>(14) タンパク質の性質 (正誤)</p>
+<ul>
+<li>何もわからん………</li>
+</ul>
+<p>(15) \(\mathrm{C_{15}H_{14}O_3}\) の構造決定 (筆記)</p>
+<ul>
+<li>言ってることは分かるけど、どうやって考えたらいいか分からない～～～</li>
+<li>塩化鉄(III)で呈色するのはフェノール性ヒドロキシ基</li>
+</ul>
+<h2 id="2023"><a class="header" href="#2023">2023</a></h2>
+<p>(1) 元素の性質 (正誤)</p>
+<ul>
+<li>融点は \(\mathrm{Li &gt; Na &gt; K}\) の順。</li>
+</ul>
+<p>(2) 金属元素の性質 (正誤)</p>
+<ul>
+<li>チオシアン酸カリウム系あんまり覚えてない</li>
+<li>塩素酸カリウムから酸素の生成 (触媒: 酸化マンガン)</li>
+<li>パラジウムは遷移元素。</li>
+<li>おまけ: 過マンガン酸イオンを硫酸酸性にするのは、①水素イオンを大量消費するから ②塩酸の \(\mathrm{Cl^-}\) や硝酸の \(\mathrm{{NO_3}^-}\) が酸化され、正確性が無くなるから</li>
+</ul>
+<p>(3) 電気分解 (計算)</p>
+<ul>
+<li>するだけ。</li>
+</ul>
+<p>(4) 溶解度積と pH (計算)</p>
+<ul>
+<li>するだけ。</li>
+</ul>
+<p>(5) イオン結晶の結晶格子 (計算)</p>
+<ul>
+<li>\(\mathrm{NaCl}\) 型構造が説明無しに出てくる</li>
+</ul>
+<p>(6) 状態図 (正誤)</p>
+<ul>
+<li>特になし。</li>
+</ul>
+<p>(7) 反応速度、化学平衡、少しハーバー・ボッシュ法 (正誤)</p>
+<ul>
+<li>\(\mathrm{H_2O_2}\) の分解反応は一次反応であることは、覚えなくていい？</li>
+<li>反応速度定数 \(k\) と活性化エネルギー \(E\) について、アレニウスの式 \(\disp k = A\exp\left(-\frac{E}{RT}\right)\) が成り立つことを覚えておくと便利？
+<ul>
+<li>活性化エネルギーは、触媒などにより反応機構が変わらない限り (たぶん) 一定。</li>
+<li>反応速度定数は活性化エネルギー量と温度に依存し、比例関係ではない。</li>
+</ul>
+</li>
+<li>\(\mathrm{N_2 + 3H_3 \to 2NH_3}\) は発熱反応。
+<ul>
+<li>ハーバー・ボッシュ法では四酸化三鉄を触媒として中温高圧で行う。低温だと反応速度が悪化する。</li>
+</ul>
+</li>
+<li>選択肢 5. はよく分からない。</li>
+</ul>
+<p>(8) 実在気体と理想気体、水蒸気圧</p>
+<ul>
+<li>低温だと分子間力の影響を受けて理想圧力より小さくなり、高圧だと体積の影響を受けて理想体積より大きくなる。(再確認)</li>
+<li>アンモニアは水素結合を作る。</li>
+<li>水上置換は水温が低いほど高純度になる。</li>
+</ul>
+<p>(9) 気体、溶解 (計算)</p>
+<ul>
+<li>上部スペースの体積が変わらないことに気付かなかった。</li>
+</ul>
+<p>(10) 熱化学方程式</p>
+<ul>
+<li>するだけ。(計算ミス)</li>
+</ul>
+<p>(11) \(\mathrm{C_{10}H_{14}}\) で表される物質 (正誤)</p>
+<ul>
+<li>書くだけ。</li>
+<li>プロピル基がブチル基に含まれることに気付かなかった。</li>
+</ul>
+<p>(12) カルボン酸・脂肪酸 (正誤)</p>
+<ul>
+<li>分からない…… ;;</li>
+<li>エチレンを (塩化パラジウム・塩化銅触媒下で) 酸化させるとアセトアルデヒドになる。</li>
+<li>脂肪酸 ... 鎖式炭化水素にカルボキシ基がちょうど 1 つ付いたもの。特に 1 価カルボン酸。</li>
+<li>ギ酸は酢酸より強い酸。</li>
+<li>フマル酸の固体は水素結合重合体であるから、水溶性がマレイン酸より低い。</li>
+<li>炭素間二重結合が多いほど、分子の変形が大きく分子間ファンデルワールス力が弱くなるため、融点が低い。</li>
+<li>縮合重合するには、2 価カルボン酸 or ヒドロキシ酸 or アミノ酸。</li>
+</ul>
+<p>(13) ペプチドの推定 (正誤)</p>
+<ul>
+<li>何も分からない…… ;;</li>
+</ul>
+<p>(14) 合成高分子 (正誤)</p>
+<ul>
+<li>分からない…… ;;</li>
+<li>付加重合高分子は熱可塑性。</li>
+<li>エステルの加水分解は、できたカルボン酸が反応してカルボン酸塩となり、不可逆反応となることがある。</li>
+<li>todo</li>
+</ul>
+<p>(15) 構造決定 (筆記)</p>
+<ul>
+<li>言ってることはわかる</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../memo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../memo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
