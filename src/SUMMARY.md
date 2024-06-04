@@ -5,7 +5,8 @@
 # 数学
 
 - [初めに](./math/index.md)
-- [必ず覚えるもの一覧](./math/basis.md)
+- [典型一覧](./math/typical_techniques.md)
+// - [必ず覚えるもの一覧](./math/basis.md)
 - [微積分](./math/calculus/index.md)
     + [有名置換](./math/calculus/famous_substitution.md)
     + [有名な積分](./math/calculus/famous_integral.md)
@@ -26,6 +27,8 @@
 # 化学
 
 - [理論](./chemistry/theoretical/index.md)
+    + [半反応式](./chemistry/theoretical/half_reaction.md)
+    + [電気分解・電池](./chemistry/theoretical/electrolysis_and_battery.md)
 - [無機](./chemistry/inorganic/index.md)
     + [金属イオン](./chemistry/inorganic/metal_ions.md)
     + [非金属](./chemistry/inorganic/non_metal.md)
@@ -40,3 +43,7 @@
 # 自分用
 
 - [メモ](memo.md)
+
+# 東京科学大対策
+
+- [化学](./isct/chemistry.md)

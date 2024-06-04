@@ -7,7 +7,13 @@
     \newcommand{\v}[1]{\boldsymbol #1}
     \newcommand{\Arrowlr}{\Longleftrightarrow}
     \let\frac=\dfrac
+    \newcommand{\down}{\hspace{-3pt}\downarrow}
+    \newcommand{\up}{\hspace{-3pt}\uparrow}
 \\)
+
+\\(\underbrace{\text{How are you?}}_{\text{I'm good.}}\\)
+
+"_" をエスケープするときは "\_" とする必要がある。
 
 \\(
     \left\\{ \begin{array}{}
@@ -15,6 +21,8 @@
         2
     \end{array} \right.
 \\)
+
+\\( \rightleftharpoons \\)
 
 ## フォント
 
