@@ -232,3 +232,11 @@ kbd {
 .result-no-output {
     font-style: italic;
 }
+
+
+
+
+u {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
