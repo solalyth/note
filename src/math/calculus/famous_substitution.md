@@ -1,40 +1,65 @@
-## 有名置換
+# 有名置換
 
-### sin 置換
+三角関数に関わる置換では、\\(\sin, \tan\\) が連続・単調増加かつ \\(\cos\\) が非負となる \\([-\pi/2, \pi/2]\\) から適切に置換するとよい。
+
+\\(
+    \newcommand{\disp}{\displaystyle}
+    \newcommand{\v}[1]{\boldsymbol #1}
+    \newcommand{\Arrowlr}{\Longleftrightarrow}
+    \let\frac=\dfrac
+    \newcommand{\down}{\hspace{-3pt}\downarrow}
+    \newcommand{\up}{\hspace{-3pt}\uparrow}
+\\)
+
+
+
+## sin 置換
 
 \\( x = \sin \theta \\) と置換する方法。
 
-\\( \cos \theta = \sqrt{1-x^2} \\) と表すならば \\( 0 \leq \cos \theta \\) を満たす範囲で置換する必要がある。
-よく \\( [-\pi/2, \pi/2] \\) が使われる。
+しばしば \\(1-x^2\\) の形を含むときの定石として用いられる。積分範囲から \\( \sqrt{1-x^2} = \cos \theta \\) となることに注意。
 
-\\[
-    \int f(x, \sqrt{1-x^2}) dx \longrightarrow \int f(\sin \theta, \cos \theta) \cdot \cos \theta ~ d\theta
+\\(\disp \int f(\sin\theta) \cdot \cos \theta ~ d\theta\\) は定番。\\(\disp \int f(\cos\theta) \cdot \sin \theta ~ d\theta\\) も \\( x = \cos\theta\\) で置換すればよい。
+
+> \\[
+    \begin{align}
+        \int f(x, \sqrt{1-x^2}) ~ dx ~ &\longrightarrow ~ \int f(\sin \theta, \cos \theta) \cdot \cos \theta ~ d\theta \\\\
+        \int f(\sin\theta) \cdot \cos \theta ~ d\theta ~ &\longrightarrow ~ \int f(x) ~ dx
+    \end{align}
 \\]
 
 
 
-### tan 置換
+## tan 置換
 
 \\( x = \tan \theta \\) と置換する方法。
 
-\\[
-    \int f(\tan \theta) ~ d\theta \longrightarrow \int f(x) \cdot \frac{1}{x^2 + 1} ~ dx
+しばしば \\(1+x^2\\) の形を含むときの定石として用いられるが、sinh 置換も同様に解決できる。
+
+> \\[
+    \begin{align}
+        \int f(x, \sqrt{1 + x^2}) ~ dx ~ &\longrightarrow ~ \int f\left(\tan\theta, \frac{1}{\cos\theta}\right) \cdot \frac{1}{\cos^2 \theta} ~ d\theta \\\\
+        \int f(\tan \theta) ~ d\theta ~ &\longrightarrow ~ \int f(x) \cdot \frac{1}{1 + x^2} ~ dx
+    \end{align}
 \\]
 
-
-\\( \cos^2 \theta, ~ \sin^2 \theta \\) が \\( \tan \theta \\) で書けるから、これらで構成された有理関数は積分できる。
-
+特に \\( \cos^2 \theta, ~ \sin^2 \theta \\) が \\( \tan \theta \\) で書けるから、これらで構成された有理関数は積分できる。
 
 
-### 双曲線関数による置換
 
-\\( x = \sin \theta \\) によって \\( 1 - x^2 \\) が解消できるように、\\( x = \sinh \theta \\) と置換することで \\( 1 + x^2 \\) を解消できる。
+## sinh 置換
+
+\\(x = \sinh \theta\\) と置換する方法。\\(1+x^2\\) を解決することができる。\\(\cosh \theta\\) は常に正であることに注意。
+
+> \\[
+    \int f(x, \sqrt{1+x^2}) ~ dx ~ \longrightarrow ~ \int f(\sinh\theta, \cosh\theta) \cdot \cosh\theta ~ d\theta
+\\]
 
 双曲線関数に関する性質を学ぶ必要があるが、双曲線関数を背景とした問題はそこそこある気がするので、覚える価値はあると思う。
 
 
 
-### Euler 置換
+## Euler 置換
 
 [Wikipedia(en)](https://en.wikipedia.org/wiki/Euler_substitution) を見よう。これは Euler first substitution と紹介されているものである。 
 
@@ -45,10 +70,11 @@
 
 
 
-#### 例題1
+```admonish question title="例題"
+\\( \displaystyle \int \frac{1}{\sqrt{x^2 + 1}} ~ dx\\) を求めよ。
+```
 
-> \\( \displaystyle \int \frac{1}{\sqrt{x^2 + 1}} ~ dx\\) を求めよ。
-
+```admonish success title="解答"
 \\( \sqrt{x^2+1} = t-x \\) と Euler 置換する。
 
 \\(2\\) 乗して変形すると \\( x = \dfrac{t^2 - 1}{2t} \\) となる。微分して \\( dx = \dfrac{t^2 + 1}{2t^2} dt \\) を得る。
@@ -64,13 +90,14 @@
 \end{eqnarray}\\]
 
 である。
+```
 
 これは他の置換でも解くことができるが、被積分関数の分母が \\( x^2 + c \\) でなくても統一的に置換できる。
 
 最終手段的置換とも言えるかもしれない。
 
 
-### Weierstrass 置換
+## Weierstrass 置換
 
 いわゆる \\( t = \tan \dfrac{\theta}2 \\) 置換。
 三角関数が \\( t \\) の有理式で表わすことができ、一般的に解ける。
@@ -93,7 +120,7 @@
 
 
 
-### King property
+## King property
 
 \\( \displaystyle \int_a^b f(x) ~ dx = \int_a^b f(a+b-x) ~ dx \\) という変形を King property と呼んだりする。
 
@@ -101,7 +128,7 @@
 
 やけに対称性があるぞと思ったとき、特に、被積分関数が三角関数で構成されているとき、うまくいくことが (ときどき) ある。
 
-#### 例題1
+### 例題1
 
 > \\( \displaystyle I = \int_0^{\pi/2} \frac{\sin \theta}{\sin \theta + \cos \theta} ~ d\theta \\) を求めよ。
 

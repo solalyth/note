@@ -27,12 +27,13 @@
 # 化学
 
 - [理論](./chemistry/theoretical/index.md)
+    + [反応速度・平衡定数・電離度系](./chemistry/theoretical/reaction_rate_etc.md)
     + [半反応式](./chemistry/theoretical/half_reaction.md)
     + [電気分解・電池](./chemistry/theoretical/electrolysis_and_battery.md)
 - [無機](./chemistry/inorganic/index.md)
     + [金属イオン](./chemistry/inorganic/metal_ions.md)
     + [非金属](./chemistry/inorganic/non_metal.md)
-    + [酸化物](./chemistry/inorganic/oxide.md)
+    + [酸化物・オキソ酸](./chemistry/inorganic/oxide.md)
 - [有機](./chemistry/organic/index.md)
 
 # 英語
