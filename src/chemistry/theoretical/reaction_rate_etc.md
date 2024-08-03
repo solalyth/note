@@ -1,7 +1,6 @@
-# 反応速度・平衡定数・電離度系
+# 反応速度・電離度・平衡定数
 
-以下では、物質 \\(\mathrm{X}\\) のモル濃度を \\(\mathrm{[X] ~ mol/L}\\) と書き、\\(p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_1]} + q_2\mathrm{[B_2]} + \cdots\\) という反応について考える。
-\\(
+以下では、物質 \\(\mathrm{X}\\) のモル濃度を \\(\mathrm{[X] ~ mol/L}\\) と書く。\\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
     \newcommand{\Arrowlr}{\Longleftrightarrow}
@@ -12,14 +11,30 @@
 
 ## 反応速度
 
-反応速度とは **ある特定の物質一つの濃度の変化速度** で、反応速度定数 \\(k\\) を用いて \\(v = k\mathrm{[A_1]}^{\alpha_1}\mathrm{[A_2]}^{\alpha_2} \cdots\\) で表される[^1]。
+以下では、
+
+\\[
+    p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_1]} + q_2\mathrm{[B_2]} + \cdots
+\\]
+
+という反応について考える。
+
+反応速度とは **ある特定の物質一つの濃度の変化速度** で、反応速度定数 \\(k\\) を用いて
+
+\\[v = k\mathrm{[A_1]}^{\alpha_1}\mathrm{[A_2]}^{\alpha_2} \cdots\\]
+
+で表される[^1]。
 
 ある一つの物質の反応速度が分かる場合、反応式から他の物質の反応速度も分かる。
 
 [^1]: \\(\alpha_i\\) は反応ごとに決まる定数。実験でしか求められない。
 
 ```admonish note title="アレニウスの式"
-同一の反応に対し、反応速度定数 \\(k\\) と活性化エネルギー \\(E\\) について、\\(\disp k \sim \exp\left(-\frac{E}{RT}\right)\\) が成り立つ。
+同一の反応に対し、反応速度定数 \\(k\\) と活性化エネルギー \\(E\\) について、
+
+\\[ k \sim \exp\left(-\frac{E}{RT}\right) \\]
+
+が成り立つ。
 
 このことから、反応速度定数は**活性化エネルギー・温度のみに依存し**、特に**線形ではない**。
 
@@ -43,9 +58,22 @@
 (3.) は \\(\mathrm{[H_2], [Br_2]}\\) ともに 2 倍になり、これが一番大きくなる。
 ```
 
+## 電離度
+
+ある物質 \\(\mathrm{A}\\) が
+
+\\[
+    \mathrm{A + (H_2O) \rightleftharpoons B_1 + B_2 + \cdots}
+\\]
+
+と電離するときを考える。
+
+
+
+
 ## 平衡定数・圧平衡定数・イオン積
 
-反応が平衡状態にあるとき、平衡定数 \\(K\\) を用いて
+反応の平衡状態にあるとき、平衡定数 \\(K\\) を用いて
 
 \\[
     \mathrm{[B_1]}^{q_1}\mathrm{[B_2]}^{q_2}\cdots = K\mathrm{[A_1]}^{p_1}\mathrm{[A_1]}^{p_2}\cdots

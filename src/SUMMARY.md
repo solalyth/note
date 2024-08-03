@@ -27,7 +27,7 @@
 # 化学
 
 - [理論](./chemistry/theoretical/index.md)
-    + [反応速度・平衡定数・電離度系](./chemistry/theoretical/reaction_rate_etc.md)
+    + [反応速度・電離度・平衡定数](./chemistry/theoretical/reaction_rate_etc.md)
     + [半反応式](./chemistry/theoretical/half_reaction.md)
     + [電気分解・電池](./chemistry/theoretical/electrolysis_and_battery.md)
 - [無機](./chemistry/inorganic/index.md)
@@ -39,7 +39,7 @@
 # 英語
 
 - [授業ノート](./english/notes/index.md)
-    + [１冊目](./english/notes/1.md)
+    + [特講 - 短文和訳](./english/notes/lecture_1.md)
 
 # 自分用
 
