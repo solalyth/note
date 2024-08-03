@@ -240,3 +240,18 @@ u {
     text-decoration: underline;
     text-underline-offset: 5px;
 }
+
+uj {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+ue {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+we {
+    text-decoration: underline wavy;
+    text-underline-offset: 2px;
+}
