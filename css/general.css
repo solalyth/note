@@ -255,3 +255,7 @@ we {
     text-decoration: underline wavy;
     text-underline-offset: 2px;
 }
+
+.content > main > p:first-child:has(.MathJax) {
+    display: none
+}

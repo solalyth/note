@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>酸化還元反応 - Alyth note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././mdbook-admonish.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../math/techniques/index.html"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../../math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">5.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/singles.html"><strong aria-hidden="true">6.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="../../math/mistakes.html"><strong aria-hidden="true">7.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">8.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">9.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/electromagnetism/index.html"><strong aria-hidden="true">10.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">11.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">11.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/index.html"><strong aria-hidden="true">12.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">12.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/redox-reaction.html" class="active"><strong aria-hidden="true">12.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">12.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/index.html"><strong aria-hidden="true">13.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">13.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">13.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/oxide.html"><strong aria-hidden="true">13.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/note.html"><strong aria-hidden="true">13.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/organic/index.html"><strong aria-hidden="true">14.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/organic/sugar.html"><strong aria-hidden="true">14.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../../english/notes/index.html"><strong aria-hidden="true">15.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../english/notes/lecture_1.html"><strong aria-hidden="true">15.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">16.</strong> メモ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="../../isct/chemistry/index.html"><strong aria-hidden="true">17.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../isct/chemistry/2016.html"><strong aria-hidden="true">17.1.</strong> 2016</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/solalyth/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>\(
+\let\to=\longrightarrow
+\newcommand{\tod}{\stackrel{\Diamond}{\to}}
+\newcommand{\down}{\hspace{-3pt}\downarrow}
+\)</p>
+<h1 id="酸化還元反応"><a class="header" href="#酸化還元反応">酸化還元反応</a></h1>
+<p>酸化数が増えることを<strong>酸化</strong>、減ることを<strong>還元</strong>といい、電子の授受によって成立する反応を<strong>酸化還元反応</strong>という。</p>
+<div id="admonition-酸化数増減と同値な表現" class="admonition admonish-note" role="note" aria-labelledby="admonition-酸化数増減と同値な表現-title">
+<div class="admonition-title">
+<div id="admonition-酸化数増減と同値な表現-title">
+<p>酸化数増減と同値な表現</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-酸化数増減と同値な表現"></a>
+</div>
+<div>
+<p>酸化される ＝ 酸化数が増える ＝ \(\mathrm{O^{2-}}\) を受け取って \(\mathrm{H^+, e^-}\) を渡す<br />
+還元される ＝ 酸化数が減る ＝ \(\mathrm{O^{2-}}\) を渡して \(\mathrm{H^+, e^-}\) を受け取る</p>
+<p>と言い換えられる。「 \(\mathrm{O^{2-}}\) の授受は言葉から分かる → \(\mathrm{H^+, e^-}\) はその逆向き」と覚えています。</p>
+</div>
+</div>
+<p>特に、積極的に酸化還元反応を起こそうとすることを <strong>酸化力・還元力が強い</strong> と言い、そういう物質を<strong>酸化剤・還元剤</strong>という。\(\mathrm{H^+}\) を電離させる「酸」とは別物であることに注意。</p>
+<p>酸化還元の全体式は、半反応式を適切に組み合わせて作る。どの物質が何に変化するのかは必ず覚える。</p>
+<h2 id="全体式の作り方"><a class="header" href="#全体式の作り方">全体式の作り方</a></h2>
+<ol>
+<li>半反応式を書く。</li>
+<li>液性に応じて \(\{\mathrm{H^+, O^{2-}}\} \to \{\mathrm{H^+, H_2O} \},~ \{ \mathrm{H_2O, OH^-} \}\) になるよう両辺に加える。</li>
+<li>電子の数が合うようそれぞれ定数倍する。</li>
+<li>二式を足し、双対イオンを足す。</li>
+</ol>
+<h2 id="酸化剤"><a class="header" href="#酸化剤">酸化剤</a></h2>
+<p>自身は還元され、電子を受け取る。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">名称</th><th style="text-align: center">化学式</th><th style="text-align: center">メモ</th></tr></thead><tbody>
+<tr><td style="text-align: center">陰イオン化系</td><td style="text-align: center">\(\mathrm{O_2 \to 2O^{2-}} \\ \mathrm{O_3 \to O_2 + O^{2-}}\)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">ハロゲン単体系</td><td style="text-align: center">\(\mathrm{F_2 \to 2F^-}\)</td><td style="text-align: center"><uj>フッ素が一番強い</uj><sup class="footnote-reference"><a href="#4">1</a></sup></td></tr>
+<tr><td style="text-align: center">塩素酸イオン系</td><td style="text-align: center">\(\mathrm{ClO^- \to Cl^- + O^{2-}}\)</td><td style="text-align: center"><uj>次亜塩素酸が一番強い</uj><sup class="footnote-reference"><a href="#5">2</a></sup></td></tr>
+<tr><td style="text-align: center">希硝酸</td><td style="text-align: center">\(\mathrm{{NO_3}^- \to NO + 2O^{2-}}\)</td><td style="text-align: center">cf. \(\mathrm{NO}\) の実験室的製法</td></tr>
+<tr><td style="text-align: center">濃硝酸</td><td style="text-align: center">\(\mathrm{{NO_3}^- \to NO_2 + O^{2-}}\)</td><td style="text-align: center">cf. \(\mathrm{NO_2}\) の実験室的製法</td></tr>
+<tr><td style="text-align: center">熱濃硫酸</td><td style="text-align: center">\(\mathrm{{SO_4}^{2-} \to SO_2 + 2O^{2-}}\)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">マンガン酸系 (酸)</td><td style="text-align: center">\(\mathrm{{MnO_4}^-, ~ MnO_2 \to Mn^{2+}}\) <sup class="footnote-reference"><a href="#3">3</a></sup></td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">マンガン酸系 (中～塩)</td><td style="text-align: center">\(\mathrm{{MnO_4}^- \to MnO_2}\) <sup class="footnote-reference"><a href="#3">3</a></sup></td><td style="text-align: center">\(\mathrm{H^+}\) 不足で止まるイメージ</td></tr>
+<tr><td style="text-align: center">クロム酸系</td><td style="text-align: center">\(\mathrm{{Cr_2O_7}^{2-} \to 2Cr^{3+}}\) <sup class="footnote-reference"><a href="#3">3</a></sup></td><td style="text-align: center"></td></tr>
+</tbody></table>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">1</sup>
+<p>酸化力の強さは \(\mathrm{F_2 &gt; Cl_2 &gt; Br_2 &gt; I_2}\) である。（∵原子半径によるクーロン力の差）<br />
+後述する通り、弱いハロゲンイオンにより強いハロゲン単体を与えると、弱い単体と強いイオンが発生する酸化還元反応が起こる。</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">2</sup>
+<p>酸化力の強さは \(\mathrm{HClO &gt; HClO_2 &gt; HClO_3 &gt; HClO_4}\) である。（∵電子式らしい）<br />
+ただし、\(\mathrm{H^+}\) の電離度 (酸の強さ) は逆向きで次亜塩素酸が一番小さい。</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>電荷計算だけならば \(\left\{\begin{array}{}\mathrm{Mn^{7+} \to Mn^{4+} \to Mn^{2+}} \\ \mathrm{Cr^{6+} \to Cr^{3+}} \end{array}\right.\) と考えればいい。二クロム酸は 2 個分なので注意。</p>
+</div>
+<details id="admonition-疑問" class="admonition admonish-note" role="note" aria-labelledby="admonition-疑問-title">
+<summary class="admonition-title">
+<div id="admonition-疑問-title">
+<p>疑問</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-疑問"></a>
+</summary>
+<div>
+<ul>
+<li>硝酸イオン自体が酸化力を持つ？</li>
+</ul>
+<p>実際いくつかの硝酸塩は酸化力を持ってるっぽい。\(\mathrm{H^+}\) の量で反応先が変わる？</p>
+<ul>
+<li>亜硝酸イオンは酸化力を持つ？</li>
+</ul>
+<p>持たないっぽい？</p>
+</div>
+</details>
+<p>多量の \(\mathrm{H^+}\) を必要とする酸化剤を用いるとき、硫酸を入れることが多い<sup class="footnote-reference"><a href="#2">4</a></sup>。このことを <uj>硫酸酸性下</uj> などと書かれる。
+硫酸酸性の過マンガン酸カリウム・二クロム酸カリウムによる酸化は頻出。</p>
+<blockquote>
+<p>硫酸酸性の過マンガン酸カリウム・二クロム酸カリウムの半反応式
+\[
+\begin{array}{l}
+\mathrm{2KMnO_4 + 8H_2SO_4} &amp;\mathrm{\to 2K^+ + 2Mn^{2+} + 8{SO_4}^{2-} + 8H_2O + (+10)} \\
+&amp;\mathrm{\to K_2SO_4 + 2MnSO_4 + 5{SO_4}^{2-} + 8H_2O + (+10)} \\[8px]
+\mathrm{K_2Cr_2O_7 + 7H_2SO_4} &amp;\mathrm{\to 2K^+ + 2Cr^{3+} + 7{SO_4}^{2-} + 7H_2O + (+6)} \\
+&amp;\mathrm{\to K_2SO_4 + Cr_2(SO_4)_3 + 3{SO_4}^{2-} + 4H_2O + (+6)}
+\end{array}
+\]
+書ければいい。</p>
+</blockquote>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">4</sup>
+<p>塩酸は \(\mathrm{Cl^-}\) が還元剤、硝酸は自身が酸化剤であり、測定の邪魔となるため使われない。</p>
+</div>
+<div id="admonition-過マンガン酸イオンと滴定" class="admonition admonish-note" role="note" aria-labelledby="admonition-過マンガン酸イオンと滴定-title">
+<div class="admonition-title">
+<div id="admonition-過マンガン酸イオンと滴定-title">
+<p>過マンガン酸イオンと滴定</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-過マンガン酸イオンと滴定"></a>
+</div>
+<div>
+<p>過マンガン酸イオン \(\mathrm{{MnO_4}^-}\) は濃い赤紫色で、反応先である \(\mathrm{Mn^{2+}}\) は透明～薄桃色であるから、反応の進みが判断しやすい。そのため、滴定によく使われる。</p>
+</div>
+</div>
+<h2 id="還元剤"><a class="header" href="#還元剤">還元剤</a></h2>
+<p>自身は酸化され、電子を渡す。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">名称</th><th style="text-align: center">化学式</th><th style="text-align: center">メモ</th></tr></thead><tbody>
+<tr><td style="text-align: center">陰イオン</td><td style="text-align: center"></td><td style="text-align: center">\(\mathrm{I^-}\) etc.</td></tr>
+<tr><td style="text-align: center">陽イオン化</td><td style="text-align: center">\(\begin{array}{} \mathrm{Na \to Na^+} \\ \mathrm{Sn \to Sn^{4+}} \end{array}\)</td><td style="text-align: center">cf. スズ: ニトロベンゼン→アニリン反応</td></tr>
+<tr><td style="text-align: center">安定イオン化</td><td style="text-align: center">\(\begin{array}{} \mathrm{Fe^{2+} \to Fe^{3+}}\\\mathrm{Sn^{2+} \to Sn^{4+}}\end{array}\)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">硫化水素</td><td style="text-align: center">\(\mathrm{H_2S \to S}\)</td><td style="text-align: center"><strong>強い還元剤</strong></td></tr>
+<tr><td style="text-align: center">シュウ酸イオン</td><td style="text-align: center">\(\mathrm{{(COO)_2}^{2-} \to 2CO_2}\)</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">チオ硫酸イオン</td><td style="text-align: center">\(\mathrm{2{S_2O_3}^{2-} \to {S_4O_6}^{2-}}\)</td><td style="text-align: center">特に \(\mathrm{2e^-}\) を渡す<br>cf. ヨウ素滴定, COD</td></tr>
+</tbody></table>
+</div>
+<h2 id="特殊な酸化還元剤"><a class="header" href="#特殊な酸化還元剤">特殊な酸化還元剤</a></h2>
+<h3 id="過酸化水素"><a class="header" href="#過酸化水素">過酸化水素</a></h3>
+<p>酸素原子の酸化数について確認しておく。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">-2</th><th style="text-align: center">-1</th><th style="text-align: center">0</th></tr></thead><tbody>
+<tr><td style="text-align: center">\(\mathrm{O^{2-}}\)</td><td style="text-align: center">\(\mathrm{H_2O_2}\)</td><td style="text-align: center">\(\mathrm{O_2}\)</td></tr>
+</tbody></table>
+</div>
+<p>基本的に酸化剤で、強い酸化剤とは還元剤として働く。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">反応</th><th style="text-align: center">化学式</th><th style="text-align: center">メモ</th></tr></thead><tbody>
+<tr><td style="text-align: center">酸化剤</td><td style="text-align: center">\(\mathrm{H_2O_2 \to H_2O + O^{2-}}\)</td><td style="text-align: center">通常</td></tr>
+<tr><td style="text-align: center">還元剤</td><td style="text-align: center">\(\mathrm{H_2O_2 \to O_2 + 2H^+}\)</td><td style="text-align: center">\(\mathrm{{MnO_4}^-}\) との反応が有名</td></tr>
+<tr><td style="text-align: center">自己酸化還元</td><td style="text-align: center">\(\mathrm{H_2O_2 \to H_2 + O_2}\)</td><td style="text-align: center">\(\mathrm{MnO_2}\) 触媒</td></tr>
+</tbody></table>
+</div>
+<p>どっちもマンガン関連でカス。酸化マンガンは固体の<strong>不均一系触媒</strong>であることも抑えておくとよい。</p>
+<blockquote>
+<p>硫酸酸性下, 過マンガン酸カリウムと過酸化水素 (還元剤) の反応: 酸素の発生
+\[ \mathrm{2KMnO_4 + 5H_2O_2 + 3H_2SO_4 \tod 2K_2SO_4 + MnSO_4 + O_2 + 8H_2O} \]</p>
+</blockquote>
+<h3 id="二酸化硫黄"><a class="header" href="#二酸化硫黄">二酸化硫黄</a></h3>
+<p>まず硫黄の酸化数について確認しておく。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">-2</th><th style="text-align: center">0</th><th style="text-align: center">+4</th><th style="text-align: center">+6</th></tr></thead><tbody>
+<tr><td style="text-align: center">\(\mathrm{H_2S}\)</td><td style="text-align: center">\(\mathrm{S}\)</td><td style="text-align: center">\(\mathrm{SO_2}\)</td><td style="text-align: center">\(\mathrm{{SO_4}^{2-}}\)</td></tr>
+</tbody></table>
+</div>
+<p>基本的に還元剤で、\(\mathrm{H_2S}\) とは例外的に酸化剤として働く。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">反応</th><th style="text-align: center">化学式</th><th style="text-align: center">メモ</th></tr></thead><tbody>
+<tr><td style="text-align: center">酸化剤</td><td style="text-align: center">\(\mathrm{SO_2 \to S + 2O^{2-}}\)</td><td style="text-align: center">\(\mathrm{H_2S}\) との反応</td></tr>
+<tr><td style="text-align: center">還元剤</td><td style="text-align: center">\(\mathrm{SO_2 + 2O^{2+} \to {SO_4}^{2-}}\)</td><td style="text-align: center">通常</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p>二酸化硫黄 (酸化剤) と硫化水素の反応: 硫黄の発生
+\[
+\mathrm{SO_2 + 2H_2S \tod 3S + 2H_2O}
+\]
+硫黄同士の反応が印象的なので、「これ以外なら還元剤」と覚えています。</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../chemistry/theoretical/reaction_rate_etc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../chemistry/theoretical/electrolysis-and-battery.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../chemistry/theoretical/reaction_rate_etc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../chemistry/theoretical/electrolysis-and-battery.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
