@@ -1,6 +1,6 @@
 # 特講 - 短文和訳
 
-N 先生に感謝しつつ、無断で公開しています。シーッ！
+N 先生に感謝しつつ、無断で公開しています。（シーッ！）
 
 すっきりしない部分は自分でちょっと変更してます。
 
@@ -44,7 +44,7 @@ N 先生に感謝しつつ、無断で公開しています。シーッ！
 
 「その政策は、教育水準の低下に不満を持つ人にとって大きな魅力となっている。」
 
-+ "what they perceive as a lowering of standards" 「(教育)水準を低下させると人々がみなすもの」を大胆に「教育水準の低下」と訳した。
++ "what they perceive as a lowering of standards" 「(教育)水準を低下させると人々がみなすもの」を単に「教育水準の低下」と訳した。
 
 ---
 
@@ -91,7 +91,7 @@ N 先生に感謝しつつ、無断で公開しています。シーッ！
 
 + "There is" をほぼ無視して、意味上の文として訳されている？
 
-> ... writing about something [that pains you] heals the pain.
+> ... that writing about something [that pains you] heals the pain.
 
 「苦しめているものについて書くと、その苦しみを癒やしてくれる」
 
@@ -154,7 +154,7 @@ N 先生に感謝しつつ、無断で公開しています。シーッ！
 
 「私たちは皆、見た目通りの形や色を唯一正しいものとして受け入れがちである。」
 
-+ 主語に掛かる "all" は動詞の前、be動詞の後に付けることができる。
++ 主語に掛かる "all" は動詞の直前、be動詞の直後に付けることができる。
 + "conventional"「慣習的な, 型にはまっていて平凡な」を「見た目通りな」と意訳した。
 
 > Children sometimes think that stars must be star-shaped, though naturally they are not.
@@ -175,7 +175,7 @@ N 先生に感謝しつつ、無断で公開しています。シーッ！
 出典: [TIME](https://time.com/archive/6856024/time-essay-small-town-u-s-a-growing-and-groaning/)
 
 
-# 解説 No.16
+## 解説 No.16
 
 > The flight from the cities, \<though it continues\>, is pretty old news.
 
@@ -190,3 +190,42 @@ N 先生に感謝しつつ、無断で公開しています。シーッ！
 「しかし、つい最近、その脱出先が明らかになってきた。都市から脱出した人たちのほとんどは郊外や都市周辺にいる、と国は長い間考えてきた。しかし、そうではなかった。」
 
 + "assume" には「自分に都合よく、定かではないが、決めてかかる」なニュアンスがあるらしい。
+
+
+
+## 問題 No.17
+
+> The axioms and laws of mathematics are very good at doing certain jobs.
+> We know with absolute certainty, for example, that 2+2=4, and that the angles of a triangle add up to 180° -- these follow necessarily from axioms.
+> Math is also useful when applied to fixed physical quantities.
+> Einstein used math to show that nothing can travel faster than the speed of light, which is a fixed quantity.
+>
+> + "axiom": 公理
+
+メモ: 一致検索で何も出てこなかった
+
+
+---
+
+> To many people -- especially those from Asia or the Moslem countries -- such bodily contact is unwelcome, especially if carelessly done with the left hand.
+> The left hand carries no special significance in the United States.
+> Many Americans are simply left-handed and use that hand more.
+
+
+
+## 解説 No.17
+
+テーマ: 省略構文 (副詞節中の S + be動詞 の省略に注意)
+
+> The axioms and laws of mathematics are very good at doing certain jobs.
+> 
+> We know with absolute certainty, \<for example\>, that 2+2=4, and that the angles of a triangle add up to 180° -- these follow necessarily from axioms.
+
+「数学の公理や法則は、ある特定の仕事をするのがとても上手だ。例えば 2+2=4 であることや三角形の内角の和が 180° であることは公理から必然的に従い、私たちは絶対の確信をもって知っている。」
+
+> Math is also useful when applied to fixed physical quantities.
+> Einstein used math to show that nothing can travel faster than the speed of light, which is a fixed quantity.
+
+「数学は固定の物理量に適用する場合にも役に立つ。アインシュタインは、固定量である光速よりも早く移動できるものはないことを示すために、数学を用いた。」
+
++ 「～ できるものはない」は「何も ～ できない」でも良い。

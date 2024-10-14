@@ -1,6 +1,4 @@
-# 反応速度・電離度・平衡定数
-
-以下では、物質 \\(\mathrm{X}\\) のモル濃度を \\(\mathrm{[X] ~ mol/L}\\) と書く。\\(
+\\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
     \newcommand{\Arrowlr}{\Longleftrightarrow}
@@ -9,9 +7,9 @@
     \newcommand{\up}{\hspace{-3pt}\uparrow}
 \\)
 
-## 反応速度
+# 反応速度・電離度・平衡定数
 
-以下では、
+以下では、物質 \\(\mathrm{X}\\) のモル濃度を \\(\mathrm{[X] ~ mol/L}\\) と書き、
 
 \\[
     p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_1]} + q_2\mathrm{[B_2]} + \cdots
@@ -19,7 +17,9 @@
 
 という反応について考える。
 
-反応速度とは **ある特定の物質一つの濃度の変化速度** で、反応速度定数 \\(k\\) を用いて
+## 反応速度
+
+反応速度とは **ある特定の物質一つの濃度の変化速度** である。反応速度定数 \\(k\\) を用いて
 
 \\[v = k\mathrm{[A_1]}^{\alpha_1}\mathrm{[A_2]}^{\alpha_2} \cdots\\]
 
@@ -32,7 +32,7 @@
 ```admonish note title="アレニウスの式"
 同一の反応に対し、反応速度定数 \\(k\\) と活性化エネルギー \\(E\\) について、
 
-\\[ k \sim \exp\left(-\frac{E}{RT}\right) \\]
+\\[ k \propto \exp\left(-\frac{E}{RT}\right) \\]
 
 が成り立つ。
 

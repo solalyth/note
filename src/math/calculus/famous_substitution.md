@@ -1,6 +1,6 @@
 # 有名置換
 
-三角関数に関わる置換では、\\(\sin, \tan\\) が連続・単調増加かつ \\(\cos\\) が非負となる \\([-\pi/2, \pi/2]\\) から適切に置換するとよい。
+三角関数に関わる置換では \\([-\pi/2, \pi/2]\\) から適切に置換するとよい。
 
 \\(
     \newcommand{\disp}{\displaystyle}
@@ -17,7 +17,7 @@
 
 \\( x = \sin \theta \\) と置換する方法。
 
-しばしば \\(1-x^2\\) の形を含むときの定石として用いられる。積分範囲から \\( \sqrt{1-x^2} = \cos \theta \\) となることに注意。
+\\(x \to \sin\theta\\) の置換は \\(1-x^2\\) の形を含むときの定石として用いられる。積分範囲から \\( \sqrt{1-x^2} = \cos \theta \\) となることに注意。
 
 \\(\disp \int f(\sin\theta) \cdot \cos \theta ~ d\theta\\) は定番。\\(\disp \int f(\cos\theta) \cdot \sin \theta ~ d\theta\\) も \\( x = \cos\theta\\) で置換すればよい。
 

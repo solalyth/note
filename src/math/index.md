@@ -1,10 +1,25 @@
 # 数学
 
-数学について書きます。
+数学について書きます。\\(
+    \newcommand{\disp}{\displaystyle}
+    \newcommand{\v}[1]{\boldsymbol #1}
+    \newcommand{\Arrowlr}{\Longleftrightarrow}
+    \let\frac=\dfrac
+    \newcommand{\down}{\hspace{-3pt}\downarrow}
+    \newcommand{\up}{\hspace{-3pt}\uparrow}
+\\)
 
 ```admonish warning title="注意"
 + 積分定数は省略しています。
 ```
+
+## 直前に見るもの
+
++ 誘導に注意する
++ \\(\disp 1 + \cos x = 2\cos^2 \frac x2, ~ 1 - \cos x = 2\sin^2 \frac x2 \\) の意識
++ 三角関数の複雑な式が出てきたとき、恐れずに計算してみる
+
+
 
 ## 自分語り
 

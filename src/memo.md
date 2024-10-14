@@ -9,15 +9,16 @@
 \\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
-    \newcommand{\Arrowlr}{\Longleftrightarrow}
     \let\frac=\dfrac
     \newcommand{\down}{\hspace{-3pt}\downarrow}
     \newcommand{\up}{\hspace{-3pt}\uparrow}
+    \let\to=\longrightarrow
+    \newcommand{\tod}{\stackrel{\Diamond}{\to}}
 \\)
 
 \\(\underbrace{\text{How are you?}}_{\text{I'm good.}}\\)
 
-"_" をエスケープするときは "\_" とする必要がある。
+"\_" をエスケープするときは "\\\_" とする必要がある。
 
 \\(
     \left\\{ \begin{array}{}
@@ -60,10 +61,12 @@
 ```
 
 ```admonish note title="開閉可能なノート" collapsible=true
-開閉できる。
+開閉できる。印刷しようとすると閉じるので良くない？
 ```
 
-<u>下線を引ける</u>
+<uj>下線を引ける。English sample text.</uj>
+
+<ue>underline for English texts. 日本語サンプル</ue>
 
 ## テスト
 
