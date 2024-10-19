@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="jp" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>統計 - Alyth note</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../.././mdbook-admonish.css">
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../math/techniques/index.html"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../../math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/complex/index.html"><strong aria-hidden="true">5.</strong> 複素数</a></li><li class="chapter-item expanded "><a href="../../math/statistics/index.html" class="active"><strong aria-hidden="true">6.</strong> 統計</a></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">7.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/singles.html"><strong aria-hidden="true">8.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="../../math/mistakes.html"><strong aria-hidden="true">9.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">10.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">11.</strong> 力学</a></li><li class="chapter-item expanded "><a href="../../physics/electromagnetism/index.html"><strong aria-hidden="true">12.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">13.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">13.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/index.html"><strong aria-hidden="true">14.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">14.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/redox-reaction.html"><strong aria-hidden="true">14.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">14.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/index.html"><strong aria-hidden="true">15.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">15.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">15.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/oxide.html"><strong aria-hidden="true">15.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/note.html"><strong aria-hidden="true">15.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/organic/index.html"><strong aria-hidden="true">16.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/organic/sugar.html"><strong aria-hidden="true">16.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../../english/notes/index.html"><strong aria-hidden="true">17.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../english/notes/lecture_1.html"><strong aria-hidden="true">17.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">18.</strong> メモ</a></li><li class="chapter-item expanded "><a href="../../unpagenized.html"><strong aria-hidden="true">19.</strong> 記事ネタ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="../../isct/chemistry/index.html"><strong aria-hidden="true">20.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../isct/chemistry/2016.html"><strong aria-hidden="true">20.1.</strong> 2016</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Alyth note</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/solalyth/note" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>\(
+\newcommand{\disp}{\displaystyle}
+\newcommand{\bar}[1]{\overline{#1}}
+\)</p>
+<h1 id="統計"><a class="header" href="#統計">統計</a></h1>
+<p>高校数学なので像集合は実数の部分集合であるとする。</p>
+<h2 id="確率変数とは"><a class="header" href="#確率変数とは">確率変数とは</a></h2>
+<p>確率変数とは、ある決まった確率で値を出力するような<strong>ガチャ台</strong>であり、それ自体が決まった値を持つわけではない。</p>
+<p>確率変数は離散確率変数・連続確率変数の二種類に分類される。</p>
+<h2 id="離散確率変数"><a class="header" href="#離散確率変数">離散確率変数</a></h2>
+<p>「確率リスト表」を作れるようなもの<sup class="footnote-reference"><a href="#1">1</a></sup>を<strong>離散確率変数</strong>という。</p>
+<p>「離散確率変数 \(X\) について、ある値 \(x_i\) が出力される確率」を慣習的に \(P[X = x_i]\) と書いたりする。<br />
+以下では、離散確率変数が明らかである文脈において \(p_i\) と書いたりすることにする。</p>
+<p>このとき、期待値 \(E[X] = m\), 分散 \(V[X]\), 標準偏差 \(\sigma[X]\) は</p>
+<p>\[
+E[X] = \sum p_ix_i \\[10px]
+V[X] = \sum p_i(x_i - m)^2 \\[10px]
+\sigma[X] = \sqrt{V[X]}
+\]</p>
+<p>と定義される。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>正確には、像集合が高々可算無限集合であるもの。断りもなく値に自然数のラベルを付けていたり、シグマで和を取ったりしているのはよくないかも。</p>
+</div>
+<h2 id="連続確率変数"><a class="header" href="#連続確率変数">連続確率変数</a></h2>
+<p>// TODO: やる気ないなった。</p>
+<p>確率密度関数 \(f\) や累積密度関数 \(F\)を用いて</p>
+<p>\[P[a \leq x \leq b] = \int_a^b f(x) ~ dx = F(b) - F(a)\]</p>
+<p>と表せる。この 2 つの関数は互いに微分・積分の関係にある:</p>
+<p>\[F(x) = \int_{-\infty}^x f(t) ~ dt \quad \Longleftrightarrow \quad F'(x) = f(x)\]</p>
+<h2 id="二項分布"><a class="header" href="#二項分布">二項分布</a></h2>
+<p>ある離散確率変数 \(X\) が、実数 \(0 \leq p \leq 1\) と自然数 \(n\) を用いて、\(0 \leq k \leq n\) について</p>
+<p>\[P[X = k] = \binom{n}{k} ~ p^k (1-p)^{n-k}\]</p>
+<p>が成り立つとき、「確率変数 \(X\) は二項分布 \(B(n, p)\) に従う」という。</p>
+<p>\(E = np,~ V = np(1-p),~ \sigma = \sqrt{np(1-p)}\) となる。</p>
+<p>\(n\) が十分大きいとき、正規分布 \(N(np, np(1-p))\) と近似することができる。</p>
+<h2 id="正規分布"><a class="header" href="#正規分布">正規分布</a></h2>
+<p>良い性質を持った、自然界でよく見かける分布。平均 \(m\) と分散 \(\sigma^2\) を用いて正規分布 \(N(m, \sigma^2)\) と書く。</p>
+<p>\(N(0, 1)\) である正規分布を特に<strong>標準正規分布</strong>という。普通の正規分布について</p>
+<p>\[X \sim N(m, \sigma^2) \quad \Longleftrightarrow \quad \frac{X-m}{\sigma} \sim N(0, 1)\]</p>
+<p>と変換することで標準正規分布に従わせることができる。これを<strong>標準化</strong>という。</p>
+<br>
+<p>標準正規分布表から、標準正規分布の累積密度関数 \(F(x)\) が分かる。</p>
+<p>\[
+F(x) = P\left[\frac{X-m}\sigma \leq x\right] = P[X \leq m + \sigma x]
+\]</p>
+<p>であるから、正規分布から取り出した値が \([m + p\sigma,~ m + q\sigma]\) の範囲に収まる確率は、</p>
+<p>\[
+P[m + p\sigma \leq X \leq m + q\sigma] = F(q) - F(p)
+\]</p>
+<p>と計算することができる。</p>
+<h2 id="標本と標本平均"><a class="header" href="#標本と標本平均">標本と標本平均</a></h2>
+<p>母集団を \(X \sim N(m, \sigma^2)\) とし、\(n\) 個抽出して標本を取ることを考える。このとき、標本の平均値は <strong>標本平均</strong> \(\bar{X}\) という確率変数から 1 個取り出したときの値と解釈できる。この標本平均について調べる。</p>
+<pre class="mermaid">graph LR
+
+a1[母集団 X]--&gt;|計算で出せる&lt;br&gt;確率変数|a2[標本平均 barX]
+
+a1--&gt;|実際に無作為抽出|a3[標本 S]--&gt;|平均をとる|a4[&quot;標本平均値 ave(S)&quot;]
+
+a2==&gt;|「1個取り出した」|a4
+</pre>
+<p>母集団が \(n\) に対して十分大きいとき、非復元抽出でも復元抽出と見做せることが知られている。</p>
+<p>母集団から復元抽出で \(n\) 回取り出した配列を出力する確率変数を \(\mathrm{Rep}(n)\) と書くことにする<sup class="footnote-reference"><a href="#2">2</a></sup>。特にそれぞれの試行は互いに独立で、\(\bar{X} = \dfrac{\mathrm{Rep}(n)}{n}\) である。</p>
+<p>ここで、期待値・分散の独立な確率変数に対する加法性から</p>
+<p>\[
+E[\bar{X}] = E\left[\frac{\mathrm{Rep}(n)}{n}\right] = \frac{E[\mathrm{Rep}(n)]}{n} = \frac{nE[X]}{n} = m \\[25px]
+V[\bar{X}] = V\left[\frac{\mathrm{Rep}(n)}{n}\right] = \frac{V[\mathrm{Rep}(n)]}{n^2} = \frac{nV[X]}{n^2} = \frac{\sigma^2}{n} \\[25px]
+\sigma[\bar{X}] = \frac{\sigma}{\sqrt{n}}
+\]</p>
+<p>と分かる。また、母集団が正規分布ならば標本平均も正規分布に従うことが知られている。</p>
+<p>以上より、\(\bar{X}\) は標準偏差を \(\sqrt{n}\) で割った正規分布 \(\disp N\left(m, \frac{\sigma^2}{n}\right)\) に従うことが分かった。</p>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>これは \(nX\) とは異なり、n 倍された値が取り出されるのではないことに注意。</p>
+</div>
+<h2 id="母平均の推定仮説検定"><a class="header" href="#母平均の推定仮説検定">母平均の推定・仮説検定</a></h2>
+<p>ある母平均から取り出した大きさ \(n\) の標本の平均・標準偏差が \(\tilde{m}, \tilde{\sigma}\) であったとする。
+母集団が正規分布 \(N(m, {\tilde{\sigma}}^2)\) に従うと仮定したときの、未知な母平均 \(m\) はだいたいどの範囲に存在するかを考える。</p>
+<p>このとき、<strong>信頼度</strong>という割合値を設定して推定する。今回はよく出題される 95 %と設定する。これは「標本平均 \(\bar{X}\) の 95 %範囲に実際の標本平均値 \(\tilde{m}\) が収まるような \(m\) 」の範囲を求めましょう、という意味である。</p>
+<p>ここで、標準正規分布表から例の範囲は \(\disp \left[m-1.96\frac{\tilde\sigma}{\sqrt{n}}, ~ m+1.96\frac{\tilde\sigma}{\sqrt{n}}\right]\) と分かる。よって、</p>
+<p>\[
+m-1.96\frac{\tilde\sigma}{\sqrt{n}} \leq \tilde{m} \leq m+1.96\frac{\tilde\sigma}{\sqrt{n}} \\[10px]
+\Longleftrightarrow \tilde{m}-1.96\frac{\tilde\sigma}{\sqrt{n}} \leq m \leq \tilde{m}+1.96\frac{\tilde\sigma}{\sqrt{n}}
+\]</p>
+<p>と推定できた。</p>
+<br>
+<p>次に仮説検定の話をする。そもそも仮説検定とは、調べづらい<strong>対立仮説</strong>に対して調べやすい<strong>帰無仮説</strong>を立て、帰無仮説が棄却できるかできないかを調べるというものである。</p>
+<p>母平均の仮説検定では、対立仮説を「推定した母平均 \(m\) は正しくない」、帰無仮説を「母平均 \(m\) は正しい」とし、帰無仮説を仮定したときに実際の標本値が出てくる確率が小さすぎる場合に棄却する、というものである。</p>
+<p>このときに設定する値を<strong>有意水準</strong>という。有意水準 5 %としたとき、両側検定なら標本平均の 95 %範囲に含まれるのか、片側検定なら標本平均の片側 45 %範囲に含まれるのかを調べる。</p>
+<p>普通に標準正規分布表を見て調べれば終わり。</p>
+<h2 id="母比率の推定仮説検定"><a class="header" href="#母比率の推定仮説検定">母比率の推定・仮説検定</a></h2>
+<p>母集団 \(X\) が確率 \(p\) で 1 を返す確率変数である、つまり二項分布 \(B(1, p)\) に従うとき、\(p\) を母比率という。同様に、標本のうち 1 である割合を標本比率という。</p>
+<p>ここで、二項分布を大胆に</p>
+<p>\[\disp X \sim N(p, p(1-p)), ~ \bar{X} \sim N\left(p, \frac{p(1-p)}{n}\right) \]</p>
+<p>として母平均推定を行う。このとき標本の平均値はまさに標本比率を表す。よって、実際の標本比率を \(\tilde{p}\), 信頼度を 95 %として</p>
+<p>\[
+\tilde{p} - 1.96 \sqrt{\frac{\tilde{p}(1-\tilde{p})}{n}} \leq p \leq \tilde{p} + 1.96 \sqrt{\frac{\tilde{p}(1-\tilde{p})}{n}}
+\]</p>
+<p>を得る。\(m = \tilde{p}, ~ \sigma = \sqrt{\tilde{p}(1-\tilde{p})}\) としただけである。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../math/complex/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../math/hyperbolic_function.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../math/complex/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../math/hyperbolic_function.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../mermaid.min.js"></script>
+        <script src="../../mermaid-init.js"></script>
+
+
+    </div>
+    </body>
+</html>
