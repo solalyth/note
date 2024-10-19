@@ -1,19 +1,18 @@
 # メモ
 
-+ 不動態
-+ 鉛ガラス
-+ 混合と濃度
-
 ## 数式置き場
 
 \\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
     \let\frac=\dfrac
-    \newcommand{\down}{\hspace{-3pt}\downarrow}
-    \newcommand{\up}{\hspace{-3pt}\uparrow}
+    
     \let\to=\longrightarrow
+    
     \newcommand{\tod}{\stackrel{\Diamond}{\to}}
+    
+    \newcommand{\bar}[1]{\overline{#1}}
+    \DeclareMathOperator{\cis}{cis}
 \\)
 
 \\(\underbrace{\text{How are you?}}_{\text{I'm good.}}\\)

@@ -1,13 +1,13 @@
-# 熱力学
-
-熱力学。\\(
+\\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
     \newcommand{\Arrowlr}{\Longleftrightarrow}
     \let\frac=\dfrac
-    \newcommand{\down}{\hspace{-3pt}\downarrow}
-    \newcommand{\up}{\hspace{-3pt}\uparrow}
 \\)
+
+# 熱力学
+
+熱力学。
 
 ## 単位
 

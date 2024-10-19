@@ -18,6 +18,8 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
           use-admonish: true
+          use-mermaid: true
+          
       
       # - name: Setup mdBook
       #   uses: peaceiris/actions-mdbook@v1

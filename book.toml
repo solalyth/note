@@ -9,7 +9,11 @@ title = "Alyth note"
 mathjax-support = true
 git-repository-url = "https://github.com/solalyth/note"
 additional-css = ["./mdbook-admonish.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
 
 [preprocessor.admonish]
 command = "mdbook-admonish"
 assets_version = "3.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"

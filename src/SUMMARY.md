@@ -14,6 +14,8 @@
     + [積分方程式](./math/calculus/integral_equation.md)
 - [組み合わせ・確率](./math/probability/index.md)
     + [冪級数の利用](./math/probability/use_of_power_series.md)
+- [複素数](./math/complex/index.md)
+- [統計](./math/statistics/index.md)
 - [双曲線関数](./math/hyperbolic_function.md)
 - [単発記事集](./math/singles.md)
 - [凡ミス供養所](./math/mistakes.md)
@@ -48,6 +50,7 @@
 # 自分用
 
 - [メモ](memo.md)
+- [記事ネタ](unpagenized.md)
 
 # 東京科学大対策
 
