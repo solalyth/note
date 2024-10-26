@@ -224,7 +224,7 @@ V[X] = \sum p_i(x_i - m)^2 \\[10px]
 <p>\[
 F(x) = P\left[\frac{X-m}\sigma \leq x\right] = P[X \leq m + \sigma x]
 \]</p>
-<p>であるから、正規分布から取り出した値が \([m + p\sigma,~ m + q\sigma]\) の範囲に収まる確率は、</p>
+<p>であるから、正規分布から取り出した値が \([m + p\sigma,~ m + q\sigma]\) の範囲に含まれる確率は、</p>
 <p>\[
 P[m + p\sigma \leq X \leq m + q\sigma] = F(q) - F(p)
 \]</p>
@@ -255,8 +255,8 @@ V[\bar{X}] = V\left[\frac{\mathrm{Rep}(n)}{n}\right] = \frac{V[\mathrm{Rep}(n)]}
 <h2 id="母平均の推定仮説検定"><a class="header" href="#母平均の推定仮説検定">母平均の推定・仮説検定</a></h2>
 <p>ある母平均から取り出した大きさ \(n\) の標本の平均・標準偏差が \(\tilde{m}, \tilde{\sigma}\) であったとする。
 母集団が正規分布 \(N(m, {\tilde{\sigma}}^2)\) に従うと仮定したときの、未知な母平均 \(m\) はだいたいどの範囲に存在するかを考える。</p>
-<p>このとき、<strong>信頼度</strong>という割合値を設定して推定する。今回はよく出題される 95 %と設定する。これは「標本平均 \(\bar{X}\) の 95 %範囲に実際の標本平均値 \(\tilde{m}\) が収まるような \(m\) 」の範囲を求めましょう、という意味である。</p>
-<p>ここで、標準正規分布表から例の範囲は \(\disp \left[m-1.96\frac{\tilde\sigma}{\sqrt{n}}, ~ m+1.96\frac{\tilde\sigma}{\sqrt{n}}\right]\) と分かる。よって、</p>
+<p>このとき、<strong>信頼度</strong>という割合値を設定して推定する。今回はよく出題される 95% と設定する。これは「標本平均 \(\bar{X}\) の 95% 信頼区間に実際の標本平均値 \(\tilde{m}\) が含まれるような \(m\) 」の範囲を求めましょう、という意味である。</p>
+<p>ここで、標準正規分布表から 95% 信頼区間は \(\disp \left[m-1.96\frac{\tilde\sigma}{\sqrt{n}}, ~ m+1.96\frac{\tilde\sigma}{\sqrt{n}}\right]\) と分かる。よって、</p>
 <p>\[
 m-1.96\frac{\tilde\sigma}{\sqrt{n}} \leq \tilde{m} \leq m+1.96\frac{\tilde\sigma}{\sqrt{n}} \\[10px]
 \Longleftrightarrow \tilde{m}-1.96\frac{\tilde\sigma}{\sqrt{n}} \leq m \leq \tilde{m}+1.96\frac{\tilde\sigma}{\sqrt{n}}
@@ -265,13 +265,13 @@ m-1.96\frac{\tilde\sigma}{\sqrt{n}} \leq \tilde{m} \leq m+1.96\frac{\tilde\sigma
 <br>
 <p>次に仮説検定の話をする。そもそも仮説検定とは、調べづらい<strong>対立仮説</strong>に対して調べやすい<strong>帰無仮説</strong>を立て、帰無仮説が棄却できるかできないかを調べるというものである。</p>
 <p>母平均の仮説検定では、対立仮説を「推定した母平均 \(m\) は正しくない」、帰無仮説を「母平均 \(m\) は正しい」とし、帰無仮説を仮定したときに実際の標本値が出てくる確率が小さすぎる場合に棄却する、というものである。</p>
-<p>このときに設定する値を<strong>有意水準</strong>という。有意水準 5 %としたとき、両側検定なら標本平均の 95 %範囲に含まれるのか、片側検定なら標本平均の片側 45 %範囲に含まれるのかを調べる。</p>
+<p>このときに設定する値を<strong>有意水準</strong>という。有意水準 5 %としたとき、標本平均の 95% 信頼区間に含まれるのかを調べる。</p>
 <p>普通に標準正規分布表を見て調べれば終わり。</p>
 <h2 id="母比率の推定仮説検定"><a class="header" href="#母比率の推定仮説検定">母比率の推定・仮説検定</a></h2>
 <p>母集団 \(X\) が確率 \(p\) で 1 を返す確率変数である、つまり二項分布 \(B(1, p)\) に従うとき、\(p\) を母比率という。同様に、標本のうち 1 である割合を標本比率という。</p>
 <p>ここで、二項分布を大胆に</p>
 <p>\[\disp X \sim N(p, p(1-p)), ~ \bar{X} \sim N\left(p, \frac{p(1-p)}{n}\right) \]</p>
-<p>として母平均推定を行う。このとき標本の平均値はまさに標本比率を表す。よって、実際の標本比率を \(\tilde{p}\), 信頼度を 95 %として</p>
+<p>として母平均推定を行う。このとき標本の平均値はまさに標本比率を表す。よって、実際の標本比率を \(\tilde{p}\), 信頼度を 95% として</p>
 <p>\[
 \tilde{p} - 1.96 \sqrt{\frac{\tilde{p}(1-\tilde{p})}{n}} \leq p \leq \tilde{p} + 1.96 \sqrt{\frac{\tilde{p}(1-\tilde{p})}{n}}
 \]</p>

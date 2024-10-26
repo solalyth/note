@@ -186,63 +186,123 @@
 \let\frac=\dfrac
 \)</p>
 <h1 id="凸不等式系"><a class="header" href="#凸不等式系">凸不等式系</a></h1>
-<p>凸不等式は非常に強い道具。ここから様々な不等式が導ける。</p>
-<div id="admonition-凸不等式-jensens-inequality" class="admonition admonish-note" role="note" aria-labelledby="admonition-凸不等式-jensens-inequality-title">
+<p>凸不等式は非常に強い道具である。まさに凸不等式を問う問題から、これを知らないと難しい問題もある。ここから様々な不等式が導ける。</p>
+<p>参考記事: <a href="https://mathlandscape.com/convex-func">数学の景色</a></p>
+<h2 id="凸性"><a class="header" href="#凸性">凸性</a></h2>
+<p>高校数学でいう「下に凸・上に凸」を、ここでは単に「凸・凹」と呼ぶことにする。<br />
+\(f\) が凹関数ならば \(-f\) は凸関数である。以下では凸関数に関する不等式を紹介するが、凹関数では逆向きの不等式が成立する。(たぶんそう)</p>
+<br>
+<p>関数 \(f(x)\) を実数上の区間 \(I\) から実数への関数であるとする。この関数が<strong>広義凸関数</strong>であるとは、曲線上の二点を結ぶ線分が必ず曲線より上側を通ることをいう。すなわち、区間 \(I\) 上の任意の 2 値 \(a &lt; b\) について</p>
+<p>\[
+\forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-x)b\right) \leq \lambda f(a) + (1-\lambda) f(b) \bigg]
+\]</p>
+<p>が成立することをいう。\(\lambda : 1-\lambda\) の内分点について、左辺は曲線上の高さ、右辺は二点を結ぶ線分上の高さを表している。<br />
+また、<strong>狭義凸関数</strong>であるとは、曲線の一部として直線を持たず、等号を除いた式</p>
+<p>\[
+\forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-x)b\right) &lt; \lambda f(a) + (1-\lambda) f(b) \bigg]
+\]</p>
+<p>が成立することをいう。</p>
+<div id="admonition-untitled" class="admonition admonish-note" role="note" aria-labelledby="admonition-untitled-title">
 <div class="admonition-title">
-<div id="admonition-凸不等式-jensens-inequality-title">
-<p>凸不等式 (Jensen's inequality)</p>
+<div id="admonition-untitled-title">
+<p>untitled</p>
 </div>
-<a class="admonition-anchor-link" href="#admonition-凸不等式-jensens-inequality"></a>
+<a class="admonition-anchor-link" href="#admonition-untitled"></a>
 </div>
 <div>
-<p>下に狭義凸な関数 \(f \colon I \to \mathbb{R}\) と、和が \(1\) である正の重み \((w_n)\) について、</p>
-<p>\[ ^\forall (a_i \in I)_{i = 1, 2, \cdots, n} ~ \bigg[ ~ f \left( \sum w_i a_i \right) \leq \sum w_i f(a_i) ~ \bigg] \]</p>
-<p>が成立する。等号成立は \(a_i = \text{const.}\) であるときに限る。</p>
+<p>後述する凸不等式の弱い系ではあるが、単に \(\lambda = 1/2\) とした式</p>
+<p>\[
+f\left(\frac{x_1+x_2}{2}\right) \leq \frac{f(x_1)+f(x_2)}{2}
+\]</p>
+<p>を用いて解き進めることがある。</p>
+</div>
+</div>
+<br>
+<p>実用性と証明の簡略化のため、以下では<uj>狭義凸関数について考える</uj>。</p>
+<p>「 \(f'\) が狭義単調増加 \(\Longleftrightarrow\) \(f\) が狭義凸」が知られている。特に \(f''(x) &gt; 0\) ならば十分である。</p>
+<details id="admonition-十分性の証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-十分性の証明-title">
+<summary class="admonition-title">
+<div id="admonition-十分性の証明-title">
+<p>十分性の証明</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-十分性の証明"></a>
+</summary>
+<div>
+<p>問題を解くときは十分性しか使わないので、十分性だけ書く。</p>
+<p>\[
+g(x) = f(x) - \left\{ \frac{f(b)-f(a)}{b-a} (x-a) + f(a) \right\}
+\]</p>
+<p>と定義し、\((a, b)\) の範囲で \(g(x) &lt; 0\) が成り立つことを示せばよい。</p>
+<p>\(g(a)=g(b)=0\) かつ \(g'\) が狭義単調増加である。ロルの定理から \(g'(k) = 0\) となる \(k \in (a, b)\) が存在し、増減表は</p>
+<p>\[
+\begin{array}{c|ccccc}
+x &amp; a &amp; \cdots &amp; k &amp; \cdots &amp; b \\ \hline
+g(x) &amp; 0 &amp; \searrow &amp; - &amp; \nearrow &amp; 0 \\ \hline
+g'(x) &amp; &amp; - &amp; 0 &amp; +
+\end{array}
+\]</p>
+<p>となるから、示せた。</p>
+</div>
+</details>
+<h2 id="凸不等式"><a class="header" href="#凸不等式">凸不等式</a></h2>
+<p>本題の凸不等式とも呼ばれる、根幹を為す不等式である。イェンセン・イェンゼンの表記揺れがそこそこある。</p>
+<blockquote>
+<p><strong>Jensen の不等式</strong></p>
+<p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の実数列 \((x_i)\), 和が \(1\) である正実数列 \((w_i)\) について</p>
+<p>\[ f \left( \sum w_i x_i \right) \leq \sum w_i f(x_i) \]</p>
+<p>が成立する。等号成立条件は \(^\forall x_i = \mathrm{const.}\) である。</p>
 <hr />
 <p>(証明)</p>
-<p>\(\disp k = \sum w_i a_i\) と置く。凸性より</p>
-<p>\[</p>
-<p>\]</p>
-</div>
-</div>
-<div id="admonition-均一重みの凸不等式" class="admonition admonish-note" role="note" aria-labelledby="admonition-均一重みの凸不等式-title">
-<div class="admonition-title">
-<div id="admonition-均一重みの凸不等式-title">
-<p>均一重みの凸不等式</p>
-</div>
-<a class="admonition-anchor-link" href="#admonition-均一重みの凸不等式"></a>
-</div>
-<div>
-<p>\(w_n = 1/n\) としたとき</p>
-<p>\[\frac{\sum f(a_i)}{n} \leq f \left( \frac{\sum a_i}{n} \right)\]</p>
-<p>となる。以下では、これを「均一重みの凸不等式」と呼ぶ。</p>
-<hr />
-<p>均一重みかつ \(^\forall i \neq j, ~ a_i \neq a_j\) とした例は直感的。</p>
-<p>\(y = f(x)\) のグラフから \(n\) 個の点 \((w_i, f(w_i))\) をとり、凸包を考える。</p>
-<p>この凸包の重心は \(\disp \left(\frac{\sum a_i}{n}, \frac{\sum f(a_i)}{n}\right)\) で表され、図を描けば明らかに領域 \(y &gt; f(x)\) 上に存在するから、示せた。</p>
-<p>\(n=2\) のときは中点となり、頻出。</p>
-</div>
-</div>
-<div id="admonition-一般化された相加相乗平均" class="admonition admonish-note" role="note" aria-labelledby="admonition-一般化された相加相乗平均-title">
-<div class="admonition-title">
-<div id="admonition-一般化された相加相乗平均-title">
-<p>一般化された相加相乗平均</p>
-</div>
-<a class="admonition-anchor-link" href="#admonition-一般化された相加相乗平均"></a>
-</div>
-<div>
-<p>上に凸な関数 \(f(x) = \log x ~ (0 &lt; x)\) について、均一重みの凸不等式から</p>
+<p>\(\disp m = \sum w_i a_i\) と置く。曲線 \(y = f(x)\) の \(x = m\) での接線は、曲線より下側を通るから<sup class="footnote-reference"><a href="#1">1</a></sup></p>
 <p>\[
-\frac{\sum \log a_i}{n} \leq \log \frac{\sum a_i}{n}
-\Arrowlr \sqrt[n]{\prod a_i} \leq \frac{\sum a_i}{n}
+f'(m) (x-m) + f(m) \leq f(x)
 \]</p>
-<p>である。等号は \(a_i = \mathrm{const.}\) のとき成立する。</p>
-<hr />
-<p>\[ 2x + \frac{1}{x^2} = x + x + \frac{1}{x^2} \leq 3\sqrt[3]{x \cdot x \cdot \frac{1}{x^2}} = 3\]</p>
-<p>のように、分割することで評価させるテクニックがある。<br />
-最小値などでは、等号成立する値が存在するように上手く分割する必要がある。</p>
+<p>が成立する。等号成立条件は \(x = m\) である。</p>
+<p>\(x = x_i\) での式を \(w_i\) 倍して足し上げると、\(\disp \sum w_i(x_i-m) = 0\) より不等式を得る。<br />
+等号成立条件は \(^\forall x_i = m\) であり、\(^\forall x_i = \mathrm{const.}\) と同値である。</p>
+<p>接線が \(y\) 軸と平行であるときは上の議論はできないが、そのような点 \(x = k\) は区間の端点のみであり、\(m = k\) ならば \(^\forall x_i = k\) であるから、この場合も不等式は成り立つ。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>曲線 \(g(x) = f(x) - f(m) - f'(m)(x-m)\) は \(g(m) = g'(m) = 0\) かつ \(g'\) が狭義単調増加であるから、増減表を書けば明らかに \(g(x) \leq 0\) であり、示せた。</p>
 </div>
-</div>
+</blockquote>
+<br>
+<p>問題では重みが \(^\forall w_i = 1/n\) であることが多い。そちらを「平均凸不等式」と呼ぼう。</p>
+<blockquote>
+<p><strong>平均凸不等式</strong></p>
+<p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の実数列 \((x_i)\) について</p>
+<p>\[
+f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \cdots + f(x_n)}{n}
+\]</p>
+<p>が成立する。</p>
+</blockquote>
+<p>また、log を使うと積についての不等式が得られる。</p>
+<blockquote>
+<p><strong>log の平均凸不等式</strong></p>
+<p>\(\log f(x) \colon I \to \mathbb{R}\) が狭義凸関数であるとき、区間 \(I\) 上の実数列 \((x_i)\) について</p>
+<p>\[
+\log f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{\log \left\{f(x_1)f(x_2) \cdots f(x_n)\right\}}{n} \\
+\Longleftrightarrow \quad f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \sqrt[n]{f(x_1)f(x_2) \cdots f(x_n)}
+\]</p>
+<p>が成立する。</p>
+</blockquote>
+<p>これらは \(x_1 + x_2 + \cdots + x_n\) の値が決まっているときの、\(\disp \sum f(x_i), ~ \prod f(x_i)\) の最大値・最小値を求める問題に効くことが多い。</p>
+<h2 id="系となる不等式"><a class="header" href="#系となる不等式">系となる不等式</a></h2>
+<blockquote>
+<p><strong>任意個の項の相加相乗平均</strong></p>
+<p>\(f(x) = \log x\) は凹関数である。正の実数列 \((x_i)\) について、log の平均凸不等式から</p>
+<p>\[
+\frac{x_1 + x_2 + \cdots + x_n}{n} \geq \sqrt[n]{x_1x_2 \cdots x_n}
+\]</p>
+<p>を得る。凹関数であるから符号が逆になることに注意。</p>
+</blockquote>
+<blockquote>
+<p><strong>コーシー・シュワルツの不等式</strong></p>
+<p>正の実数列 \((x_i), (y_i)\) について、</p>
+<p>\[
+\left(\sum x_iy_i\right)^2 \leq \left(\sum {x_i}^2 \right) \left(\sum {y_i}^2 \right)
+\]</p>
+<p>が成立することを主張する不等式である。</p>
+</blockquote>
 <div id="admonition-コーシーシュワルツの不等式" class="admonition admonish-note" role="note" aria-labelledby="admonition-コーシーシュワルツの不等式-title">
 <div class="admonition-title">
 <div id="admonition-コーシーシュワルツの不等式-title">
