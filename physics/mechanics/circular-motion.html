@@ -188,42 +188,69 @@
 <h2 id="円運動"><a class="header" href="#円運動">円運動</a></h2>
 <p>円運動の中心を \(0\), 初期位置を \(r\) となるよう、適切に極座標平面をとる。偏角を \(\theta(t)\) とすると</p>
 <p>\[
-\v x = re^{i\theta}, \quad \v v = \underbrace{r\dot\theta \cdot ie^{i\theta}}_{\text{接線方向}}, \quad \v a = \underbrace{r\ddot\theta \cdot ie^{i\theta}}_{\text{接線方向}} + \underbrace{r{\dot\theta}^2 \cdot (-e^{i\theta})}_{\text{向心方向}}
+\v x = re^{i\theta}, \quad \v v = \underbrace{r\dot\theta \cdot ie^{i\theta}}_{\text{接線方向}}, \quad \v a = \underbrace{r\ddot\theta \cdot ie^{i\theta}}_{\text{接線方向}} + \underbrace{r{\dot\theta}^2 \cdot (-e^{i\theta})}_{\text{向心方向}} \\
+\longrightarrow \quad a_{\text{向心方向}} = \frac{v^2}{r}
 \]</p>
 <p>となるから、運動方程式は</p>
 <p>\[
 F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad F_{\text{接線方向}} = m \cdot r\ddot\theta
 \]</p>
-<p>となる。特に、向心方向の力を向心力と言う<sup class="footnote-reference"><a href="#1">1</a></sup>。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力によって周回速度が変化することが分かる。</p>
+<p>となる。この向心成分の力を向心力と言う<sup class="footnote-reference"><a href="#1">1</a></sup>。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力による仕事によって速度が変化する。
+特に、円運動の回転方向が逆になり始める瞬間は、<uj>力の接線方向成分が 0 になる必要がある</uj>。</p>
 <p>一般には \(\theta\) が簡潔な式で表せないことが多いため、\(\theta\) が現れない向心力の式しか使わない。また、<uj>運動全体で力学的エネルギー保存則が成り立つことがよくある</uj>。</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>間違えるのは自分だけなのかもしれないが、「向心力という大きさ \(\frac{mv^2}{r}\) の力がはたらく」のではなく「物体にはたらく様々な力の合力の向心成分 (向心力) が \(\frac{mv^2}{r}\) になっている」のである。</p>
 </div>
 <blockquote>
-<p><strong>円運動の向心力の大きさ</strong></p>
-<p>\[ F_{\text{向心方向}} = m \cdot \frac{v^2}{r} \]</p>
+<p>円運動 気にすること</p>
+<ul>
+<li>向心向き加速度・向心力</li>
+</ul>
+<p>\[ \disp a_{\text{向心方向}} = \frac{v^2}{r}, \quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r} \]</p>
+<ul>
+<li>
+<p>力学的エネルギー保存</p>
+</li>
+<li>
+<p>円運動の回転方向が変わる \(\Longrightarrow\) \(F_{\text{接線方向}} = 0\)</p>
+</li>
+</ul>
 </blockquote>
 <h3 id="等速円運動"><a class="header" href="#等速円運動">等速円運動</a></h3>
-<p>円運動の式で \(θ(t) = \omega t\) とした場合である。この定数 \(\omega ~ [\mathrm{rad/s}]\) を角速度という。代入すれば</p>
+<p>\(θ(t) = \omega t\) とした場合。この定数 \(\omega ~ [\mathrm{rad/s}]\) を角速度という。代入すれば、角速度による表示</p>
 <p>\[
-\v x = re^{i\omega t}, \quad \v v = \underbrace{r\omega \cdot ie^{i\omega t}}_{\text{接線方向}}, \quad \v a = \underbrace{r\omega^2 \cdot (-e^{i\omega t})}_{\text{向心方向}} = -\omega^2 x \\
-\longrightarrow \quad v = r\omega, \quad a = r\omega^2
+\v x = re^{i\omega t}, \quad \v v = \underbrace{r\omega \cdot ie^{i\omega t}}_{\text{接線方向}}, \quad \v a = \underbrace{r\omega^2 \cdot (-e^{i\omega t})}_{\text{向心方向}} = -\omega^2 \v x \\
+\longrightarrow \quad v = r\omega, \quad a = r\omega^2, \quad F_{\text{向心方向}} = mr\omega^2
 \]</p>
-<p>を得る。特に、接線方向の力の大きさは 0 で、向心力の大きさは</p>
-<p>\[
-F_{\text{向心方向}} = mr\omega^2
-\]</p>
-<p>とも表せることが分かる。また、円運動の周期</p>
+<p>を得る。特に、接線方向の力の大きさは 0 である。また、等速円運動では周期</p>
 <p>\[ T = \frac{2\pi}{\omega} = \frac{2\pi r}{v}\]</p>
-<p>が分かる。</p>
+<p>を求めることができる。</p>
 <blockquote>
-<p><strong>等速円運動での速度・加速度・力</strong></p>
-<p>\[ v = r\omega, \quad a = r\omega^2 \\
-\quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r} = mr\omega^2, \quad F_{\text{接線方向}} = 0
+<p>等速円運動 気にすること</p>
+<ul>
+<li>もろもろ
+<ul>
+<li>上式から下式(円運動由来)が導ける。下式は \(r\) を知りたいときに使う。</li>
+</ul>
+</li>
+</ul>
+<p>\[
+\left\{ \begin{array}{}
+v = r\omega, \quad a = r\omega^2, \quad F_{\text{向心方向}} = mr\omega^2 \\[12px]
+a_{\text{向心方向}} = \frac{v^2}{r}, \quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r}
+\end{array} \right.
 \]</p>
+<ul>
+<li>接線方向の力 \(F_{\text{接線方向}} = 0\)</li>
+</ul>
 </blockquote>
 <h2 id="単振動"><a class="header" href="#単振動">単振動</a></h2>
-<p>等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。このとき</p>
+<p>等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。計算すれば</p>
+<p>\[
+x = r\sin \omega t, \quad v = r\omega \cos \omega t, \quad a = -r\omega^2 \sin \omega t \\
+\longrightarrow a = -\omega^2 x
+\]</p>
+<p>を得る。</p>
 
                     </main>
 
