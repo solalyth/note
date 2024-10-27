@@ -24,6 +24,7 @@
 
 - [初めに](./physics/index.md)
 - [力学](./physics/mechanics/index.md)
+    - [円運動・単振動](./physics/mechanics/circular-motion.md)
 - [電磁気](./physics/electromagnetism/index.md)
 - [熱力学](./physics/thermodynamics/index.md)
     + [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 

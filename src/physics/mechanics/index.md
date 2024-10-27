@@ -1,7 +1,3 @@
-# 力学
-
-力学です。
-
 \\(
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
@@ -9,6 +5,10 @@
     \newcommand{\Arrowlr}{\Longleftrightarrow}
     \let\frac=\dfrac
 \\)
+
+# 力学
+
+力学です。
 
 
 
@@ -23,8 +23,6 @@
 3. 物体 A が物体 B に力 \\(\disp \v F_{\mathrm A \to \mathrm B}\\) を与えているとき、逆に A は力 \\(\disp -\v F_{\mathrm A \to \mathrm B}\\) を受ける。<br>すなわち \\(\disp \v F_{\mathrm A \to \mathrm B} + \v F_{\mathrm B \to \mathrm A} = \v 0 \\) が成り立つ。これを **作用・反作用の法則** という。
 
 のこと。
-
-作用・反作用の法則は慣性系でなくても成立する？
 
 ```admonish warning title="慣性系でない例"
 例えば、観測者が等加速度運動・等速円運動している場合は慣性系ではない。
