@@ -73,11 +73,17 @@
 
 ## 単振動
 
-等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。計算すれば
+等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。振動中心を \\(x_c\\) として計算すれば
 
 \\[
-    x = r\sin \omega t, \quad v = r\omega \cos \omega t, \quad a = -r\omega^2 \sin \omega t \\\\
-    \longrightarrow a = -\omega^2 x
+    \v x = x_c + r\sin \omega t, \quad \v v = r\omega \cos \omega t, \quad \v a = -r\omega^2 \sin \omega t \\\\
+    \longrightarrow \v a = -\omega^2 (x-x_c)
 \\]
 
-を得る。
+を得られ、運動方程式は
+
+\\[
+    F = -m\omega^2 (x-x_c)
+\\]
+
+となる。単振動は \\(\theta\\) を用いて考える問題もあるが、基本的には使わずに考えることが多い。
