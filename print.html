@@ -560,33 +560,89 @@ I_n
 <p>\( \displaystyle \int \arctan x ~ dx \) を求めよ。</p>
 </blockquote>
 <p>\( \displaystyle \int \arctan x ~ dx = x \arctan x - \int \frac{x}{1 + x^2} dx = x \arctan x - \frac 12 \, \log (1+x^2) \)</p>
-<div style="break-before: page; page-break-before: always;"></div><h2 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h2>
-<p>\(
+<div style="break-before: page; page-break-before: always;"></div><p>\(
 \newcommand{\disp}{\displaystyle}
-\newcommand{\v}[1]{\boldsymbol #1}
-\newcommand{\Arrowlr}{\Longleftrightarrow}
 \let\frac=\dfrac
 \)</p>
-<p>定積分を含む関数方程式のこと。</p>
+<h1 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h1>
+<h2 id="微分積分学の基本定理"><a class="header" href="#微分積分学の基本定理">微分積分学の基本定理</a></h2>
+<p><a href="https://ja.wikipedia.org/wiki/%E5%BE%AE%E5%88%86%E7%A9%8D%E5%88%86%E5%AD%A6%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86#%E9%80%A3%E7%B6%9A%E9%96%A2%E6%95%B0%E3%81%AE%E4%B8%8D%E5%AE%9A%E7%A9%8D%E5%88%86%E3%81%8C%E5%BE%AE%E5%88%86%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%82%E3%82%8B%E3%81%93%E3%81%A8">Wikipedia</a> では微分積分学の第一基本定理と呼ばれているものを置く。
+このページでは、積分変数でない変数を global 変数と呼ぶことにする。</p>
+<blockquote>
+<p><strong>微分積分学の第一基本定理</strong></p>
+<p>\(f(t)\) は連続であり、\(a\) は \(x\) に対して定数であるとする<sup class="footnote-reference"><a href="#1">1</a></sup>。このとき</p>
+<p>\[ \frac{d}{dx} \int_{a}^{x} f(t) ~ dt = f(x) \]</p>
+<p>が成立する。特に</p>
+<p>\[
+\frac{d}{dx} \int_{x}^{a} f(t) ~ dt = -f(x) \\[30px]
+\frac{d}{dx} \int_{a}^{g(x)} f(t) ~ dt = f(g(x)) \cdot g'(x)
+\]</p>
+<p>である。第 2 式は合成関数の微分であることに注意。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>すなわち \(\frac{da}{dx} = 0\) ということ。</p>
+</div>
+</blockquote>
+<p>これにより、不定積分が計算できない定積分は <uj>被積分関数に global 変数を含まない限り</uj> 微分した値を求めることができる。</p>
+<details id="admonition-被積分関数に-global-変数を含む場合" class="admonition admonish-note" role="note" aria-labelledby="admonition-被積分関数に-global-変数を含む場合-title">
+<summary class="admonition-title">
+<div id="admonition-被積分関数に-global-変数を含む場合-title">
+<p>被積分関数に global 変数を含む場合</p>
+</div>
+<a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-被積分関数に-global-変数を含む場合"></a>
+</summary>
+<div>
+<p>「微分積分学の基本定理 変数を含む」などと検索すればいくつか出てくる。</p>
+<blockquote>
+<p><strong>global 変数を含む場合の微分積分学の第一基本定理</strong></p>
+<p>\(f(x,t)\) は連続で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
+<p>\[
+\begin{align}
+\frac{d}{dx} &amp;\int_a^{g(x)} f(x, t) ~ dt \\
+&amp;= \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x+h, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
+&amp;= \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x+h, t) - \int_a^{g(x+h)}f(x, t) ~ dt \right\} \\
+&amp; \quad \quad + \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
+&amp;= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\
+&amp; \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\
+&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) dt + f(x, g(x)) \cdot g(x)
+\end{align}
+\]</p>
+<p>が成り立つ。6 行目は積分での平均値の定理を用いた。</p>
+</blockquote>
+<p>2 箇所にある微小量をそれぞれに分けるテクニックは積の微分の証明でも見る。</p>
+</div>
+</details>
+<h2 id="定石"><a class="header" href="#定石">定石</a></h2>
+<p>定積分を含む関数方程式のこと。方針は</p>
 <ul>
-<li>積分区間に変数が含まれている ... ①区間 0 になるよう代入　②微分</li>
-<li>積分区間が定数 ... 定積分が定数となるよう変形して文字で置く→積分内の関数に代入して方程式を得る</li>
+<li>微分型 ... 積分区間に変数が入っている場合
+<ul>
+<li>積分区間幅が 0 になるよう代入</li>
+<li>被積分関数から global 変数を消す → 両辺を微分し、微分積分学の基本定理から積分を消去</li>
+<li>元の式に代入</li>
 </ul>
-<h4 id="例題1-4"><a class="header" href="#例題1-4">例題1</a></h4>
+</li>
+<li>再帰代入型 ... 全て定積分である場合
+<ul>
+<li>被積分関数から global 変数を消す → 定積分を文字で置き、関数を求める → 文字そのものの積分を計算する</li>
+</ul>
+</li>
+</ul>
+<p>の 2 つ。困ったら被積分関数から global 変数を消すことを意識する。</p>
+<h2 id="例題1-4"><a class="header" href="#例題1-4">例題1</a></h2>
 <blockquote>
 <p>連続関数 \(f \colon \mathbb R \to \mathbb R^+\) が</p>
 <p>\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\]</p>
 <p>を満たす。\(f(x)\) を求めよ。</p>
 <p>横浜国立大学・理系 2024年</p>
 </blockquote>
-<p>微分するだけでは解けず、発想・変形を必要とする問題。</p>
-<div id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
-<div class="admonition-title">
+<p>明らかに微分型。微分するだけでは解けず、発想・変形を必要とする問題。</p>
+<details id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
+<summary class="admonition-title">
 <div id="admonition-解答-title">
 <p>解答</p>
 </div>
 <a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-解答"></a>
-</div>
+</summary>
 <div>
 <p>\(x = 0\) を代入すると \(f(0) = 1\) が直ちに分かる。</p>
 <p>方程式の右辺が微分可能であるから、関数 \(f\) は微分可能である。</p>
@@ -595,7 +651,51 @@ I_n
 <p>ある定数 \(C\) が存在して \(f(x)^2 = \log(x^2+1) + C\) と分かる。</p>
 <p>関数 \(f\) が正の値をとることと \(f(0) = 1\) から \(\disp f(x) = \sqrt{\log(x^2+1) + 1}\) である。</p>
 </div>
+</details>
+<h2 id="例題2-1"><a class="header" href="#例題2-1">例題2</a></h2>
+<blockquote>
+<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f(x)\) と定数 \(A, B\) が</p>
+<p>\[
+^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} |\log y| f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
+\]</p>
+<p>を満たす。\(A, B\) を求めよ。</p>
+<p>東京工業大学 2019年</p>
+</blockquote>
+<p>関数に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するために \(xy = t\) と置換したくなる、あるいは積分区間をキレイにしたい、というのがとっかかりだろうか。</p>
+<details id="admonition-解答-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-解答-1-title">
+<summary class="admonition-title">
+<div id="admonition-解答-1-title">
+<p>解答</p>
 </div>
+<a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-解答-1"></a>
+</summary>
+<div>
+<p>\(y = t/x\) と置換し、絶対値を外すために積分区間を \(t = x\) で分ける。</p>
+<p>\[
+\frac 1x \int_1^2 |\log t - \log x| f(t) ~ dt = 3x(\log x - 1) + A + \frac{B}{x} \\
+\int_1^2 |\log t - \log x| f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \\
+\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B
+\]</p>
+<p>を得る。両辺微分し \(x\) を掛けて</p>
+<p>\[
+\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{1}
+\]</p>
+<p>を得る。もう一度両辺微分して 2 で割ると</p>
+<p>\[
+f(x) = 6x\log x + \frac{A}{2}
+\]</p>
+<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1) 式・置換した最初の式に代入して計算すれば</p>
+<p>\[
+-\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A \\
+\Longleftrightarrow A = 5 - 8\log 2
+\]</p>
+<p>\[
+\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B \\
+\Longleftrightarrow B = 4\left(\log 2\right)^2 + 5\log 2
+\]</p>
+<p>を得る。</p>
+</div>
+</details>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="組み合わせ確率"><a class="header" href="#組み合わせ確率">組み合わせ・確率</a></h1>
 <p>分けたかったけど、同じ記事を二個作りそうで面倒だったから諦めた。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="冪級数の利用"><a class="header" href="#冪級数の利用">冪級数の利用</a></h1>
@@ -1186,9 +1286,9 @@ F_{\text{向心}} = mr\omega^2 \\
 <p>\[
 F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad F_{\text{接線方向}} = m \cdot r\ddot\theta
 \]</p>
-<p>となる。この向心成分の力を向心力と言う<sup class="footnote-reference"><a href="#1">1</a></sup>。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力による仕事によって速度が変化する。
+<p>となる。この向心成分の力を向心力と呼ぶ<sup class="footnote-reference"><a href="#1">1</a></sup>。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力による仕事によって速度が変化する。
 特に、円運動の回転方向が逆になり始める瞬間は、<uj>力の接線方向成分が 0 になる必要がある</uj>。</p>
-<p>一般には \(\theta\) が簡潔な式で表せないことが多いため、\(\theta\) が現れない向心力の式しか使わない。また、<uj>運動全体で力学的エネルギー保存則が成り立つことがよくある</uj>。</p>
+<p>一般には \(\theta(t)\) が表せないことが多く \(\theta\) が現れない向心力の式しか使わない。また <uj>運動全体で力学的エネルギー保存則が成り立つことがよくある</uj> ので注意する。</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>間違えるのは自分だけなのかもしれないが、「向心力という大きさ \(\frac{mv^2}{r}\) の力がはたらく」のではなく「物体にはたらく様々な力の合力の向心成分 (向心力) が \(\frac{mv^2}{r}\) になっている」のである。</p>
 </div>
@@ -1200,7 +1300,7 @@ F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad
 <p>\[ \disp a_{\text{向心方向}} = \frac{v^2}{r}, \quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r} \]</p>
 <ul>
 <li>
-<p>力学的エネルギー保存</p>
+<p>力学的エネルギー保存の確認</p>
 </li>
 <li>
 <p>円運動の回転方向が変わる \(\Longrightarrow\) \(F_{\text{接線方向}} = 0\)</p>
@@ -1215,37 +1315,45 @@ F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad
 \]</p>
 <p>を得る。特に、接線方向の力の大きさは 0 である。また、等速円運動では周期</p>
 <p>\[ T = \frac{2\pi}{\omega} = \frac{2\pi r}{v}\]</p>
-<p>を求めることができる。</p>
+<p>を求めることができる。意味を考えれば明らか。</p>
 <blockquote>
 <p>等速円運動 気にすること</p>
 <ul>
-<li>もろもろ
+<li>角速度による表示
 <ul>
-<li>上式から下式(円運動由来)が導ける。下式は \(r\) を知りたいときに使う。</li>
+<li>角速度を出せるなら出す。</li>
 </ul>
 </li>
 </ul>
-<p>\[
-\left\{ \begin{array}{}
-v = r\omega, \quad a = r\omega^2, \quad F_{\text{向心方向}} = mr\omega^2 \\[12px]
-a_{\text{向心方向}} = \frac{v^2}{r}, \quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r}
-\end{array} \right.
-\]</p>
+<p>\[ v = r\omega, \quad a = r\omega^2, \quad F_{\text{向心方向}} = mr\omega^2, \quad T = \frac{2\pi}{\omega} \]</p>
+<ul>
+<li>円運動由来の表示
+<ul>
+<li>角速度が分かるなら不要。</li>
+</ul>
+</li>
+</ul>
+<p>\[ a_{\text{向心方向}} = \frac{v^2}{r}, \quad F_{\text{向心方向}} = m \cdot \frac{v^2}{r}, \quad T = \frac{2\pi r}{v}\]</p>
 <ul>
 <li>接線方向の力 \(F_{\text{接線方向}} = 0\)</li>
 </ul>
 </blockquote>
 <h2 id="単振動"><a class="header" href="#単振動">単振動</a></h2>
-<p>等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。振動中心を \(x_c\) として計算すれば</p>
+<p>等速円運動の正射影とも取れる。sin で書きたいので、ここでは虚軸の正射影を考える。振動中心を \(\v x_c\) とすると</p>
 <p>\[
-\v x = x_c + r\sin \omega t, \quad \v v = r\omega \cos \omega t, \quad \v a = -r\omega^2 \sin \omega t \\
+\v x = \v x_c + r\sin \omega t, \quad \v v = r\omega \cos \omega t, \quad \v a = -r\omega^2 \sin \omega t \\
 \longrightarrow \v a = -\omega^2 (x-x_c)
 \]</p>
-<p>を得られ、運動方程式は</p>
+<p>となり、運動方程式は</p>
 <p>\[
-F = -m\omega^2 (x-x_c)
+\v F = -mr\omega^2 \sin \omega t = - \underbrace{m\omega^2}_{k} (\v x- \v x_c)
 \]</p>
-<p>となる。単振動は \(\theta\) を用いて考える問題もあるが、基本的には使わずに考えることが多い。</p>
+<p>となる。この力を復元力と呼ぶ。また、復元力がする仕事との力学的エネルギー収支を考えれば</p>
+<p>\[
+\frac 12 mv^2 + \frac 12 \underbrace{m\omega^2}_{k} (\v x - \v x_c)^2 = \mathrm{const.}
+\]</p>
+<p>が成立する。特に、はたらく力に非保存力が含まれていても成立する。</p>
+<p>単振動では \(\theta\) を用いて考える問題もあるが、誘導が無ければ使わずに解けることが多い。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="電磁気"><a class="header" href="#電磁気">電磁気</a></h1>
 <p>\(
 \newcommand{\disp}{\displaystyle}
@@ -2460,6 +2568,7 @@ Einstein used math to show that nothing can travel faster than the speed of ligh
 <li>不動態</li>
 <li>鉛ガラス</li>
 <li>混合と濃度</li>
+<li>平均値の定理・積分での平均値の定理</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="化学"><a class="header" href="#化学">化学</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="2016"><a class="header" href="#2016">2016</a></h1>

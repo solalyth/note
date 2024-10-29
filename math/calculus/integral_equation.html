@@ -179,33 +179,89 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h2>
-<p>\(
+                        <p>\(
 \newcommand{\disp}{\displaystyle}
-\newcommand{\v}[1]{\boldsymbol #1}
-\newcommand{\Arrowlr}{\Longleftrightarrow}
 \let\frac=\dfrac
 \)</p>
-<p>定積分を含む関数方程式のこと。</p>
+<h1 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h1>
+<h2 id="微分積分学の基本定理"><a class="header" href="#微分積分学の基本定理">微分積分学の基本定理</a></h2>
+<p><a href="https://ja.wikipedia.org/wiki/%E5%BE%AE%E5%88%86%E7%A9%8D%E5%88%86%E5%AD%A6%E3%81%AE%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86#%E9%80%A3%E7%B6%9A%E9%96%A2%E6%95%B0%E3%81%AE%E4%B8%8D%E5%AE%9A%E7%A9%8D%E5%88%86%E3%81%8C%E5%BE%AE%E5%88%86%E5%8F%AF%E8%83%BD%E3%81%A7%E3%81%82%E3%82%8B%E3%81%93%E3%81%A8">Wikipedia</a> では微分積分学の第一基本定理と呼ばれているものを置く。
+このページでは、積分変数でない変数を global 変数と呼ぶことにする。</p>
+<blockquote>
+<p><strong>微分積分学の第一基本定理</strong></p>
+<p>\(f(t)\) は連続であり、\(a\) は \(x\) に対して定数であるとする<sup class="footnote-reference"><a href="#1">1</a></sup>。このとき</p>
+<p>\[ \frac{d}{dx} \int_{a}^{x} f(t) ~ dt = f(x) \]</p>
+<p>が成立する。特に</p>
+<p>\[
+\frac{d}{dx} \int_{x}^{a} f(t) ~ dt = -f(x) \\[30px]
+\frac{d}{dx} \int_{a}^{g(x)} f(t) ~ dt = f(g(x)) \cdot g'(x)
+\]</p>
+<p>である。第 2 式は合成関数の微分であることに注意。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>すなわち \(\frac{da}{dx} = 0\) ということ。</p>
+</div>
+</blockquote>
+<p>これにより、不定積分が計算できない定積分は <uj>被積分関数に global 変数を含まない限り</uj> 微分した値を求めることができる。</p>
+<details id="admonition-被積分関数に-global-変数を含む場合" class="admonition admonish-note" role="note" aria-labelledby="admonition-被積分関数に-global-変数を含む場合-title">
+<summary class="admonition-title">
+<div id="admonition-被積分関数に-global-変数を含む場合-title">
+<p>被積分関数に global 変数を含む場合</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-被積分関数に-global-変数を含む場合"></a>
+</summary>
+<div>
+<p>「微分積分学の基本定理 変数を含む」などと検索すればいくつか出てくる。</p>
+<blockquote>
+<p><strong>global 変数を含む場合の微分積分学の第一基本定理</strong></p>
+<p>\(f(x,t)\) は連続で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
+<p>\[
+\begin{align}
+\frac{d}{dx} &amp;\int_a^{g(x)} f(x, t) ~ dt \\
+&amp;= \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x+h, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
+&amp;= \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x+h, t) - \int_a^{g(x+h)}f(x, t) ~ dt \right\} \\
+&amp; \quad \quad + \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
+&amp;= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\
+&amp; \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\
+&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) dt + f(x, g(x)) \cdot g(x)
+\end{align}
+\]</p>
+<p>が成り立つ。6 行目は積分での平均値の定理を用いた。</p>
+</blockquote>
+<p>2 箇所にある微小量をそれぞれに分けるテクニックは積の微分の証明でも見る。</p>
+</div>
+</details>
+<h2 id="定石"><a class="header" href="#定石">定石</a></h2>
+<p>定積分を含む関数方程式のこと。方針は</p>
 <ul>
-<li>積分区間に変数が含まれている ... ①区間 0 になるよう代入　②微分</li>
-<li>積分区間が定数 ... 定積分が定数となるよう変形して文字で置く→積分内の関数に代入して方程式を得る</li>
+<li>微分型 ... 積分区間に変数が入っている場合
+<ul>
+<li>積分区間幅が 0 になるよう代入</li>
+<li>被積分関数から global 変数を消す → 両辺を微分し、微分積分学の基本定理から積分を消去</li>
+<li>元の式に代入</li>
 </ul>
-<h4 id="例題1"><a class="header" href="#例題1">例題1</a></h4>
+</li>
+<li>再帰代入型 ... 全て定積分である場合
+<ul>
+<li>被積分関数から global 変数を消す → 定積分を文字で置き、関数を求める → 文字そのものの積分を計算する</li>
+</ul>
+</li>
+</ul>
+<p>の 2 つ。困ったら被積分関数から global 変数を消すことを意識する。</p>
+<h2 id="例題1"><a class="header" href="#例題1">例題1</a></h2>
 <blockquote>
 <p>連続関数 \(f \colon \mathbb R \to \mathbb R^+\) が</p>
 <p>\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\]</p>
 <p>を満たす。\(f(x)\) を求めよ。</p>
 <p>横浜国立大学・理系 2024年</p>
 </blockquote>
-<p>微分するだけでは解けず、発想・変形を必要とする問題。</p>
-<div id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
-<div class="admonition-title">
+<p>明らかに微分型。微分するだけでは解けず、発想・変形を必要とする問題。</p>
+<details id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
+<summary class="admonition-title">
 <div id="admonition-解答-title">
 <p>解答</p>
 </div>
 <a class="admonition-anchor-link" href="#admonition-解答"></a>
-</div>
+</summary>
 <div>
 <p>\(x = 0\) を代入すると \(f(0) = 1\) が直ちに分かる。</p>
 <p>方程式の右辺が微分可能であるから、関数 \(f\) は微分可能である。</p>
@@ -214,7 +270,51 @@
 <p>ある定数 \(C\) が存在して \(f(x)^2 = \log(x^2+1) + C\) と分かる。</p>
 <p>関数 \(f\) が正の値をとることと \(f(0) = 1\) から \(\disp f(x) = \sqrt{\log(x^2+1) + 1}\) である。</p>
 </div>
+</details>
+<h2 id="例題2"><a class="header" href="#例題2">例題2</a></h2>
+<blockquote>
+<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f(x)\) と定数 \(A, B\) が</p>
+<p>\[
+^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} |\log y| f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
+\]</p>
+<p>を満たす。\(A, B\) を求めよ。</p>
+<p>東京工業大学 2019年</p>
+</blockquote>
+<p>関数に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するために \(xy = t\) と置換したくなる、あるいは積分区間をキレイにしたい、というのがとっかかりだろうか。</p>
+<details id="admonition-解答-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-解答-1-title">
+<summary class="admonition-title">
+<div id="admonition-解答-1-title">
+<p>解答</p>
 </div>
+<a class="admonition-anchor-link" href="#admonition-解答-1"></a>
+</summary>
+<div>
+<p>\(y = t/x\) と置換し、絶対値を外すために積分区間を \(t = x\) で分ける。</p>
+<p>\[
+\frac 1x \int_1^2 |\log t - \log x| f(t) ~ dt = 3x(\log x - 1) + A + \frac{B}{x} \\
+\int_1^2 |\log t - \log x| f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \\
+\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B
+\]</p>
+<p>を得る。両辺微分し \(x\) を掛けて</p>
+<p>\[
+\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{1}
+\]</p>
+<p>を得る。もう一度両辺微分して 2 で割ると</p>
+<p>\[
+f(x) = 6x\log x + \frac{A}{2}
+\]</p>
+<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1) 式・置換した最初の式に代入して計算すれば</p>
+<p>\[
+-\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A \\
+\Longleftrightarrow A = 5 - 8\log 2
+\]</p>
+<p>\[
+\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B \\
+\Longleftrightarrow B = 4\left(\log 2\right)^2 + 5\log 2
+\]</p>
+<p>を得る。</p>
+</div>
+</details>
 
                     </main>
 
