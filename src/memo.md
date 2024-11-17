@@ -2,7 +2,7 @@
 
 ## 数式置き場
 
-\\(
+\\[
     \newcommand{\disp}{\displaystyle}
     \newcommand{\v}[1]{\boldsymbol #1}
     \let\frac=\dfrac
@@ -13,7 +13,7 @@
     
     \newcommand{\bar}[1]{\overline{#1}}
     \DeclareMathOperator{\cis}{cis}
-\\)
+\\]
 
 \\(\underbrace{\text{How are you?}}_{\text{I'm good.}}\\)
 

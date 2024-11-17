@@ -1,6 +1,7 @@
 \\(
     \newcommand{\disp}{\displaystyle}
     \let\frac=\dfrac
+    \newcommand{\abs}[1]{|#1 \\,|}
 \\)
 
 # 積分方程式
@@ -34,7 +35,7 @@
 
 > **global 変数を含む場合の微分積分学の第一基本定理**
 >
-> \\(f(x,t)\\) は連続で、\\(a\\) は \\(x\\) に対して定数であるとする。このとき
+> \\(f(x,t), g(x)\\) は微分可能で、\\(a\\) は \\(x\\) に対して定数であるとする。このとき
 >
 > \\[
     \begin{align}
@@ -44,11 +45,11 @@
         & \quad \quad + \lim_{h \to 0} \frac 1h \left\\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\\} \\\\
         &= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\\\
         & \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\\\
-        &= \int_a^x \frac{\partial}{\partial x} f(x, t) dt + f(x, g(x)) \cdot g(x)
+        &= \int_a^x \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
     \end{align}
 \\]
 > 
-> が成り立つ。6 行目は積分での平均値の定理を用いた。
+> が成り立つ。6 行目は[積分についての平均値の定理](../../math/techniques/mean-value-theorem.md#積分についての平均値の定理)を用いた。
 
 2 箇所にある微小量をそれぞれに分けるテクニックは積の微分の証明でも見る。
 ```
@@ -69,24 +70,22 @@
 
 ## 例題1
 
-> 連続関数 \\(f \colon \mathbb R \to \mathbb R^+\\) が
-> 
-> \\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\\]
-> 
-> を満たす。\\(f(x)\\) を求めよ。
->
-> 横浜国立大学・理系 2024年
+```admonish question title="横浜国立大学・理系 2024年"
+連続関数 \\(f \colon \mathbb R \to \mathbb R^+\\) が
+
+\\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\\]
+
+を満たす。\\(f(x)\\) を求めよ。
+```
 
 明らかに微分型。微分するだけでは解けず、発想・変形を必要とする問題。
 
 ```admonish success title="解答" collapsible=true
 \\(x = 0\\) を代入すると \\(f(0) = 1\\) が直ちに分かる。
 
-方程式の右辺が微分可能であるから、関数 \\(f\\) は微分可能である。
+方程式の右辺が微分可能である。両辺微分・整理して \\(f(x)f'(x) = \frac{x}{x^2+1}\\) を得る。
 
-両辺微分・整理して \\(f(x)f'(x) = \frac{x}{x^2+1}\\) を得る。
-
-特に \\(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\\) と変形できるから、
+これは \\(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\\) と変形できるから、
 
 ある定数 \\(C\\) が存在して \\(f(x)^2 = \log(x^2+1) + C\\) と分かる。
 
@@ -96,31 +95,29 @@
 
 ## 例題2
 
-> \\(1 \leq x \leq 2\\) で定義された連続関数 \\(f(x)\\) と定数 \\(A, B\\) が
->
-> \\[
-    ^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} |\log y| f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
-\\]
->
-> を満たす。\\(A, B\\) を求めよ。
->
-> 東京工業大学 2019年
-
-関数に関する性質が何も示されていないので、\\(f(xy)\\) の部分を解決するために \\(xy = t\\) と置換したくなる、あるいは積分区間をキレイにしたい、というのがとっかかりだろうか。
-
-```admonish title="解答" collapsible=true
-\\(y = t/x\\) と置換し、絶対値を外すために積分区間を \\(t = x\\) で分ける。
+```admonish question title="東京工業大学 2019年"
+\\(1 \leq x \leq 2\\) で定義された連続関数 \\(f\\) と定数 \\(A, B\\) が
 
 \\[
-    \frac 1x \int_1^2 |\log t - \log x| f(t) ~ dt = 3x(\log x - 1) + A + \frac{B}{x} \\\\
-    \int_1^2 |\log t - \log x| f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \\\\
-    \int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B
+    ^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} \abs{\log y} ~ f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
+\\]
+
+を満たす。\\(A, B\\) を求めよ。
+```
+
+関数 \\(f\\) に関する性質が何も示されていないので、\\(f(xy)\\) の部分を解決するためにどう置換したらよいだろうか。
+
+```admonish title="解答" collapsible=true
+\\(xy = t\\) と置換する。両辺に \\(x\\) を掛け、絶対値を外すために積分区間を \\(t = x\\) で分けると
+
+\\[
+    \int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
 \\]
 
 を得る。両辺微分し \\(x\\) を掛けて
 
 \\[
-    \int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{1}
+    \int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
 \\]
 
 を得る。もう一度両辺微分して 2 で割ると
@@ -129,16 +126,13 @@
     f(x) = 6x\log x + \frac{A}{2}
 \\]
 
-より \\(f(x)\\) の具体的表示が得られる。\\(x = 1\\) として (1) 式・置換した最初の式に代入して計算すれば
+より \\(f(x)\\) の具体的表示が得られる。\\(x = 1\\) として (1), (2) 式に代入して計算すれば
 
 \\[
-    -\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A \\\\
-    \Longleftrightarrow A = 5 - 8\log 2
-\\]
-
-\\[
-    \int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B \\\\
-    \Longleftrightarrow B = 4\left(\log 2\right)^2 + 5\log 2
+    -\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A
+    \quad \therefore A = 5 - 8\log 2 \\\\[30px]
+    \int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B
+    \quad \therefore B = 4\left(\log 2\right)^2 + 5\log 2
 \\]
 
 を得る。
