@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="jp" class="light" dir="ltr">
+<html lang="jp" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -34,15 +34,17 @@
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -64,19 +66,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -86,45 +85,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="math/techniques/index.html"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="math/complex/index.html"><strong aria-hidden="true">5.</strong> 複素数</a></li><li class="chapter-item expanded "><a href="math/statistics/index.html"><strong aria-hidden="true">6.</strong> 統計</a></li><li class="chapter-item expanded "><a href="math/hyperbolic_function.html"><strong aria-hidden="true">7.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="math/singles.html"><strong aria-hidden="true">8.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="math/mistakes.html"><strong aria-hidden="true">9.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="physics/index.html"><strong aria-hidden="true">10.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="physics/mechanics/index.html"><strong aria-hidden="true">11.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/mechanics/circular-motion.html"><strong aria-hidden="true">11.1.</strong> 円運動・単振動</a></li></ol></li><li class="chapter-item expanded "><a href="physics/electromagnetism/index.html"><strong aria-hidden="true">12.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="physics/thermodynamics/index.html"><strong aria-hidden="true">13.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">13.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="chemistry/theoretical/index.html"><strong aria-hidden="true">14.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">14.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="chemistry/theoretical/redox-reaction.html"><strong aria-hidden="true">14.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">14.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="chemistry/inorganic/index.html"><strong aria-hidden="true">15.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">15.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/non_metal.html"><strong aria-hidden="true">15.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/oxide.html"><strong aria-hidden="true">15.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/note.html"><strong aria-hidden="true">15.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="chemistry/organic/index.html"><strong aria-hidden="true">16.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/organic/sugar.html"><strong aria-hidden="true">16.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="english/notes/index.html"><strong aria-hidden="true">17.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="english/notes/lecture_1.html"><strong aria-hidden="true">17.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="memo.html"><strong aria-hidden="true">18.</strong> メモ</a></li><li class="chapter-item expanded "><a href="unpagenized.html"><strong aria-hidden="true">19.</strong> 記事ネタ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="isct/chemistry/index.html"><strong aria-hidden="true">20.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="isct/chemistry/2016.html"><strong aria-hidden="true">20.1.</strong> 2016</a></li></ol></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -220,21 +199,66 @@
 <hr />
 <p>勉強といっても大学範囲を少しかじった程度でしたが、あの 1 ヶ月はとても楽しい時間だったなと思います。Twitter で見かける謎の暗号みたいなツイートが若干読めたりして楽しかったりもします。</p>
 <p>このノートを書いているのも、数検で得た諸々を忘れつつあるのが惜しい、というのが理由の一つだったりします。</p>
-<div style="break-before: page; page-break-before: always;"></div><p>\(
+<div style="break-before: page; page-break-before: always;"></div><p>\[
 \newcommand{\disp}{\displaystyle}
 \newcommand{\v}[1]{\boldsymbol #1}
 \newcommand{\Arrowlr}{\Longleftrightarrow}
 \let\frac=\dfrac
-\)</p>
-<h1 id="テクニック一覧"><a class="header" href="#テクニック一覧">テクニック一覧</a></h1>
+\]</p>
+<h1 id="テクニック集"><a class="header" href="#テクニック集">テクニック集</a></h1>
 <h2 id="2直線のなす角"><a class="header" href="#2直線のなす角">2直線のなす角</a></h2>
-<p>2直線 \(y = a_1x + b_1, ~ y = a_2 x + b_2\) に対し、有名な成す角 \(\theta\) について条件が与えられることがある。</p>
-<p>\(\theta = 90^\circ\) であるときは直行条件 \(a_1a_2 = -1\) を使うとよい。<br />
-そうでないとき、<uj>傾きを tan で置いて加法定理</uj> を用いて式を作る。</p>
-<p>適切な区間をとって \(a_1 = \tan \alpha, ~ a_2 = \tan \beta\) と表したときに、なす角は適切に符号を付けて \(\alpha - \beta\) のように表せる。この例では、加法定理から</p>
-<p>\[\tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta} = \frac{a_1-a_2}{1+a_1a_2}\]</p>
-<p>と表せ、左辺は具体値を入れればよい。</p>
-<p>ベクトルを取ってなす角の \(\cos\theta\) から式を作ることもできる。</p>
+<p>傾きが \(a, b\) である 2 直線に対し、成す角について条件が与えられることがある。\(\theta = 90^\circ\) であるときは直行条件 \(ab = -1\) を使えばよい。そうでないとき、<uj>傾きを tan で置いて加法定理</uj> を用いて式を作る。</p>
+<p>適切な区間をとって \(a = \tan \alpha, ~ b = \tan \beta\) と表したときに、なす角は適切に符号を付けて \(\alpha - \beta\) などのように表せる。この例では、加法定理から</p>
+<p>\[ \tan (\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta} = \frac{a-b}{1+ab} \]</p>
+<p>と表せる。なす角 \(\alpha - \beta\) に具体値を入れれば、条件式を得ることができた。</p>
+<p>直線の方向ベクトルの内積から式を作ることもできる。</p>
+<h2 id="一次不定方程式の解を一つ求める方法"><a class="header" href="#一次不定方程式の解を一つ求める方法">一次不定方程式の解を一つ求める方法</a></h2>
+<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(a &gt; b &gt; 0\) かつ \(\gcd(a,b) = 1\) とする。</p>
+<p>ここで、「 \((a,b)\) による互除法列」を、大きい方を小さい方の余りで更新するやつでの 0 でない商の列と定義する。例えば、\((144, 43)\) のとき</p>
+<p>\[
+\begin{align}
+144 &amp;= 43 \times \boldsymbol 3 + 15 \\
+43 &amp;= 15 \times \boldsymbol 2 + 13 \\
+15 &amp;= 13 \times \boldsymbol 1 + 2 \\
+13 &amp;= 2 \times \boldsymbol 6 + 1
+\end{align}
+\]</p>
+<p>となるから、互除法列は \(3, 2, 1, 6\) となる。</p>
+<blockquote>
+<p>「 \((a, b)\) による互除法列」が \(k_1, k_2, \cdots, k_n\) であるとき、</p>
+<p>\[ \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
+<p>は不定一次方程式の解である。</p>
+<hr />
+<p>(証明)</p>
+<p>\(b = 1\) のとき \(\displaystyle \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) とすればよい。</p>
+<p>係数がより小さい不定一次方程式について成り立つとする。\(a = k_1b + a'\) とすると、方程式を変形して係数がより小さい不定一次方程式に帰着できる。</p>
+<p>\[ (k_1b + a')x + by = 1 \Longleftrightarrow b(k_1x + y) + a'x = 1 \]</p>
+<p>「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) であることから、</p>
+<p>\[\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} k_1x+y \\ 'x \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
+<p>となり示せた。</p>
+</blockquote>
+<p>というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
+<h2 id="方程式がなす図形の変換"><a class="header" href="#方程式がなす図形の変換">方程式がなす図形の変換</a></h2>
+<p>条件 \(P(\v r)\) を満たす点がなす図形 \(D = \{\v r ~|~ P(\v r)\}\) について、全単射な写像 \(f\) で変換した図形 \(D'\) は</p>
+<p>\[
+D' = \{\v r' = f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
+\]</p>
+<p>と表せる。すなわち \(f^{-1}(\v r')\) を条件に代入した図形は変換後の図形を表す。</p>
+<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\) を用いて</p>
+<p>\[
+A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix} ~ \mathrm{then} ~ A^{-1} = \begin{bmatrix} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{bmatrix}
+\]</p>
+<p>と表せるから、</p>
+<p>\[
+\left\{
+\begin{bmatrix} X \\ Y \end{bmatrix} = A \begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left( \begin{bmatrix} x \\ y \end{bmatrix} \right)
+\right\}
+= \left\{
+\begin{bmatrix} X \\ Y \end{bmatrix} \bigg| ~ P\left(A^{-1}\begin{bmatrix} x \\ y \end{bmatrix}\right)
+\right\}
+\]</p>
+<p>となる。\(\{(X,Y) ~|~ P(X\cos\theta + Y\sin\theta, -X\sin\theta + Y\cos\theta)\}\) は回転後の図形を表す。</p>
+<p>よく頭を壊しがちなので、式にできて嬉しい！</p>
 <div style="break-before: page; page-break-before: always;"></div><p>\(
 \newcommand{\disp}{\displaystyle}
 \newcommand{\v}[1]{\boldsymbol #1}
@@ -247,49 +271,50 @@
 <h2 id="凸性"><a class="header" href="#凸性">凸性</a></h2>
 <p>高校数学でいう「下に凸・上に凸」を、ここでは単に「凸・凹」と呼ぶことにする。<br />
 \(f\) が凹関数ならば \(-f\) は凸関数である。以下では凸関数に関する不等式を紹介するが、凹関数では逆向きの不等式が成立する。(たぶんそう)</p>
-<br>
-<p>関数 \(f(x)\) を実数上の区間 \(I\) から実数への関数であるとする。この関数が<strong>広義凸関数</strong>であるとは、曲線上の二点を結ぶ線分が必ず曲線より上側を通ることをいう。すなわち、区間 \(I\) 上の任意の 2 値 \(a &lt; b\) について</p>
+<p>関数 \(f(x) \colon I \to \mathbb{R}\) が、任意の区間 \([a,b] \in I\) について</p>
+<p>\[
+^\forall x \in (a,b) ~ \bigg[ f(x) &lt; f(a) + \frac{\{f(b)-f(a)\}(x-a)}{b-a} \bigg] \\
+\Longleftrightarrow {}^\forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-\lambda)b\right) &lt; \lambda f(a) + (1-\lambda) f(b) \bigg]
+\]</p>
+<p>が成り立つとき「<strong>狭義凸関数</strong>である」という。\(x = \lambda a + (1-\lambda)b\) について、左辺は曲線上の高さ、右辺は二点を結ぶ線分上の高さを表している。すなわち、曲線上の二点を結ぶ線分が必ず曲線より上側を通ることである。</p>
+<details id="admonition-広義凸関数について" class="admonition admonish-note" role="note" aria-labelledby="admonition-広義凸関数について-title">
+<summary class="admonition-title">
+<div id="admonition-広義凸関数について-title">
+<p>広義凸関数について</p>
+</div>
+<a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-広義凸関数について"></a>
+</summary>
+<div>
 <p>\[
 \forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-x)b\right) \leq \lambda f(a) + (1-\lambda) f(b) \bigg]
 \]</p>
-<p>が成立することをいう。\(\lambda : 1-\lambda\) の内分点について、左辺は曲線上の高さ、右辺は二点を結ぶ線分上の高さを表している。<br />
-また、<strong>狭義凸関数</strong>であるとは、曲線の一部として直線を持たず、等号を除いた式</p>
-<p>\[
-\forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-x)b\right) &lt; \lambda f(a) + (1-\lambda) f(b) \bigg]
-\]</p>
-<p>が成立することをいう。</p>
-<div id="admonition-untitled" class="admonition admonish-note" role="note" aria-labelledby="admonition-untitled-title">
-<div class="admonition-title">
-<div id="admonition-untitled-title">
-<p>untitled</p>
+<p>が成立するとき「 \(f(x)\) は広義凸関数である」という。これは曲線の一部として直線を持つということであり、問題設定的に登場しない。</p>
 </div>
-<a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-untitled"></a>
+</details>
+<div id="admonition-memo" class="admonition admonish-note" role="note" aria-labelledby="admonition-memo-title">
+<div class="admonition-title">
+<div id="admonition-memo-title">
+<p>memo</p>
+</div>
+<a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-memo"></a>
 </div>
 <div>
 <p>後述する凸不等式の弱い系ではあるが、単に \(\lambda = 1/2\) とした式</p>
 <p>\[
 f\left(\frac{x_1+x_2}{2}\right) \leq \frac{f(x_1)+f(x_2)}{2}
 \]</p>
-<p>を用いて解き進めることがある。</p>
+<p>を用いて解き進めることがある。等号成立条件は \(x_1 = x_2\) である。</p>
 </div>
 </div>
-<br>
-<p>実用性と証明の簡略化のため、以下では<uj>狭義凸関数について考える</uj>。</p>
+<h2 id="断り書き"><a class="header" href="#断り書き">断り書き</a></h2>
+<p>実用性と証明の簡略化のため、以下では \(C^2\) <strong>級の(狭義凸)関数についてのみ</strong>考える。</p>
 <p>「 \(f'\) が狭義単調増加 \(\Longleftrightarrow\) \(f\) が狭義凸」が知られている。特に \(f''(x) &gt; 0\) ならば十分である。</p>
-<details id="admonition-十分性の証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-十分性の証明-title">
-<summary class="admonition-title">
-<div id="admonition-十分性の証明-title">
-<p>十分性の証明</p>
-</div>
-<a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-十分性の証明"></a>
-</summary>
-<div>
-<p>問題を解くときは十分性しか使わないので、十分性だけ書く。</p>
+<p>問題を解くときは十分性しか使わないので、ここでは十分性だけ書く。</p>
 <p>\[
 g(x) = f(x) - \left\{ \frac{f(b)-f(a)}{b-a} (x-a) + f(a) \right\}
 \]</p>
 <p>と定義し、\((a, b)\) の範囲で \(g(x) &lt; 0\) が成り立つことを示せばよい。</p>
-<p>\(g(a)=g(b)=0\) かつ \(g'\) が狭義単調増加である。ロルの定理から \(g'(k) = 0\) となる \(k \in (a, b)\) が存在し、増減表は</p>
+<p>\(g(a)=g(b)=0\) かつ \(g'\) は狭義単調増加である。ロルの定理から \(g'(k) = 0\) となる \(k \in (a, b)\) が存在し、増減表は</p>
 <p>\[
 \begin{array}{c|ccccc}
 x &amp; a &amp; \cdots &amp; k &amp; \cdots &amp; b \\ \hline
@@ -298,31 +323,31 @@ g'(x) &amp; &amp; - &amp; 0 &amp; +
 \end{array}
 \]</p>
 <p>となるから、示せた。</p>
-</div>
-</details>
 <h2 id="凸不等式"><a class="header" href="#凸不等式">凸不等式</a></h2>
 <p>本題の凸不等式とも呼ばれる、根幹を為す不等式である。イェンセン・イェンゼンの表記揺れがそこそこある。</p>
 <blockquote>
 <p><strong>Jensen の不等式</strong></p>
-<p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の実数列 \((x_i)\), 和が \(1\) である正実数列 \((w_i)\) について</p>
+<p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の列 \((x_i)\), 和が \(1\) である正実数列 \((w_i)\) について</p>
 <p>\[ f \left( \sum w_i x_i \right) \leq \sum w_i f(x_i) \]</p>
 <p>が成立する。等号成立条件は \(^\forall x_i = \mathrm{const.}\) である。</p>
 <hr />
 <p>(証明)</p>
-<p>\(\disp m = \sum w_i a_i\) と置く。曲線 \(y = f(x)\) の \(x = m\) での接線は、曲線より下側を通るから<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>\(\disp m = \sum w_i x_i\) と置く。曲線 \(y = f(x)\) の \(x = m\) での接線は、曲線より下側を通るから<sup class="footnote-reference"><a href="#1">1</a></sup></p>
 <p>\[
-f'(m) (x-m) + f(m) \leq f(x)
+^\forall x, ~ f'(m) (x-m) + f(m) \leq f(x)
 \]</p>
-<p>が成立する。等号成立条件は \(x = m\) である。</p>
-<p>\(x = x_i\) での式を \(w_i\) 倍して足し上げると、\(\disp \sum w_i(x_i-m) = 0\) より不等式を得る。<br />
-等号成立条件は \(^\forall x_i = m\) であり、\(^\forall x_i = \mathrm{const.}\) と同値である。</p>
-<p>接線が \(y\) 軸と平行であるときは上の議論はできないが、そのような点 \(x = k\) は区間の端のみであり、\(m = k\) となるのは \(^\forall x_i = k\) であるときに限るから、この場合も不等式は成り立つ。</p>
+<p>が成立する。等号成立条件は \(x = m\) である。\(x = x_i\) での式を \(w_i\) 倍して足し上げると、</p>
+<p>\[
+f'(m) \underbrace{\sum w_i(x_i-m)}_{=0} + f(m) \underbrace{\sum w_i}_{=1} \leq \sum w_i f(x_i)
+\]</p>
+<p>より不等式を得る。等号成立条件は \(^\forall x_i = m\) であり、\(^\forall x_i = \mathrm{const.}\) と同値である。</p>
+<p>接線が \(y\) 軸と平行であるときは上の議論はできないが、そのような点 \(x = k\) は区間の端のみである。\(m = k\) となるのは \(^\forall x_i = k\) であるときに限るから、この場合も不等式は成り立つ。</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>曲線 \(g(x) = f(x) - f(m) - f'(m)(x-m)\) は \(g(m) = g'(m) = 0\) かつ \(g'\) が狭義単調増加であるから、増減表を書けば明らかに \(g(x) \geq 0\) であり、示せた。</p>
+<p>曲線 \(g(x) = f(x) - f(m) - f'(m)(x-m)\) は \(g(m) = g'(m) = 0\) かつ \(g'\) が狭義単調増加であるから、明らかに \(g(x) \geq 0\) であり、示せた。</p>
 </div>
 </blockquote>
 <br>
-<p>問題では重みが \(^\forall w_i = 1/n\) であることが多い。そちらを「平均凸不等式」と呼ぼう。</p>
+<p>重みを \(^\forall w_i = 1/n\) と設定することがしばしばある。ここでは「平均凸不等式」と呼ぼう。</p>
 <blockquote>
 <p><strong>平均凸不等式</strong></p>
 <p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の実数列 \((x_i)\) について</p>
@@ -341,7 +366,7 @@ f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \c
 \]</p>
 <p>が成立する。</p>
 </blockquote>
-<p>これらは \(x_1 + x_2 + \cdots + x_n\) の値が決まっているときの、\(\disp \sum f(x_i), ~ \prod f(x_i)\) の最大値・最小値を求める問題に効くことが多い。</p>
+<p>これらは \(x_1 + x_2 + \cdots + x_n\) の値が定数であるときの \(\disp \sum f(x_i), ~ \prod f(x_i)\) の最大値・最小値を求める問題に効く。</p>
 <h2 id="系となる不等式"><a class="header" href="#系となる不等式">系となる不等式</a></h2>
 <blockquote>
 <p><strong>任意個の項の相加相乗平均</strong></p>
@@ -350,6 +375,92 @@ f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \c
 \frac{x_1 + x_2 + \cdots + x_n}{n} \geq \sqrt[n]{x_1x_2 \cdots x_n}
 \]</p>
 <p>を得る。凹関数であるから符号が逆になることに注意。</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><p>\[
+\newcommand{\v}[1]{\boldsymbol #1}
+\newcommand{\par}[1]{\left( #1 \right)}
+\let\frac=\dfrac
+\]</p>
+<h1 id="ラグランジュの未定乗数法"><a class="header" href="#ラグランジュの未定乗数法">ラグランジュの未定乗数法</a></h1>
+<p>勾配 \(\nabla f(x,y)\) は</p>
+<p>\[ \nabla f(x,y) = \left[ \frac{\partial f}{\partial x}, ~ \frac{\partial f}{\partial y} \right]\]</p>
+<p>で定義されるベクトルである。関数値がより大きくなる方向を向き、関数値が同じ点からなる "等高線" と垂直であることが知られている。</p>
+<blockquote>
+<p><strong>ラグランジュの未定乗数法</strong></p>
+<p>\(f(x,y), g(x,y)\) は \(C^1\) 級関数であるとする。</p>
+<p>\(g(x,y) = 0\) を満たしながら連続的に動くとき、\(f(x,y)\) の値が極値をとる必要条件は</p>
+<p>\[\nabla g = \v 0 \quad \lor \quad {}^\exists \lambda, ~ \nabla f = \lambda \nabla g \]</p>
+<p>を満たすことである。</p>
+</blockquote>
+<p>後者の条件は「その点から微小量だけずらしても関数値は変わらない」すなわち「等高線の向きが一致する」ということを表している。
+もし等高線の向きが一致しないならば、微小量だけ動かしてより大きく・小さくすることができ、極値ではないことが分かる。</p>
+<h2 id="例題1"><a class="header" href="#例題1">例題1</a></h2>
+<blockquote>
+<p>\(9x^2 + 4y^2 + z^2 = 1\) であるときの \(x+y+z\) の最大値と最小値を求めよ。</p>
+</blockquote>
+<div id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
+<div class="admonition-title">
+<div id="admonition-解答-title">
+<p>解答</p>
+</div>
+<a class="admonition-anchor-link" href="math/techniques/lagrange-multiplier.html#admonition-解答"></a>
+</div>
+<div>
+<p>\[
+f(x,y,z) = x+y+z, ~ \nabla f = \left[ 1, 1, 1 \right] \\[15px]
+g(x,y,z) = 9x^2 + 4y^2 + z^2 - 1, ~ \nabla g = \left[ 18x, 8y, 2z \right]
+\]</p>
+<p>であり、\(\nabla g = \v 0\) となるものは存在しない。よって、ラグランジュの未定乗数法から、</p>
+<p>\[
+^\exists \lambda, ~ x = \frac{1}{18\lambda}, ~ y = \frac{1}{8\lambda}, ~ z = \frac{1}{2\lambda}
+\]</p>
+<p>である必要がある。これを条件式に代入すれば \(\lambda = \pm \dfrac{7}{12}\) を得る。それぞれ関数値を求めれば</p>
+<p>\[
+\max_{g = 0} f = f \left( \frac{7}{216}, \frac{7}{96}, \frac{7}{24} \right) = \frac 76 \\
+\min_{g = 0} f = f \left( -\frac{7}{216}, -\frac{7}{96}, -\frac{7}{24} \right) = - \frac 76
+\]</p>
+<p>を得る。</p>
+<hr />
+<p>これはコーシー・シュワルツの不等式</p>
+<p>\[ (x+y+z)^2 \leq \left\{(3x)^2 + (2y)^2 + z^2\right\} \left\{(1/3)^2 + (1/2)^2 + 1^2 \right\} \]</p>
+<p>とその等号成立条件から同様な結論 \( -\frac 76 \leq x+y+z \leq \frac 76\) を得ることができる。</p>
+</div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><p>\[
+\newcommand{\disp}{\displaystyle}
+\let\frac=\dfrac
+\]</p>
+<h1 id="平均値の定理"><a class="header" href="#平均値の定理">平均値の定理</a></h1>
+<blockquote>
+<p><strong>ラグランジュの平均値の定理</strong></p>
+<p>\(f(x)\) は \([a,b]\) で連続かつ \((a,b)\) で微分可能であるとする。このとき、</p>
+<p>\[ f'(k) = \frac{f(b) - f(a)}{b-a} \quad \Longleftrightarrow \quad f(b) - f(a) = (b-a) \times f'(k) \]</p>
+<p>を満たす実数 \(k \in (a,b)\) が存在する。特に \(\min f' \leq f(k) \leq \max f'\) として</p>
+<p>\[ (b-a) \times \min f' \leq f(b)-f(a) \leq (b-a) \times \max f' \]</p>
+<p>という不等式が成り立つ。</p>
+</blockquote>
+<p>値の存在性以外でいうと、\(b-a, ~ f(b)-f(a)\) のもう一方が評価しやすいときに</p>
+<p>\[
+|f(b) - f(a)| \leq (b-a) \times \max \{ |\min f'|, |\max f'| \} \\
+b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'|}\right\}
+\]</p>
+<p>と評価できる。特に \(f'(x)\) は単調であることが多い。</p>
+<h2 id="積分についての平均値の定理"><a class="header" href="#積分についての平均値の定理">積分についての平均値の定理</a></h2>
+<blockquote>
+<p><strong>積分についての平均値の定理</strong></p>
+<p>\(\disp \int_c^x f(t) ~ dt\) について平均値の定理を考えると</p>
+<p>\[ f(k) = \frac{1}{b-a} \int_a^b f(t) ~ dt \Longleftrightarrow \int_a^b f(t) ~ dt = (b-a) \times f(k) \]</p>
+<p>を満たす実数 \(k \in (a,b)\) が存在する。</p>
+</blockquote>
+<p>特に \(b \to a\) とすれば微積分学の基本定理となっている。</p>
+<h2 id="反復更新数列の極限"><a class="header" href="#反復更新数列の極限">反復更新数列の極限</a></h2>
+<blockquote>
+<p>\(f(x)\) は区間 \(I\) で微分可能であり、\(f(\alpha) = \alpha\) となる不動点 \(\alpha \in I\) を持つ。また、傾きの絶対値は 1 より小さい実数 \(r\) で抑えられる、すなわち</p>
+<p>\[ ^\exists r \in (0,1), ~ {}^\forall x \in I \setminus \{\alpha\}, ~ |f'(x)| \leq r \]</p>
+<p>を満たすとする。特に、\(f(I) \subsetneq I\) である。</p>
+<p>初項 \(a_0 \in I\), 漸化式 \(a_{n+1} = f(a_n)\) で定義される数列の極限値を考える。ここで、中間値の定理より</p>
+<p>\[ |a_{n+1} - \alpha| = |f(a_n) - \alpha| \leq r \times |a_n - \alpha| \]</p>
+<p>が成立するから、\(|a_n - \alpha| \leq r^n |a_0 - \alpha| \to 0\) より \(a_n \to \alpha\) を得る。</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="微積分"><a class="header" href="#微積分">微積分</a></h1>
 <p>ほとんど積分。\(
@@ -482,7 +593,7 @@ f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \c
 <p>\( \displaystyle \int_a^b f(x) ~ dx = \int_a^b f(a+b-x) ~ dx \) という変形を King property と呼んだりする。</p>
 <p>直感的には、\( a \to b \) で積分した面積と、\(y\) 軸で反転した後 \( b \to a \) に対応した部分の面積は一致することから従う。</p>
 <p>やけに対称性があるぞと思ったとき、特に、被積分関数が三角関数で構成されているとき、うまくいくことが (ときどき) ある。</p>
-<h3 id="例題1"><a class="header" href="#例題1">例題1</a></h3>
+<h3 id="例題1-1"><a class="header" href="#例題1-1">例題1</a></h3>
 <blockquote>
 <p>\( \displaystyle I = \int_0^{\pi/2} \frac{\sin \theta}{\sin \theta + \cos \theta} ~ d\theta \) を求めよ。</p>
 </blockquote>
@@ -494,7 +605,7 @@ f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \c
 <p>cf. <a href="math/calculus/./famous_substitution.html#tan-%E7%BD%AE%E6%8F%9B">有名置換#tan置換</a></p>
 <p>\( \sin^2 \theta, \, \cos^2 \theta \) は \( \tan \theta \) の有理式で書ける。</p>
 <p>\( t = \tan \theta \) と置換すると、\( \sin^2 \theta, \, \cos^2 \theta, \, \tan \theta, \, d\theta \) が全て \(t\) の有理式で表せる。</p>
-<h4 id="例題1-1"><a class="header" href="#例題1-1">例題1</a></h4>
+<h4 id="例題1-2"><a class="header" href="#例題1-2">例題1</a></h4>
 <blockquote>
 <p>\( \displaystyle \int \frac 1{\cos^4 \theta} ~ d\theta \) を求めよ。</p>
 </blockquote>
@@ -522,7 +633,7 @@ I_n
 <p>\( \displaystyle I_0 = \int \frac{1}{\cos\theta} ~ d\theta = \frac12 \, \log \, \left|\frac{1+\sin\theta}{1-\sin\theta}\right| \) であるから、再帰的に得られる。</p>
 <p>この漸化式を覚えるというよりは、こう変形するとよい、ということを覚えたい。</p>
 <p>この他にも、積分漸化式として <a href="https://en.wikipedia.org/wiki/Integration_by_reduction_formulae">wikipedia</a> に多くの例が書いてある。</p>
-<h4 id="例題1-2"><a class="header" href="#例題1-2">例題1</a></h4>
+<h4 id="例題1-3"><a class="header" href="#例題1-3">例題1</a></h4>
 <blockquote>
 <p>\( \displaystyle \int \dfrac{1}{\cos^3\theta} ~ d\theta \) を求めよ。</p>
 </blockquote>
@@ -550,7 +661,7 @@ I_n
 \end{eqnarray}
 \]</p>
 <p>逆に、逆三角関数・逆双曲線関数そのものが被積分関数に入っている場合、部分積分で微分する側にする。</p>
-<h4 id="例題1-3"><a class="header" href="#例題1-3">例題1</a></h4>
+<h4 id="例題1-4"><a class="header" href="#例題1-4">例題1</a></h4>
 <blockquote>
 <p>\( \displaystyle \int \frac{1}{\cos \theta} ~ d\theta \) を求めよ。</p>
 </blockquote>
@@ -563,6 +674,7 @@ I_n
 <div style="break-before: page; page-break-before: always;"></div><p>\(
 \newcommand{\disp}{\displaystyle}
 \let\frac=\dfrac
+\newcommand{\abs}[1]{|#1 \,|}
 \)</p>
 <h1 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h1>
 <h2 id="微分積分学の基本定理"><a class="header" href="#微分積分学の基本定理">微分積分学の基本定理</a></h2>
@@ -594,7 +706,7 @@ I_n
 <p>「微分積分学の基本定理 変数を含む」などと検索すればいくつか出てくる。</p>
 <blockquote>
 <p><strong>global 変数を含む場合の微分積分学の第一基本定理</strong></p>
-<p>\(f(x,t)\) は連続で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
+<p>\(f(x,t), g(x)\) は微分可能で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
 <p>\[
 \begin{align}
 \frac{d}{dx} &amp;\int_a^{g(x)} f(x, t) ~ dt \\
@@ -603,10 +715,10 @@ I_n
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
 &amp;= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\
-&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) dt + f(x, g(x)) \cdot g(x)
+&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
 \end{align}
 \]</p>
-<p>が成り立つ。6 行目は積分での平均値の定理を用いた。</p>
+<p>が成り立つ。6 行目は<a href="math/calculus/../../math/techniques/mean-value-theorem.html#%E7%A9%8D%E5%88%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%AE%9A%E7%90%86">積分についての平均値の定理</a>を用いた。</p>
 </blockquote>
 <p>2 箇所にある微小量をそれぞれに分けるテクニックは積の微分の証明でも見る。</p>
 </div>
@@ -628,13 +740,20 @@ I_n
 </li>
 </ul>
 <p>の 2 つ。困ったら被積分関数から global 変数を消すことを意識する。</p>
-<h2 id="例題1-4"><a class="header" href="#例題1-4">例題1</a></h2>
-<blockquote>
+<h2 id="例題1-5"><a class="header" href="#例題1-5">例題1</a></h2>
+<div id="admonition-横浜国立大学理系-2024年" class="admonition admonish-question" role="note" aria-labelledby="admonition-横浜国立大学理系-2024年-title">
+<div class="admonition-title">
+<div id="admonition-横浜国立大学理系-2024年-title">
+<p>横浜国立大学・理系 2024年</p>
+</div>
+<a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-横浜国立大学理系-2024年"></a>
+</div>
+<div>
 <p>連続関数 \(f \colon \mathbb R \to \mathbb R^+\) が</p>
 <p>\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\]</p>
 <p>を満たす。\(f(x)\) を求めよ。</p>
-<p>横浜国立大学・理系 2024年</p>
-</blockquote>
+</div>
+</div>
 <p>明らかに微分型。微分するだけでは解けず、発想・変形を必要とする問題。</p>
 <details id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
 <summary class="admonition-title">
@@ -645,23 +764,29 @@ I_n
 </summary>
 <div>
 <p>\(x = 0\) を代入すると \(f(0) = 1\) が直ちに分かる。</p>
-<p>方程式の右辺が微分可能であるから、関数 \(f\) は微分可能である。</p>
-<p>両辺微分・整理して \(f(x)f'(x) = \frac{x}{x^2+1}\) を得る。</p>
-<p>特に \(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\) と変形できるから、</p>
+<p>方程式の右辺が微分可能である。両辺微分・整理して \(f(x)f'(x) = \frac{x}{x^2+1}\) を得る。</p>
+<p>これは \(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\) と変形できるから、</p>
 <p>ある定数 \(C\) が存在して \(f(x)^2 = \log(x^2+1) + C\) と分かる。</p>
 <p>関数 \(f\) が正の値をとることと \(f(0) = 1\) から \(\disp f(x) = \sqrt{\log(x^2+1) + 1}\) である。</p>
 </div>
 </details>
 <h2 id="例題2-1"><a class="header" href="#例題2-1">例題2</a></h2>
-<blockquote>
-<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f(x)\) と定数 \(A, B\) が</p>
+<div id="admonition-東京工業大学-2019年" class="admonition admonish-question" role="note" aria-labelledby="admonition-東京工業大学-2019年-title">
+<div class="admonition-title">
+<div id="admonition-東京工業大学-2019年-title">
+<p>東京工業大学 2019年</p>
+</div>
+<a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-東京工業大学-2019年"></a>
+</div>
+<div>
+<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f\) と定数 \(A, B\) が</p>
 <p>\[
-^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} |\log y| f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
+^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} \abs{\log y} ~ f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
 \]</p>
 <p>を満たす。\(A, B\) を求めよ。</p>
-<p>東京工業大学 2019年</p>
-</blockquote>
-<p>関数に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するために \(xy = t\) と置換したくなる、あるいは積分区間をキレイにしたい、というのがとっかかりだろうか。</p>
+</div>
+</div>
+<p>関数 \(f\) に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するためにどう置換したらよいだろうか。</p>
 <details id="admonition-解答-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-解答-1-title">
 <summary class="admonition-title">
 <div id="admonition-解答-1-title">
@@ -670,32 +795,100 @@ I_n
 <a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-解答-1"></a>
 </summary>
 <div>
-<p>\(y = t/x\) と置換し、絶対値を外すために積分区間を \(t = x\) で分ける。</p>
+<p>\(xy = t\) と置換する。両辺に \(x\) を掛け、絶対値を外すために積分区間を \(t = x\) で分けると</p>
 <p>\[
-\frac 1x \int_1^2 |\log t - \log x| f(t) ~ dt = 3x(\log x - 1) + A + \frac{B}{x} \\
-\int_1^2 |\log t - \log x| f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \\
-\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B
+\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
 \]</p>
 <p>を得る。両辺微分し \(x\) を掛けて</p>
 <p>\[
-\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{1}
+\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
 \]</p>
 <p>を得る。もう一度両辺微分して 2 で割ると</p>
 <p>\[
 f(x) = 6x\log x + \frac{A}{2}
 \]</p>
-<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1) 式・置換した最初の式に代入して計算すれば</p>
+<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1), (2) 式に代入して計算すれば</p>
 <p>\[
--\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A \\
-\Longleftrightarrow A = 5 - 8\log 2
-\]</p>
-<p>\[
-\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B \\
-\Longleftrightarrow B = 4\left(\log 2\right)^2 + 5\log 2
+-\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A
+\quad \therefore A = 5 - 8\log 2 \\[30px]
+\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B
+\quad \therefore B = 4\left(\log 2\right)^2 + 5\log 2
 \]</p>
 <p>を得る。</p>
 </div>
 </details>
+<div style="break-before: page; page-break-before: always;"></div><p>\[
+\newcommand{\disp}{\displaystyle}
+\let\frac=\dfrac
+\]</p>
+<h1 id="面積体積曲線長"><a class="header" href="#面積体積曲線長">面積・体積・曲線長</a></h1>
+<p>しばしば \(x\) 軸とのアレコレを考えるので、ここでは \(x\) 軸でアレコレするものとします。</p>
+<p>面積については常に \(f(x) \geq 0\) であるとします。\(f(x) \leq 0\) なら負符号を付けたり、絶対値記号を付けたりを忘れずに。</p>
+<h2 id="陽関数グラフの面積"><a class="header" href="#陽関数グラフの面積">陽関数グラフの面積</a></h2>
+<p>曲線 \(y = f(x)\) と \(x\) 軸で囲まれた図形の、区間 \([x_s, x_e]\) での面積は</p>
+<p>\[
+\int_{x_s}^{x_e} f(x) dx
+\]</p>
+<p>で与えられる。これは、\(dx\) を微小量として、区間 \([x, x+dx]\) で囲まれる面積が</p>
+<p>\[
+dS \simeq f(x) ~ dx + o(dx)
+\]</p>
+<p>と近似できるからである。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>ここでは、\(y \geq 0\) を正の面積、\(y \leq 0\)を負の面積として加算したものとする。</p>
+</div>
+<details id="admonition-少しちゃんとした証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-少しちゃんとした証明-title">
+<summary class="admonition-title">
+<div id="admonition-少しちゃんとした証明-title">
+<p>少しちゃんとした証明</p>
+</div>
+<a class="admonition-anchor-link" href="math/calculus/geometrical-usage.html#admonition-少しちゃんとした証明"></a>
+</summary>
+<div>
+<p>区間 \([x_s, x]\) での面積を \(S(x)\) などと書くことにする。このとき</p>
+<p>\[
+S'(x) = \lim_{\Delta x \to 0} \frac{S(x+\Delta x) - S(x)}{\Delta x}
+\]</p>
+<p>となる。これをはさみうちの原理で評価したい。以下では \(\Delta x \to +0\) での場合を考えるが、\(\Delta x \to -0\) も同様にして示せる。</p>
+<p>ここで、区間 \([x, x+\Delta x]\) での \(f\) の最小値・最大値を \(\min f, \max f\) と書くと</p>
+<p>\[
+\Delta x \times \min f \leq S(x+\Delta x) - S(x) \leq \Delta x \times \max f
+\]</p>
+<p>と上下から評価できる。\(f\) の連続性より \(\disp \lim_{\Delta x \to +0} \min f, \max f = f(x)\) であるから、はさみうちの原理より</p>
+<p>\[
+S'(x) = \lim_{\Delta x \to 0} \frac{S(x+\Delta x) - S(x)}{\Delta x} = f(x)
+\]</p>
+<p>である。\(S(x_s) = 0\) を考えると、\(x_s\) から \(x_e\) まで積分したものとの定数差は 0 である。すなわち</p>
+<p>\[
+S_{x_s}(x_e) = \int_{x_s}^{x_e} S'_{x_s}(x) ~ dx = \int _{x_s}^{x_e} f(x) ~ dx
+\]</p>
+</div>
+</details>
+<h2 id="媒介変数グラフの面積"><a class="header" href="#媒介変数グラフの面積">媒介変数グラフの面積</a></h2>
+<p>\(x = X(t), ~ y = Y(t)\) と表される曲線と \(x\) 軸で挟まれた図形の面積は、\(X(t)\) <strong>が増加する区間</strong> \([t_s, t_e]\) について</p>
+<p>\[
+\int_{X(t_s)}^{X(t_e)} y(x) ~ dx \overset{\bigstar}{=} \int_{t_s}^{t_e} y(X(t)) ~ \left\{ X'(t) ~ dt \right\} \overset{\bigstar'}{=} \int_{t_s}^{t_e} Y(t) ~ X'(t) ~ dt
+\]</p>
+<p>で与えられる。\(\bigstar\) 部では \(x = X(t)\) と置換し、\(\bigstar'\) 部では意味的に \(y(X(t)) = Y(t)\) なので置き換えた。回答では一番右をいきなり書いてよい。</p>
+<div id="admonition-あるいは負の変位" class="admonition admonish-note" role="note" aria-labelledby="admonition-あるいは負の変位-title">
+<div class="admonition-title">
+<div id="admonition-あるいは負の変位-title">
+<p>あるいは、負の変位</p>
+</div>
+<a class="admonition-anchor-link" href="math/calculus/geometrical-usage.html#admonition-あるいは負の変位"></a>
+</div>
+<div>
+<p>\(X(t)\) が増加する範囲では通常の符号付き面積、減少する範囲では通常の符号付き面積に \(-1\) を掛けたもの、とすれば統一した符号付き面積を求めている。</p>
+<p>とはいえ、回転体では \(X(t)\) が増加する方向で分割するのが大切なので、あんまり変に考えないほうがよいかも？</p>
+</div>
+</div>
+<h2 id="断面による堆積"><a class="header" href="#断面による堆積">断面による堆積</a></h2>
+<p>ある立体について、\(x\) 軸に垂直な断面の面積を \(S(x)\) とすると、体積は</p>
+<p>\[
+\int_{x_s}^{x_t} S(x) ~ dx
+\]</p>
+<p>で与えられる。</p>
+<p>// TODO: 疲れた！回転体、斜回転体、陽関数グラフの曲線長、媒介変数グラフの曲線長、極座標の面積、曲線長とか書きたいねえ</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="組み合わせ確率"><a class="header" href="#組み合わせ確率">組み合わせ・確率</a></h1>
 <p>分けたかったけど、同じ記事を二個作りそうで面倒だったから諦めた。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="冪級数の利用"><a class="header" href="#冪級数の利用">冪級数の利用</a></h1>
@@ -778,7 +971,7 @@ f'(1) &amp;=&amp; \frac d{dx} ~ \dfrac{(1 + x + x^2)^n}{3^n} ~ \Bigg|_{x=1} \\
 </div>
 <p>このように、べき級数は独立な試行の繰り返し・一定間隔な条件に強い。</p>
 <p><a href="https://www.youtube.com/watch?v=bOXCLR3Wric">3b1b さんの動画</a> でも紹介されている。面白いので見よう。</p>
-<h3 id="例題1-5"><a class="header" href="#例題1-5">例題1</a></h3>
+<h3 id="例題1-6"><a class="header" href="#例題1-6">例題1</a></h3>
 <blockquote>
 <p>\(n\) 枚の硬貨を投げる。\(k\) 枚目の硬貨を投げて表が出る確率は \(p_k\) である。それぞれ表が出た枚数が奇数である確率をを求めよ。</p>
 <p>(1) \( p_k = 1/3 \)</p>
@@ -811,7 +1004,10 @@ f_3(x) = \left( \frac{1}{3m} x + \frac{3m-1}{3m} \right)^m \left( \frac{2}{3m} x
 \)</p>
 <h1 id="複素数"><a class="header" href="#複素数">複素数</a></h1>
 <h2 id="覚えるもの"><a class="header" href="#覚えるもの">覚えるもの</a></h2>
-<p>複素数は成分表示・極座標表示の二通りの表し方がある。どちらのほうが解きやすくなるか常に考えよう。</p>
+<p>複素数は極座標表示・複素共役系・成分表示の三通りの表し方がある。どちらのほうが解きやすくなるか常に考えよう。</p>
+<p>極座標表示は、原点などのある一点中心で問題が展開されている場合や、絶対値・偏角が登場した場合にはまず考えたい。複素共役・累乗とは相性がよいものの、一般の足し引きとは相性が悪いことも。「実は有名三角形になっていた」なこともあるため、なんとなくでも図を描こう。有向角度の向きや \(2\pi\) の差にも注意。</p>
+<p>複素共役系は \(z, \bar{z}\) を中心に式変形でなんとかする方法。1~2 次式にはめっぽう強いが、一般の累乗とは相性が悪い。\(\pm 1\) の \(n\) 乗根は定番。答えはだいたい直線 or 円がち。</p>
+<p>成分表示は、万能ではあるが、他の表し方の良さをほぼ全て潰してしまう欠点がある。本当に困ったときに使うイメージかも。</p>
 <h2 id="円の複素数表示"><a class="header" href="#円の複素数表示">円の複素数表示</a></h2>
 <p>円の方程式は、中心 \(\alpha\), 半径 \(r\) とすると、複素共役を用いて</p>
 <p>\[
@@ -840,10 +1036,14 @@ r = 2r_0 \cos(\theta_0 - \theta)
 \newcommand{\bar}[1]{\overline{#1}}
 \)</p>
 <h1 id="統計"><a class="header" href="#統計">統計</a></h1>
-<p>高校数学なので像集合は実数の部分集合であるとする。</p>
 <h2 id="確率変数とは"><a class="header" href="#確率変数とは">確率変数とは</a></h2>
-<p>確率変数とは、ある決まった確率で値を出力するような<strong>ガチャ台</strong>であり、それ自体が決まった値を持つわけではない。</p>
-<p>確率変数は離散確率変数・連続確率変数の二種類に分類される。</p>
+<p>確率変数とは決まった確率で値を出力する<strong>抽選機</strong>のようなものであり、決まった実数値ではない。区別するために \(X, Y, Z\) と大文字で書かれる。</p>
+<p>しかし、実数のように四則演算を定義することで表記を簡単にできる。確率変数と実数値の和・積について</p>
+<blockquote>
+<p>確率変数 \(X\) が値 \(x\) を出すときに、かわりに \(x+a, ~ x-a, ~ax, ~ x/a\) を出したとみなす確率変数 \(Y\) を考えることができる。</p>
+<p>このとき、\(Y = X+a, ~ X-a, ~ aX, ~ X/a\) などと書くことにする。</p>
+</blockquote>
+<p>と定義される。</p>
 <h2 id="離散確率変数"><a class="header" href="#離散確率変数">離散確率変数</a></h2>
 <p>「確率リスト表」を作れるようなもの<sup class="footnote-reference"><a href="#1">1</a></sup>を<strong>離散確率変数</strong>という。</p>
 <p>「離散確率変数 \(X\) について、ある値 \(x_i\) が出力される確率」を慣習的に \(P[X = x_i]\) と書いたりする。<br />
@@ -1282,16 +1482,13 @@ F_{\text{向心}} = mr\omega^2 \\
 \v x = re^{i\theta}, \quad \v v = \underbrace{r\dot\theta \cdot ie^{i\theta}}_{\text{接線方向}}, \quad \v a = \underbrace{r\ddot\theta \cdot ie^{i\theta}}_{\text{接線方向}} + \underbrace{r{\dot\theta}^2 \cdot (-e^{i\theta})}_{\text{向心方向}} \\
 \longrightarrow \quad a_{\text{向心方向}} = \frac{v^2}{r}
 \]</p>
-<p>となるから、運動方程式は</p>
+<p>となるから、向心力 (物体にはたらく力の合力の向心成分) の運動方程式は</p>
 <p>\[
-F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad F_{\text{接線方向}} = m \cdot r\ddot\theta
+F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}
 \]</p>
-<p>となる。この向心成分の力を向心力と呼ぶ<sup class="footnote-reference"><a href="#1">1</a></sup>。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力による仕事によって速度が変化する。
-特に、円運動の回転方向が逆になり始める瞬間は、<uj>力の接線方向成分が 0 になる必要がある</uj>。</p>
+<p>となる。速度ベクトルが常に接線方向であることを考えると、向心力は仕事をせず、接線方向の力による仕事によって速度が変化することが分かる。
+また、円運動の回転方向が逆になり始める瞬間は \(\theta\) が極値をとって \(\dot \theta = v = 0\) となるから、<uj>向心力が 0 になる</uj>。</p>
 <p>一般には \(\theta(t)\) が表せないことが多く \(\theta\) が現れない向心力の式しか使わない。また <uj>運動全体で力学的エネルギー保存則が成り立つことがよくある</uj> ので注意する。</p>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>間違えるのは自分だけなのかもしれないが、「向心力という大きさ \(\frac{mv^2}{r}\) の力がはたらく」のではなく「物体にはたらく様々な力の合力の向心成分 (向心力) が \(\frac{mv^2}{r}\) になっている」のである。</p>
-</div>
 <blockquote>
 <p>円運動 気にすること</p>
 <ul>
@@ -1303,7 +1500,7 @@ F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}, \quad
 <p>力学的エネルギー保存の確認</p>
 </li>
 <li>
-<p>円運動の回転方向が変わる \(\Longrightarrow\) \(F_{\text{接線方向}} = 0\)</p>
+<p>円運動の回転方向が変わる \(\Longrightarrow\) \(v = F_{\text{向心方向}} = 0\)</p>
 </li>
 </ul>
 </blockquote>
@@ -2136,11 +2333,11 @@ p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_
 <p>黄鉄鉱を燃焼すると酸化鉄(III)ができる。\(\mathrm{4FeS_2 + 11O_2 \tot 2Fe_2O_3 + 8SO_2}\)</p>
 </div>
 </blockquote>
-<p>(2.) のギャグ＆触媒のゴリ押し感がすごい。酸化バナジウム触媒はここでしか登場しない(多分)。</p>
+<p>(2.) のギャグ＆触媒のゴリ押し感がすごい。酸化バナジウム触媒は酸化系の反応の触媒として使われることが多い。</p>
 <h2 id="アンモニアの工業的製法-ハーバーボッシュ法"><a class="header" href="#アンモニアの工業的製法-ハーバーボッシュ法">アンモニアの工業的製法: ハーバー・ボッシュ法</a></h2>
 <blockquote>
-<p>触媒なし。発熱反応。高温高圧で反応させる。</p>
-<p>\[ \mathrm{N_2 + 2H_3 \stackrel{\triangle}{\rightleftharpoons} 2NH_3 + Q} \]</p>
+<p>四酸化三鉄触媒。発熱反応。高温高圧で反応させる。</p>
+<p>\[ \mathrm{N_2 + 2H_3 \stackrel{\bigstar \triangle}{\rightleftharpoons} 2NH_3 + Q} \quad (\bigstar \mathrm{Fe_3O_4})\]</p>
 </blockquote>
 <h2 id="硝酸の工業的製法-オストワルト法"><a class="header" href="#硝酸の工業的製法-オストワルト法">硝酸の工業的製法: オストワルト法</a></h2>
 <p>\(\mathrm{NH_3 \tos NO \to NO_2 \to HNO_3}\) という流れ。</p>
@@ -2152,7 +2349,7 @@ p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_
 <p>(3.) 二酸化窒素を水に吸収させて、目的の硝酸を得る。</p>
 <p>\[ \mathrm{3NO_2 + H_2O \to 2HNO_3 + NO} \]</p>
 <p>副生成物の一酸化窒素は (2.) の反応に再利用される。</p>
-<p>全体式: \(\mathrm{NO_2, ~ NO}\) の順で消すといいよ。</p>
+<p>(全体式)</p>
 <p>\[ \mathrm{NH_3 + 2O_2 \to HNO_3 + H_2O} \]</p>
 </blockquote>
 <p>なんで全体式こんなに単純なのに、反応は難しいんだろうね。</p>
@@ -2162,7 +2359,7 @@ p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_
 <tr><td style="text-align: center">はんだ</td><td style="text-align: center">Sn, (Pb)</td><td style="text-align: center">融点が低い, 最近は鉛フリー</td></tr>
 <tr><td style="text-align: center">ニクロム</td><td style="text-align: center">Ni, Cr</td><td style="text-align: center">抵抗に使われる</td></tr>
 <tr><td style="text-align: center">ジュラルミン</td><td style="text-align: center">アルマゲドン (Al, Mg, Cu)</td><td style="text-align: center">航空機体に使われる</td></tr>
-<tr><td style="text-align: center">ステンレス</td><td style="text-align: center">テクニック (Fe, Cu, Ni)</td><td style="text-align: center">錆びない</td></tr>
+<tr><td style="text-align: center">ステンレス</td><td style="text-align: center">テクニック (Fe, <strong>Cr</strong>, Ni)</td><td style="text-align: center">錆びない<br>「ク」だけど Cu ではない</td></tr>
 <tr><td style="text-align: center">アマルガム</td><td style="text-align: center">Hg, 他の金属</td><td style="text-align: center">やわらかい, 銀歯の詰め物</td></tr>
 </tbody></table>
 </div>
@@ -2462,7 +2659,7 @@ Einstein used math to show that nothing can travel faster than the speed of ligh
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="メモ"><a class="header" href="#メモ">メモ</a></h1>
 <h2 id="数式置き場"><a class="header" href="#数式置き場">数式置き場</a></h2>
-<p>\(
+<p>\[
 \newcommand{\disp}{\displaystyle}
 \newcommand{\v}[1]{\boldsymbol #1}
 \let\frac=\dfrac</p>
@@ -2473,7 +2670,7 @@ Einstein used math to show that nothing can travel faster than the speed of ligh
 \newcommand{\bar}[1]{\overline{#1}}
 \DeclareMathOperator{\cis}{cis}
 </code></pre>
-<p>\)</p>
+<p>\]</p>
 <p>\(\underbrace{\text{How are you?}}_{\text{I'm good.}}\)</p>
 <p>"_" をエスケープするときは "\_" とする必要がある。</p>
 <p>\(
@@ -2568,7 +2765,6 @@ Einstein used math to show that nothing can travel faster than the speed of ligh
 <li>不動態</li>
 <li>鉛ガラス</li>
 <li>混合と濃度</li>
-<li>平均値の定理・積分での平均値の定理</li>
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="化学"><a class="header" href="#化学">化学</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="2016"><a class="header" href="#2016">2016</a></h1>

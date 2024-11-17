@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="jp" class="light" dir="ltr">
+<html lang="jp" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -33,15 +33,17 @@
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -63,19 +65,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -85,45 +84,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../math/techniques/index.html"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../../math/calculus/integral_equation.html" class="active"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/complex/index.html"><strong aria-hidden="true">5.</strong> 複素数</a></li><li class="chapter-item expanded "><a href="../../math/statistics/index.html"><strong aria-hidden="true">6.</strong> 統計</a></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">7.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/singles.html"><strong aria-hidden="true">8.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="../../math/mistakes.html"><strong aria-hidden="true">9.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">10.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">11.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/circular-motion.html"><strong aria-hidden="true">11.1.</strong> 円運動・単振動</a></li></ol></li><li class="chapter-item expanded "><a href="../../physics/electromagnetism/index.html"><strong aria-hidden="true">12.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">13.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">13.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/index.html"><strong aria-hidden="true">14.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">14.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/redox-reaction.html"><strong aria-hidden="true">14.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">14.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/index.html"><strong aria-hidden="true">15.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">15.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">15.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/oxide.html"><strong aria-hidden="true">15.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/note.html"><strong aria-hidden="true">15.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/organic/index.html"><strong aria-hidden="true">16.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/organic/sugar.html"><strong aria-hidden="true">16.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../../english/notes/index.html"><strong aria-hidden="true">17.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../english/notes/lecture_1.html"><strong aria-hidden="true">17.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">18.</strong> メモ</a></li><li class="chapter-item expanded "><a href="../../unpagenized.html"><strong aria-hidden="true">19.</strong> 記事ネタ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="../../isct/chemistry/index.html"><strong aria-hidden="true">20.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../isct/chemistry/2016.html"><strong aria-hidden="true">20.1.</strong> 2016</a></li></ol></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -182,6 +161,7 @@
                         <p>\(
 \newcommand{\disp}{\displaystyle}
 \let\frac=\dfrac
+\newcommand{\abs}[1]{|#1 \,|}
 \)</p>
 <h1 id="積分方程式"><a class="header" href="#積分方程式">積分方程式</a></h1>
 <h2 id="微分積分学の基本定理"><a class="header" href="#微分積分学の基本定理">微分積分学の基本定理</a></h2>
@@ -213,7 +193,7 @@
 <p>「微分積分学の基本定理 変数を含む」などと検索すればいくつか出てくる。</p>
 <blockquote>
 <p><strong>global 変数を含む場合の微分積分学の第一基本定理</strong></p>
-<p>\(f(x,t)\) は連続で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
+<p>\(f(x,t), g(x)\) は微分可能で、\(a\) は \(x\) に対して定数であるとする。このとき</p>
 <p>\[
 \begin{align}
 \frac{d}{dx} &amp;\int_a^{g(x)} f(x, t) ~ dt \\
@@ -222,10 +202,10 @@
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
 &amp;= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\
-&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) dt + f(x, g(x)) \cdot g(x)
+&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
 \end{align}
 \]</p>
-<p>が成り立つ。6 行目は積分での平均値の定理を用いた。</p>
+<p>が成り立つ。6 行目は<a href="../../math/techniques/mean-value-theorem.html#%E7%A9%8D%E5%88%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%AE%9A%E7%90%86">積分についての平均値の定理</a>を用いた。</p>
 </blockquote>
 <p>2 箇所にある微小量をそれぞれに分けるテクニックは積の微分の証明でも見る。</p>
 </div>
@@ -248,12 +228,19 @@
 </ul>
 <p>の 2 つ。困ったら被積分関数から global 変数を消すことを意識する。</p>
 <h2 id="例題1"><a class="header" href="#例題1">例題1</a></h2>
-<blockquote>
+<div id="admonition-横浜国立大学理系-2024年" class="admonition admonish-question" role="note" aria-labelledby="admonition-横浜国立大学理系-2024年-title">
+<div class="admonition-title">
+<div id="admonition-横浜国立大学理系-2024年-title">
+<p>横浜国立大学・理系 2024年</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-横浜国立大学理系-2024年"></a>
+</div>
+<div>
 <p>連続関数 \(f \colon \mathbb R \to \mathbb R^+\) が</p>
 <p>\[\disp ^\forall x,~ f(x) = \int_0^x \frac{t}{(t^2+1)f(t)} ~ dt + 1\]</p>
 <p>を満たす。\(f(x)\) を求めよ。</p>
-<p>横浜国立大学・理系 2024年</p>
-</blockquote>
+</div>
+</div>
 <p>明らかに微分型。微分するだけでは解けず、発想・変形を必要とする問題。</p>
 <details id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
 <summary class="admonition-title">
@@ -264,23 +251,29 @@
 </summary>
 <div>
 <p>\(x = 0\) を代入すると \(f(0) = 1\) が直ちに分かる。</p>
-<p>方程式の右辺が微分可能であるから、関数 \(f\) は微分可能である。</p>
-<p>両辺微分・整理して \(f(x)f'(x) = \frac{x}{x^2+1}\) を得る。</p>
-<p>特に \(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\) と変形できるから、</p>
+<p>方程式の右辺が微分可能である。両辺微分・整理して \(f(x)f'(x) = \frac{x}{x^2+1}\) を得る。</p>
+<p>これは \(\frac{d}{dx} ~ \frac{f(x)^2}{2} = \frac{d}{dx} ~ \frac{\log(x^2+1)}{2}\) と変形できるから、</p>
 <p>ある定数 \(C\) が存在して \(f(x)^2 = \log(x^2+1) + C\) と分かる。</p>
 <p>関数 \(f\) が正の値をとることと \(f(0) = 1\) から \(\disp f(x) = \sqrt{\log(x^2+1) + 1}\) である。</p>
 </div>
 </details>
 <h2 id="例題2"><a class="header" href="#例題2">例題2</a></h2>
-<blockquote>
-<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f(x)\) と定数 \(A, B\) が</p>
+<div id="admonition-東京工業大学-2019年" class="admonition admonish-question" role="note" aria-labelledby="admonition-東京工業大学-2019年-title">
+<div class="admonition-title">
+<div id="admonition-東京工業大学-2019年-title">
+<p>東京工業大学 2019年</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-東京工業大学-2019年"></a>
+</div>
+<div>
+<p>\(1 \leq x \leq 2\) で定義された連続関数 \(f\) と定数 \(A, B\) が</p>
 <p>\[
-^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} |\log y| f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
+^\forall 1 \leq x \leq 2, ~ \int_{1/x}^{2/x} \abs{\log y} ~ f(xy) ~ dy = 3x(\log x - 1) + A + \frac{B}{x}
 \]</p>
 <p>を満たす。\(A, B\) を求めよ。</p>
-<p>東京工業大学 2019年</p>
-</blockquote>
-<p>関数に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するために \(xy = t\) と置換したくなる、あるいは積分区間をキレイにしたい、というのがとっかかりだろうか。</p>
+</div>
+</div>
+<p>関数 \(f\) に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するためにどう置換したらよいだろうか。</p>
 <details id="admonition-解答-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-解答-1-title">
 <summary class="admonition-title">
 <div id="admonition-解答-1-title">
@@ -289,28 +282,24 @@
 <a class="admonition-anchor-link" href="#admonition-解答-1"></a>
 </summary>
 <div>
-<p>\(y = t/x\) と置換し、絶対値を外すために積分区間を \(t = x\) で分ける。</p>
+<p>\(xy = t\) と置換する。両辺に \(x\) を掛け、絶対値を外すために積分区間を \(t = x\) で分けると</p>
 <p>\[
-\frac 1x \int_1^2 |\log t - \log x| f(t) ~ dt = 3x(\log x - 1) + A + \frac{B}{x} \\
-\int_1^2 |\log t - \log x| f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \\
-\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B
+\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
 \]</p>
 <p>を得る。両辺微分し \(x\) を掛けて</p>
 <p>\[
-\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{1}
+\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
 \]</p>
 <p>を得る。もう一度両辺微分して 2 で割ると</p>
 <p>\[
 f(x) = 6x\log x + \frac{A}{2}
 \]</p>
-<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1) 式・置換した最初の式に代入して計算すれば</p>
+<p>より \(f(x)\) の具体的表示が得られる。\(x = 1\) として (1), (2) 式に代入して計算すれば</p>
 <p>\[
--\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A \\
-\Longleftrightarrow A = 5 - 8\log 2
-\]</p>
-<p>\[
-\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B \\
-\Longleftrightarrow B = 4\left(\log 2\right)^2 + 5\log 2
+-\int_1^2 \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A
+\quad \therefore A = 5 - 8\log 2 \\[30px]
+\int_1^2 \log t \left(6t\log t + \frac{A}{2}\right) ~ dt = -3 + A + B
+\quad \therefore B = 4\left(\log 2\right)^2 + 5\log 2
 \]</p>
 <p>を得る。</p>
 </div>
@@ -324,7 +313,7 @@ f(x) = 6x\log x + \frac{A}{2}
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/probability/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../math/calculus/geometrical-usage.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -338,7 +327,7 @@ f(x) = 6x\log x + \frac{A}{2}
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/probability/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../math/calculus/geometrical-usage.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

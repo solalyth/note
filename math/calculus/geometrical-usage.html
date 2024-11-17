@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>組み合わせ・確率 - Alyth note</title>
+        <title>面積・体積・曲線長 - Alyth note</title>
 
 
         <!-- Custom HTML head -->
@@ -158,18 +158,88 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="組み合わせ確率"><a class="header" href="#組み合わせ確率">組み合わせ・確率</a></h1>
-<p>分けたかったけど、同じ記事を二個作りそうで面倒だったから諦めた。</p>
+                        <p>\[
+\newcommand{\disp}{\displaystyle}
+\let\frac=\dfrac
+\]</p>
+<h1 id="面積体積曲線長"><a class="header" href="#面積体積曲線長">面積・体積・曲線長</a></h1>
+<p>しばしば \(x\) 軸とのアレコレを考えるので、ここでは \(x\) 軸でアレコレするものとします。</p>
+<p>面積については常に \(f(x) \geq 0\) であるとします。\(f(x) \leq 0\) なら負符号を付けたり、絶対値記号を付けたりを忘れずに。</p>
+<h2 id="陽関数グラフの面積"><a class="header" href="#陽関数グラフの面積">陽関数グラフの面積</a></h2>
+<p>曲線 \(y = f(x)\) と \(x\) 軸で囲まれた図形の、区間 \([x_s, x_e]\) での面積は</p>
+<p>\[
+\int_{x_s}^{x_e} f(x) dx
+\]</p>
+<p>で与えられる。これは、\(dx\) を微小量として、区間 \([x, x+dx]\) で囲まれる面積が</p>
+<p>\[
+dS \simeq f(x) ~ dx + o(dx)
+\]</p>
+<p>と近似できるからである。</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>ここでは、\(y \geq 0\) を正の面積、\(y \leq 0\)を負の面積として加算したものとする。</p>
+</div>
+<details id="admonition-少しちゃんとした証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-少しちゃんとした証明-title">
+<summary class="admonition-title">
+<div id="admonition-少しちゃんとした証明-title">
+<p>少しちゃんとした証明</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-少しちゃんとした証明"></a>
+</summary>
+<div>
+<p>区間 \([x_s, x]\) での面積を \(S(x)\) などと書くことにする。このとき</p>
+<p>\[
+S'(x) = \lim_{\Delta x \to 0} \frac{S(x+\Delta x) - S(x)}{\Delta x}
+\]</p>
+<p>となる。これをはさみうちの原理で評価したい。以下では \(\Delta x \to +0\) での場合を考えるが、\(\Delta x \to -0\) も同様にして示せる。</p>
+<p>ここで、区間 \([x, x+\Delta x]\) での \(f\) の最小値・最大値を \(\min f, \max f\) と書くと</p>
+<p>\[
+\Delta x \times \min f \leq S(x+\Delta x) - S(x) \leq \Delta x \times \max f
+\]</p>
+<p>と上下から評価できる。\(f\) の連続性より \(\disp \lim_{\Delta x \to +0} \min f, \max f = f(x)\) であるから、はさみうちの原理より</p>
+<p>\[
+S'(x) = \lim_{\Delta x \to 0} \frac{S(x+\Delta x) - S(x)}{\Delta x} = f(x)
+\]</p>
+<p>である。\(S(x_s) = 0\) を考えると、\(x_s\) から \(x_e\) まで積分したものとの定数差は 0 である。すなわち</p>
+<p>\[
+S_{x_s}(x_e) = \int_{x_s}^{x_e} S'_{x_s}(x) ~ dx = \int _{x_s}^{x_e} f(x) ~ dx
+\]</p>
+</div>
+</details>
+<h2 id="媒介変数グラフの面積"><a class="header" href="#媒介変数グラフの面積">媒介変数グラフの面積</a></h2>
+<p>\(x = X(t), ~ y = Y(t)\) と表される曲線と \(x\) 軸で挟まれた図形の面積は、\(X(t)\) <strong>が増加する区間</strong> \([t_s, t_e]\) について</p>
+<p>\[
+\int_{X(t_s)}^{X(t_e)} y(x) ~ dx \overset{\bigstar}{=} \int_{t_s}^{t_e} y(X(t)) ~ \left\{ X'(t) ~ dt \right\} \overset{\bigstar'}{=} \int_{t_s}^{t_e} Y(t) ~ X'(t) ~ dt
+\]</p>
+<p>で与えられる。\(\bigstar\) 部では \(x = X(t)\) と置換し、\(\bigstar'\) 部では意味的に \(y(X(t)) = Y(t)\) なので置き換えた。回答では一番右をいきなり書いてよい。</p>
+<div id="admonition-あるいは負の変位" class="admonition admonish-note" role="note" aria-labelledby="admonition-あるいは負の変位-title">
+<div class="admonition-title">
+<div id="admonition-あるいは負の変位-title">
+<p>あるいは、負の変位</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-あるいは負の変位"></a>
+</div>
+<div>
+<p>\(X(t)\) が増加する範囲では通常の符号付き面積、減少する範囲では通常の符号付き面積に \(-1\) を掛けたもの、とすれば統一した符号付き面積を求めている。</p>
+<p>とはいえ、回転体では \(X(t)\) が増加する方向で分割するのが大切なので、あんまり変に考えないほうがよいかも？</p>
+</div>
+</div>
+<h2 id="断面による堆積"><a class="header" href="#断面による堆積">断面による堆積</a></h2>
+<p>ある立体について、\(x\) 軸に垂直な断面の面積を \(S(x)\) とすると、体積は</p>
+<p>\[
+\int_{x_s}^{x_t} S(x) ~ dx
+\]</p>
+<p>で与えられる。</p>
+<p>// TODO: 疲れた！回転体、斜回転体、陽関数グラフの曲線長、媒介変数グラフの曲線長、極座標の面積、曲線長とか書きたいねえ</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../math/calculus/geometrical-usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../math/calculus/integral_equation.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/probability/use_of_power_series.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../math/probability/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -179,11 +249,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../math/calculus/geometrical-usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../math/calculus/integral_equation.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/probability/use_of_power_series.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../math/probability/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

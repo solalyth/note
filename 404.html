@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="jp" class="light" dir="ltr">
+<html lang="jp" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -34,15 +34,17 @@
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -64,19 +66,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -86,45 +85,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="math/techniques/index.html"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="math/complex/index.html"><strong aria-hidden="true">5.</strong> 複素数</a></li><li class="chapter-item expanded "><a href="math/statistics/index.html"><strong aria-hidden="true">6.</strong> 統計</a></li><li class="chapter-item expanded "><a href="math/hyperbolic_function.html"><strong aria-hidden="true">7.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="math/singles.html"><strong aria-hidden="true">8.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="math/mistakes.html"><strong aria-hidden="true">9.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="physics/index.html"><strong aria-hidden="true">10.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="physics/mechanics/index.html"><strong aria-hidden="true">11.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/mechanics/circular-motion.html"><strong aria-hidden="true">11.1.</strong> 円運動・単振動</a></li></ol></li><li class="chapter-item expanded "><a href="physics/electromagnetism/index.html"><strong aria-hidden="true">12.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="physics/thermodynamics/index.html"><strong aria-hidden="true">13.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">13.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="chemistry/theoretical/index.html"><strong aria-hidden="true">14.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">14.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="chemistry/theoretical/redox-reaction.html"><strong aria-hidden="true">14.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">14.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="chemistry/inorganic/index.html"><strong aria-hidden="true">15.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">15.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/non_metal.html"><strong aria-hidden="true">15.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/oxide.html"><strong aria-hidden="true">15.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="chemistry/inorganic/note.html"><strong aria-hidden="true">15.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="chemistry/organic/index.html"><strong aria-hidden="true">16.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chemistry/organic/sugar.html"><strong aria-hidden="true">16.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="english/notes/index.html"><strong aria-hidden="true">17.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="english/notes/lecture_1.html"><strong aria-hidden="true">17.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="memo.html"><strong aria-hidden="true">18.</strong> メモ</a></li><li class="chapter-item expanded "><a href="unpagenized.html"><strong aria-hidden="true">19.</strong> 記事ネタ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="isct/chemistry/index.html"><strong aria-hidden="true">20.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="isct/chemistry/2016.html"><strong aria-hidden="true">20.1.</strong> 2016</a></li></ol></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">

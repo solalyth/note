@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="jp" class="light" dir="ltr">
+<html lang="jp" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -33,15 +33,17 @@
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "../../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -63,19 +65,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -85,45 +84,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">readme</a></li><li class="chapter-item expanded affix "><li class="part-title">数学</li><li class="chapter-item expanded "><a href="../../math/index.html"><strong aria-hidden="true">1.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../math/techniques/index.html" class="active"><strong aria-hidden="true">2.</strong> テクニック集</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/techniques/jensens-inequality.html"><strong aria-hidden="true">2.1.</strong> 凸不等式系</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/calculus/index.html"><strong aria-hidden="true">3.</strong> 微積分</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/calculus/famous_substitution.html"><strong aria-hidden="true">3.1.</strong> 有名置換</a></li><li class="chapter-item expanded "><a href="../../math/calculus/famous_integral.html"><strong aria-hidden="true">3.2.</strong> 有名な積分</a></li><li class="chapter-item expanded "><a href="../../math/calculus/integral_equation.html"><strong aria-hidden="true">3.3.</strong> 積分方程式</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/probability/index.html"><strong aria-hidden="true">4.</strong> 組み合わせ・確率</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../math/probability/use_of_power_series.html"><strong aria-hidden="true">4.1.</strong> 冪級数の利用</a></li></ol></li><li class="chapter-item expanded "><a href="../../math/complex/index.html"><strong aria-hidden="true">5.</strong> 複素数</a></li><li class="chapter-item expanded "><a href="../../math/statistics/index.html"><strong aria-hidden="true">6.</strong> 統計</a></li><li class="chapter-item expanded "><a href="../../math/hyperbolic_function.html"><strong aria-hidden="true">7.</strong> 双曲線関数</a></li><li class="chapter-item expanded "><a href="../../math/singles.html"><strong aria-hidden="true">8.</strong> 単発記事集</a></li><li class="chapter-item expanded "><a href="../../math/mistakes.html"><strong aria-hidden="true">9.</strong> 凡ミス供養所</a></li><li class="chapter-item expanded affix "><li class="part-title">物理</li><li class="chapter-item expanded "><a href="../../physics/index.html"><strong aria-hidden="true">10.</strong> 初めに</a></li><li class="chapter-item expanded "><a href="../../physics/mechanics/index.html"><strong aria-hidden="true">11.</strong> 力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/mechanics/circular-motion.html"><strong aria-hidden="true">11.1.</strong> 円運動・単振動</a></li></ol></li><li class="chapter-item expanded "><a href="../../physics/electromagnetism/index.html"><strong aria-hidden="true">12.</strong> 電磁気</a></li><li class="chapter-item expanded "><a href="../../physics/thermodynamics/index.html"><strong aria-hidden="true">13.</strong> 熱力学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../physics/thermodynamics/poissons_law.html"><strong aria-hidden="true">13.1.</strong> ポアソンの法則の導出</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">化学</li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/index.html"><strong aria-hidden="true">14.</strong> 理論</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/theoretical/reaction_rate_etc.html"><strong aria-hidden="true">14.1.</strong> 反応速度・電離度・平衡定数</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/redox-reaction.html"><strong aria-hidden="true">14.2.</strong> 酸化還元反応</a></li><li class="chapter-item expanded "><a href="../../chemistry/theoretical/electrolysis-and-battery.html"><strong aria-hidden="true">14.3.</strong> 電気分解・電池</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/index.html"><strong aria-hidden="true">15.</strong> 無機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/inorganic/metal_ions.html"><strong aria-hidden="true">15.1.</strong> 金属イオン</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/non_metal.html"><strong aria-hidden="true">15.2.</strong> 非金属</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/oxide.html"><strong aria-hidden="true">15.3.</strong> 酸化物・オキソ酸</a></li><li class="chapter-item expanded "><a href="../../chemistry/inorganic/note.html"><strong aria-hidden="true">15.4.</strong> 書き溜まり</a></li></ol></li><li class="chapter-item expanded "><a href="../../chemistry/organic/index.html"><strong aria-hidden="true">16.</strong> 有機</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../chemistry/organic/sugar.html"><strong aria-hidden="true">16.1.</strong> 糖類</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">英語</li><li class="chapter-item expanded "><a href="../../english/notes/index.html"><strong aria-hidden="true">17.</strong> 授業ノート</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../english/notes/lecture_1.html"><strong aria-hidden="true">17.1.</strong> 特講 - 短文和訳</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">自分用</li><li class="chapter-item expanded "><a href="../../memo.html"><strong aria-hidden="true">18.</strong> メモ</a></li><li class="chapter-item expanded "><a href="../../unpagenized.html"><strong aria-hidden="true">19.</strong> 記事ネタ</a></li><li class="chapter-item expanded affix "><li class="part-title">東京科学大対策</li><li class="chapter-item expanded "><a href="../../isct/chemistry/index.html"><strong aria-hidden="true">20.</strong> 化学</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../isct/chemistry/2016.html"><strong aria-hidden="true">20.1.</strong> 2016</a></li></ol></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -179,21 +158,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>\(
+                        <p>\[
 \newcommand{\disp}{\displaystyle}
 \newcommand{\v}[1]{\boldsymbol #1}
 \newcommand{\Arrowlr}{\Longleftrightarrow}
 \let\frac=\dfrac
-\)</p>
-<h1 id="テクニック一覧"><a class="header" href="#テクニック一覧">テクニック一覧</a></h1>
+\]</p>
+<h1 id="テクニック集"><a class="header" href="#テクニック集">テクニック集</a></h1>
 <h2 id="2直線のなす角"><a class="header" href="#2直線のなす角">2直線のなす角</a></h2>
-<p>2直線 \(y = a_1x + b_1, ~ y = a_2 x + b_2\) に対し、有名な成す角 \(\theta\) について条件が与えられることがある。</p>
-<p>\(\theta = 90^\circ\) であるときは直行条件 \(a_1a_2 = -1\) を使うとよい。<br />
-そうでないとき、<uj>傾きを tan で置いて加法定理</uj> を用いて式を作る。</p>
-<p>適切な区間をとって \(a_1 = \tan \alpha, ~ a_2 = \tan \beta\) と表したときに、なす角は適切に符号を付けて \(\alpha - \beta\) のように表せる。この例では、加法定理から</p>
-<p>\[\tan(\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta} = \frac{a_1-a_2}{1+a_1a_2}\]</p>
-<p>と表せ、左辺は具体値を入れればよい。</p>
-<p>ベクトルを取ってなす角の \(\cos\theta\) から式を作ることもできる。</p>
+<p>傾きが \(a, b\) である 2 直線に対し、成す角について条件が与えられることがある。\(\theta = 90^\circ\) であるときは直行条件 \(ab = -1\) を使えばよい。そうでないとき、<uj>傾きを tan で置いて加法定理</uj> を用いて式を作る。</p>
+<p>適切な区間をとって \(a = \tan \alpha, ~ b = \tan \beta\) と表したときに、なす角は適切に符号を付けて \(\alpha - \beta\) などのように表せる。この例では、加法定理から</p>
+<p>\[ \tan (\alpha - \beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\tan\beta} = \frac{a-b}{1+ab} \]</p>
+<p>と表せる。なす角 \(\alpha - \beta\) に具体値を入れれば、条件式を得ることができた。</p>
+<p>直線の方向ベクトルの内積から式を作ることもできる。</p>
+<h2 id="一次不定方程式の解を一つ求める方法"><a class="header" href="#一次不定方程式の解を一つ求める方法">一次不定方程式の解を一つ求める方法</a></h2>
+<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(a &gt; b &gt; 0\) かつ \(\gcd(a,b) = 1\) とする。</p>
+<p>ここで、「 \((a,b)\) による互除法列」を、大きい方を小さい方の余りで更新するやつでの 0 でない商の列と定義する。例えば、\((144, 43)\) のとき</p>
+<p>\[
+\begin{align}
+144 &amp;= 43 \times \boldsymbol 3 + 15 \\
+43 &amp;= 15 \times \boldsymbol 2 + 13 \\
+15 &amp;= 13 \times \boldsymbol 1 + 2 \\
+13 &amp;= 2 \times \boldsymbol 6 + 1
+\end{align}
+\]</p>
+<p>となるから、互除法列は \(3, 2, 1, 6\) となる。</p>
+<blockquote>
+<p>「 \((a, b)\) による互除法列」が \(k_1, k_2, \cdots, k_n\) であるとき、</p>
+<p>\[ \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
+<p>は不定一次方程式の解である。</p>
+<hr />
+<p>(証明)</p>
+<p>\(b = 1\) のとき \(\displaystyle \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) とすればよい。</p>
+<p>係数がより小さい不定一次方程式について成り立つとする。\(a = k_1b + a'\) とすると、方程式を変形して係数がより小さい不定一次方程式に帰着できる。</p>
+<p>\[ (k_1b + a')x + by = 1 \Longleftrightarrow b(k_1x + y) + a'x = 1 \]</p>
+<p>「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) であることから、</p>
+<p>\[\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} k_1x+y \\ 'x \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
+<p>となり示せた。</p>
+</blockquote>
+<p>というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
+<h2 id="方程式がなす図形の変換"><a class="header" href="#方程式がなす図形の変換">方程式がなす図形の変換</a></h2>
+<p>条件 \(P(\v r)\) を満たす点がなす図形 \(D = \{\v r ~|~ P(\v r)\}\) について、全単射な写像 \(f\) で変換した図形 \(D'\) は</p>
+<p>\[
+D' = \{\v r' = f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
+\]</p>
+<p>と表せる。すなわち \(f^{-1}(\v r')\) を条件に代入した図形は変換後の図形を表す。</p>
+<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\) を用いて</p>
+<p>\[
+A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix} ~ \mathrm{then} ~ A^{-1} = \begin{bmatrix} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{bmatrix}
+\]</p>
+<p>と表せるから、</p>
+<p>\[
+\left\{
+\begin{bmatrix} X \\ Y \end{bmatrix} = A \begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left( \begin{bmatrix} x \\ y \end{bmatrix} \right)
+\right\}
+= \left\{
+\begin{bmatrix} X \\ Y \end{bmatrix} \bigg| ~ P\left(A^{-1}\begin{bmatrix} x \\ y \end{bmatrix}\right)
+\right\}
+\]</p>
+<p>となる。\(\{(X,Y) ~|~ P(X\cos\theta + Y\sin\theta, -X\sin\theta + Y\cos\theta)\}\) は回転後の図形を表す。</p>
+<p>よく頭を壊しがちなので、式にできて嬉しい！</p>
 
                     </main>
 

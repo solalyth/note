@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>組み合わせ・確率 - Alyth note</title>
+        <title>ラグランジュの未定乗数法 - Alyth note</title>
 
 
         <!-- Custom HTML head -->
@@ -158,18 +158,66 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="組み合わせ確率"><a class="header" href="#組み合わせ確率">組み合わせ・確率</a></h1>
-<p>分けたかったけど、同じ記事を二個作りそうで面倒だったから諦めた。</p>
+                        <p>\[
+\newcommand{\v}[1]{\boldsymbol #1}
+\newcommand{\par}[1]{\left( #1 \right)}
+\let\frac=\dfrac
+\]</p>
+<h1 id="ラグランジュの未定乗数法"><a class="header" href="#ラグランジュの未定乗数法">ラグランジュの未定乗数法</a></h1>
+<p>勾配 \(\nabla f(x,y)\) は</p>
+<p>\[ \nabla f(x,y) = \left[ \frac{\partial f}{\partial x}, ~ \frac{\partial f}{\partial y} \right]\]</p>
+<p>で定義されるベクトルである。関数値がより大きくなる方向を向き、関数値が同じ点からなる "等高線" と垂直であることが知られている。</p>
+<blockquote>
+<p><strong>ラグランジュの未定乗数法</strong></p>
+<p>\(f(x,y), g(x,y)\) は \(C^1\) 級関数であるとする。</p>
+<p>\(g(x,y) = 0\) を満たしながら連続的に動くとき、\(f(x,y)\) の値が極値をとる必要条件は</p>
+<p>\[\nabla g = \v 0 \quad \lor \quad {}^\exists \lambda, ~ \nabla f = \lambda \nabla g \]</p>
+<p>を満たすことである。</p>
+</blockquote>
+<p>後者の条件は「その点から微小量だけずらしても関数値は変わらない」すなわち「等高線の向きが一致する」ということを表している。
+もし等高線の向きが一致しないならば、微小量だけ動かしてより大きく・小さくすることができ、極値ではないことが分かる。</p>
+<h2 id="例題1"><a class="header" href="#例題1">例題1</a></h2>
+<blockquote>
+<p>\(9x^2 + 4y^2 + z^2 = 1\) であるときの \(x+y+z\) の最大値と最小値を求めよ。</p>
+</blockquote>
+<div id="admonition-解答" class="admonition admonish-success" role="note" aria-labelledby="admonition-解答-title">
+<div class="admonition-title">
+<div id="admonition-解答-title">
+<p>解答</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-解答"></a>
+</div>
+<div>
+<p>\[
+f(x,y,z) = x+y+z, ~ \nabla f = \left[ 1, 1, 1 \right] \\[15px]
+g(x,y,z) = 9x^2 + 4y^2 + z^2 - 1, ~ \nabla g = \left[ 18x, 8y, 2z \right]
+\]</p>
+<p>であり、\(\nabla g = \v 0\) となるものは存在しない。よって、ラグランジュの未定乗数法から、</p>
+<p>\[
+^\exists \lambda, ~ x = \frac{1}{18\lambda}, ~ y = \frac{1}{8\lambda}, ~ z = \frac{1}{2\lambda}
+\]</p>
+<p>である必要がある。これを条件式に代入すれば \(\lambda = \pm \dfrac{7}{12}\) を得る。それぞれ関数値を求めれば</p>
+<p>\[
+\max_{g = 0} f = f \left( \frac{7}{216}, \frac{7}{96}, \frac{7}{24} \right) = \frac 76 \\
+\min_{g = 0} f = f \left( -\frac{7}{216}, -\frac{7}{96}, -\frac{7}{24} \right) = - \frac 76
+\]</p>
+<p>を得る。</p>
+<hr />
+<p>これはコーシー・シュワルツの不等式</p>
+<p>\[ (x+y+z)^2 \leq \left\{(3x)^2 + (2y)^2 + z^2\right\} \left\{(1/3)^2 + (1/2)^2 + 1^2 \right\} \]</p>
+<p>とその等号成立条件から同様な結論 \( -\frac 76 \leq x+y+z \leq \frac 76\) を得ることができる。</p>
+</div>
+</div>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../math/calculus/geometrical-usage.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../math/techniques/jensens-inequality.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/probability/use_of_power_series.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../math/techniques/mean-value-theorem.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -179,11 +227,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../math/calculus/geometrical-usage.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../math/techniques/jensens-inequality.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/probability/use_of_power_series.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../math/techniques/mean-value-theorem.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
