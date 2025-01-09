@@ -10,6 +10,7 @@
     + [ラグランジュの未定乗数法](./math/techniques/lagrange-multiplier.md)
     + [平均値の定理](./math/techniques/mean-value-theorem.md)
 // - [必ず覚えるもの一覧](./math/basis.md)
+- [評価](./math/evaluation/index.md)
 - [微積分](./math/calculus/index.md)
     + [有名置換](./math/calculus/famous_substitution.md)
     + [有名な積分](./math/calculus/famous_integral.md)
@@ -28,6 +29,7 @@
 - [初めに](./physics/index.md)
 - [力学](./physics/mechanics/index.md)
     - [円運動・単振動](./physics/mechanics/circular-motion.md)
+    - [重心系](./physics/mechanics/center-of-gravity.md)
 - [電磁気](./physics/electromagnetism/index.md)
 - [熱力学](./physics/thermodynamics/index.md)
     + [ポアソンの法則の導出](./physics/thermodynamics/poissons_law.md) 
@@ -45,6 +47,8 @@
     + [書き溜まり](./chemistry/inorganic/note.md)
 - [有機](./chemistry/organic/index.md)
     + [糖類](./chemistry/organic/sugar.md)
+    + [高分子](./chemistry/organic/synthetic-polymer.md)
+- [高分子](./chemistry/polymer/index.md)
 
 # 英語
 

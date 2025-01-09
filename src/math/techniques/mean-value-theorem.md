@@ -11,11 +11,11 @@
 >
 > \\[ f'(k) = \frac{f(b) - f(a)}{b-a} \quad \Longleftrightarrow \quad f(b) - f(a) = (b-a) \times f'(k) \\]
 >
-> を満たす実数 \\(k \in (a,b)\\) が存在する。特に \\(\min f' \leq f(k) \leq \max f'\\) として
+> を満たす実数 \\(k \in (a,b)\\) が存在する。特に \\(\min f' \leq f'(x) \leq \max f'\\) として
 >
 > \\[ (b-a) \times \min f' \leq f(b)-f(a) \leq (b-a) \times \max f' \\]
 >
-> という不等式が成り立つ。
+> のような不等式で使うこともある。
 
 値の存在性以外でいうと、\\(b-a, ~ f(b)-f(a)\\) のもう一方が評価しやすいときに
 
@@ -24,7 +24,7 @@
     b-a \leq |f(b) - f(a)| \times \max\left\\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'|}\right\\}
 \\]
 
-と評価できる。特に \\(f'(x)\\) は単調であることが多い。
+と評価するのに使える。\\(f'(x)\\) は単調であることが多い。
 
 
 ## 積分についての平均値の定理

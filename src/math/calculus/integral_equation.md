@@ -45,7 +45,7 @@
         & \quad \quad + \lim_{h \to 0} \frac 1h \left\\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\\} \\\\
         &= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\\\
         & \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\\\
-        &= \int_a^x \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
+        &= \int_a^{g(x)} \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
     \end{align}
 \\]
 > 
@@ -105,19 +105,19 @@
 を満たす。\\(A, B\\) を求めよ。
 ```
 
-関数 \\(f\\) に関する性質が何も示されていないので、\\(f(xy)\\) の部分を解決するためにどう置換したらよいだろうか。
+関数 \\(f\\) に関する性質が何も示されていないので \\(f(xy)\\) の部分を解決したい。どう置換したら上手くいくだろうか。
 
 ```admonish title="解答" collapsible=true
-\\(xy = t\\) と置換する。両辺に \\(x\\) を掛け、絶対値を外すために積分区間を \\(t = x\\) で分けると
+\\(xy = t\\) と置換する。両辺に \\(x\\) を掛け、絶対値を外すために積分区間を \\(t = x\\) で分けて整理すると
 
 \\[
-    \int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
+    \left(\int_1^x + \int_2^x\right) (\log x - \log t) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
 \\]
 
-を得る。両辺微分し \\(x\\) を掛けて
+を得る (入り切らなかったので被積分関数が同じ積分は略記)。両辺微分し \\(x\\) を掛けて
 
 \\[
-    \int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
+    \left(\int_1^x + \int_2^x\right) f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
 \\]
 
 を得る。もう一度両辺微分して 2 で割ると
