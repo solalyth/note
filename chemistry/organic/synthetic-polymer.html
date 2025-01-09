@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>平均値の定理 - Alyth note</title>
+        <title>高分子 - Alyth note</title>
 
 
         <!-- Custom HTML head -->
@@ -158,52 +158,38 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>\[
-\newcommand{\disp}{\displaystyle}
-\let\frac=\dfrac
-\]</p>
-<h1 id="平均値の定理"><a class="header" href="#平均値の定理">平均値の定理</a></h1>
-<blockquote>
-<p><strong>ラグランジュの平均値の定理</strong></p>
-<p>\(f(x)\) は \([a,b]\) で連続かつ \((a,b)\) で微分可能であるとする。このとき、</p>
-<p>\[ f'(k) = \frac{f(b) - f(a)}{b-a} \quad \Longleftrightarrow \quad f(b) - f(a) = (b-a) \times f'(k) \]</p>
-<p>を満たす実数 \(k \in (a,b)\) が存在する。特に \(\min f' \leq f'(x) \leq \max f'\) として</p>
-<p>\[ (b-a) \times \min f' \leq f(b)-f(a) \leq (b-a) \times \max f' \]</p>
-<p>のような不等式で使うこともある。</p>
-</blockquote>
-<p>値の存在性以外でいうと、\(b-a, ~ f(b)-f(a)\) のもう一方が評価しやすいときに</p>
-<p>\[
-|f(b) - f(a)| \leq (b-a) \times \max \{ |\min f'|, |\max f'| \} \\
-b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'|}\right\}
-\]</p>
-<p>と評価するのに使える。\(f'(x)\) は単調であることが多い。</p>
-<h2 id="積分についての平均値の定理"><a class="header" href="#積分についての平均値の定理">積分についての平均値の定理</a></h2>
-<blockquote>
-<p><strong>積分についての平均値の定理</strong></p>
-<p>\(\disp \int_c^x f(t) ~ dt\) について平均値の定理を考えると</p>
-<p>\[ f(k) = \frac{1}{b-a} \int_a^b f(t) ~ dt \Longleftrightarrow \int_a^b f(t) ~ dt = (b-a) \times f(k) \]</p>
-<p>を満たす実数 \(k \in (a,b)\) が存在する。</p>
-</blockquote>
-<p>特に \(b \to a\) とすれば微積分学の基本定理となっている。</p>
-<h2 id="反復更新数列の極限"><a class="header" href="#反復更新数列の極限">反復更新数列の極限</a></h2>
-<blockquote>
-<p>\(f(x)\) は区間 \(I\) で微分可能であり、\(f(\alpha) = \alpha\) となる不動点 \(\alpha \in I\) を持つ。また、傾きの絶対値は 1 より小さい実数 \(r\) で抑えられる、すなわち</p>
-<p>\[ ^\exists r \in (0,1), ~ {}^\forall x \in I \setminus \{\alpha\}, ~ |f'(x)| \leq r \]</p>
-<p>を満たすとする。特に、\(f(I) \subsetneq I\) である。</p>
-<p>初項 \(a_0 \in I\), 漸化式 \(a_{n+1} = f(a_n)\) で定義される数列の極限値を考える。ここで、中間値の定理より</p>
-<p>\[ |a_{n+1} - \alpha| = |f(a_n) - \alpha| \leq r \times |a_n - \alpha| \]</p>
-<p>が成立するから、\(|a_n - \alpha| \leq r^n |a_0 - \alpha| \to 0\) より \(a_n \to \alpha\) を得る。</p>
-</blockquote>
+                        <h1 id="高分子"><a class="header" href="#高分子">高分子</a></h1>
+<p>主に <strong>合成繊維・熱可塑性樹脂・熱硬化性樹脂・ゴム系・機能性高分子化合物系</strong> に分かれる。</p>
+<p>高分子化合物は分子量が大きく、溶媒に溶けにくい。モル濃度が小さいので凝固点降下や沸点上昇での分子量の測定は向いていない。浸透圧は可能。</p>
+<pre class="mermaid">---
+config:
+    themeVariables:
+        fontSize: 12px
+    flowchart:
+        nodeSpacing: 10
+---
+
+graph LR
+
+a1[合成繊維] --&gt; a2[再生繊維] --&gt; a7(&quot;ビスコースレーヨン&lt;br&gt;銅アンモニアレーヨン(キュプラ)&quot;)
+a1 --&gt; a3[半合成繊維] --&gt; a8(&quot;トリニトロセルロース&lt;br&gt;ジアセチルセルロース&quot;)
+a1 --&gt; a4[&quot;ポリエステル&lt;br&gt;(樹脂としても利用)&quot;] --&gt; a5(&quot;PET&quot;)
+a1 --&gt; a9[ポリアミド] --&gt; a10(&quot;ナイロン66&lt;br&gt;ナイロン6&quot;)
+a1 --&gt; a11[その他] --&gt; a12(&quot;ポリアクリロニトリル → 炭素繊維&quot;)
+a11 --&gt; a13(&quot;酢酸ビニル → PVA → ビニロン&quot;)
+
+b1[熱硬化性樹脂] --&gt; b2[&quot;a&quot;]
+</pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../math/techniques/lagrange-multiplier.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../chemistry/organic/sugar.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/evaluation/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../chemistry/polymer/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -213,11 +199,11 @@ b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../math/techniques/lagrange-multiplier.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../chemistry/organic/sugar.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/evaluation/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../chemistry/polymer/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

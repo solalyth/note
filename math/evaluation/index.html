@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>平均値の定理 - Alyth note</title>
+        <title>評価 - Alyth note</title>
 
 
         <!-- Custom HTML head -->
@@ -158,52 +158,74 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p>\[
-\newcommand{\disp}{\displaystyle}
-\let\frac=\dfrac
-\]</p>
-<h1 id="平均値の定理"><a class="header" href="#平均値の定理">平均値の定理</a></h1>
-<blockquote>
-<p><strong>ラグランジュの平均値の定理</strong></p>
-<p>\(f(x)\) は \([a,b]\) で連続かつ \((a,b)\) で微分可能であるとする。このとき、</p>
-<p>\[ f'(k) = \frac{f(b) - f(a)}{b-a} \quad \Longleftrightarrow \quad f(b) - f(a) = (b-a) \times f'(k) \]</p>
-<p>を満たす実数 \(k \in (a,b)\) が存在する。特に \(\min f' \leq f'(x) \leq \max f'\) として</p>
-<p>\[ (b-a) \times \min f' \leq f(b)-f(a) \leq (b-a) \times \max f' \]</p>
-<p>のような不等式で使うこともある。</p>
-</blockquote>
-<p>値の存在性以外でいうと、\(b-a, ~ f(b)-f(a)\) のもう一方が評価しやすいときに</p>
+                        <p>\(
+\let\eps=\varepsilon
+\)</p>
+<h1 id="評価"><a class="header" href="#評価">評価</a></h1>
+<h2 id="eの指数関数"><a class="header" href="#eの指数関数">eの指数関数</a></h2>
+<p>主に \(x = 0, \infty\) まわりの評価しか使わない。</p>
+<p>まずマクローリン展開。覚えておきたい。</p>
 <p>\[
-|f(b) - f(a)| \leq (b-a) \times \max \{ |\min f'|, |\max f'| \} \\
-b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'|}\right\}
+e^x = 1 + x + \frac{1}{2}x^2 + \frac{1}{6}x^3 + \cdots + \frac{1}{n!}x^n + \cdots
 \]</p>
-<p>と評価するのに使える。\(f'(x)\) は単調であることが多い。</p>
-<h2 id="積分についての平均値の定理"><a class="header" href="#積分についての平均値の定理">積分についての平均値の定理</a></h2>
-<blockquote>
-<p><strong>積分についての平均値の定理</strong></p>
-<p>\(\disp \int_c^x f(t) ~ dt\) について平均値の定理を考えると</p>
-<p>\[ f(k) = \frac{1}{b-a} \int_a^b f(t) ~ dt \Longleftrightarrow \int_a^b f(t) ~ dt = (b-a) \times f(k) \]</p>
-<p>を満たす実数 \(k \in (a,b)\) が存在する。</p>
-</blockquote>
-<p>特に \(b \to a\) とすれば微積分学の基本定理となっている。</p>
-<h2 id="反復更新数列の極限"><a class="header" href="#反復更新数列の極限">反復更新数列の極限</a></h2>
-<blockquote>
-<p>\(f(x)\) は区間 \(I\) で微分可能であり、\(f(\alpha) = \alpha\) となる不動点 \(\alpha \in I\) を持つ。また、傾きの絶対値は 1 より小さい実数 \(r\) で抑えられる、すなわち</p>
-<p>\[ ^\exists r \in (0,1), ~ {}^\forall x \in I \setminus \{\alpha\}, ~ |f'(x)| \leq r \]</p>
-<p>を満たすとする。特に、\(f(I) \subsetneq I\) である。</p>
-<p>初項 \(a_0 \in I\), 漸化式 \(a_{n+1} = f(a_n)\) で定義される数列の極限値を考える。ここで、中間値の定理より</p>
-<p>\[ |a_{n+1} - \alpha| = |f(a_n) - \alpha| \leq r \times |a_n - \alpha| \]</p>
-<p>が成立するから、\(|a_n - \alpha| \leq r^n |a_0 - \alpha| \to 0\) より \(a_n \to \alpha\) を得る。</p>
-</blockquote>
+<p>（この無限級数は任意の実数 \(x\) について収束することが知られている。cf. 収束半径）</p>
+<p>次に \(0 \leq x\) の範囲を考える。\(\displaystyle 1 + \int_0^{x'} \circ ~ dx \quad (0 \leq x')\) をとる操作を繰り返すことで</p>
+<p>\[
+\begin{align}
+0 \leq x ~ \Longrightarrow ~ &amp;1 \leq e^x \\[6px]
+\Longrightarrow ~ &amp;1 + x \leq e^x \quad \\[6px]
+\Longrightarrow ~ &amp;1 + x + \frac{1}{2}x^2 \leq e^x \\[6px]
+\Longrightarrow ~ &amp;1 + x + \frac{1}{2}x^2 + \cdots + \frac{1}{n!}x^n \leq e^x
+\end{align}
+\]</p>
+<p>が分かる。これより \(\displaystyle \lim_{x \to \infty} \frac{e^x}{x^n} = 0\) が示せる。また、正の実数 \(\eps\) を適当に決めると、同様に</p>
+<p>\[
+\begin{align}
+0 \leq x \leq \log(1+\eps) ~ \Longrightarrow ~ &amp;e^x \leq 1+\eps \\
+\Longrightarrow ~ &amp;e^x \leq 1 + x + \frac{1}{2}x^2 + \cdots + \frac{1+\eps}{n!}x^n
+\end{align}
+\]</p>
+<p>となるから、\(x = +0\) まわりで挟むことができる。これより</p>
+<p>\[
+\lim_{x \to +0} \frac{e^x - 1 - x - \cdots - \frac{1}{(n-1)!}x^{n-1}}{x^n} = \frac{1}{n!}
+\]</p>
+<p>であることが示せる。</p>
+<p>最後に \(x \leq 0\) の範囲を考える。\(\displaystyle \int_{x'}^0 \circ ~ dx \quad (x' \leq 0)\) をとって整理する操作を繰り返すことで</p>
+<p>\[
+\begin{align}
+x \leq 0 ~ \Longrightarrow ~ &amp;e^x \leq 1 \\
+\Longrightarrow ~ &amp;1 + x \leq e^x \\
+\Longrightarrow ~ &amp;e^x \leq 1 + x + \frac{1}{2}x^2 \\
+\Longrightarrow ~ &amp;
+\left\{ \begin{array}{l}
+1 + x + \cdots + \dfrac{1}{n!} x^n \leq e^x \quad (n: \mathrm{odd}) \\
+e^x \leq 1 + x + \cdots + \dfrac{1}{n!} x^n \quad (n: \mathrm{even})
+\end{array} \right.
+\end{align}
+\]</p>
+<p>が分かる。\(x = -0\) まわりで挟めるので</p>
+<p>\[
+\lim_{x \to -0} \frac{e^x - 1 - x - \cdots - \frac{1}{(n-1)!}x^{n-1}}{x^n} = \frac{1}{n!}
+\]</p>
+<p>であることが示せる。</p>
+<h2 id="階乗"><a class="header" href="#階乗">階乗</a></h2>
+<p>\(\displaystyle \int_{k-1}^k \log t ~ dt &lt; \log k &lt; \int_k^{k+1} \log t ~ dt \quad (\mathrm{for} ~ 2 \leq k)\) より</p>
+<p>\[
+\int_1^n \log t ~ dt \leq \log{n!} &lt; \int_1^{n+1} \log t ~ dt \\[10px]
+\therefore ~ n\log n - n + 1 \leq \log{n!} &lt; (n+1)\log(n+1) - n \\
+\therefore ~ e \left(\frac{n}{e}\right)^n \leq \log{n!} &lt; e \left(\frac{n+1}{e}\right)^{n+1}
+\]</p>
+<p>が分かる。</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../../math/techniques/lagrange-multiplier.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../math/techniques/mean-value-theorem.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../../math/evaluation/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../../math/calculus/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -213,11 +235,11 @@ b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../../math/techniques/lagrange-multiplier.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../../math/techniques/mean-value-theorem.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../../math/evaluation/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../../math/calculus/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

@@ -172,14 +172,14 @@
 <p>と表せる。なす角 \(\alpha - \beta\) に具体値を入れれば、条件式を得ることができた。</p>
 <p>直線の方向ベクトルの内積から式を作ることもできる。</p>
 <h2 id="一次不定方程式の解を一つ求める方法"><a class="header" href="#一次不定方程式の解を一つ求める方法">一次不定方程式の解を一つ求める方法</a></h2>
-<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(a &gt; b &gt; 0\) かつ \(\gcd(a,b) = 1\) とする。</p>
-<p>ここで、「 \((a,b)\) による互除法列」を、大きい方を小さい方の余りで更新するやつでの 0 でない商の列と定義する。例えば、\((144, 43)\) のとき</p>
+<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(\gcd(a,b) = 1\) とする。</p>
+<p>ここで、「 \((a,b)\) による互除法列」を「\((b, a \mod b)\) で \((*, 1)\) になるまで更新するときの商の列」と定義する。例えば、\((144, 43)\) のとき</p>
 <p>\[
 \begin{align}
 144 &amp;= 43 \times \boldsymbol 3 + 15 \\
 43 &amp;= 15 \times \boldsymbol 2 + 13 \\
 15 &amp;= 13 \times \boldsymbol 1 + 2 \\
-13 &amp;= 2 \times \boldsymbol 6 + 1
+13 &amp;= 2 \times \boldsymbol 6 + 1 \\
 \end{align}
 \]</p>
 <p>となるから、互除法列は \(3, 2, 1, 6\) となる。</p>
@@ -190,34 +190,87 @@
 <hr />
 <p>(証明)</p>
 <p>\(b = 1\) のとき \(\displaystyle \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) とすればよい。</p>
-<p>係数がより小さい不定一次方程式について成り立つとする。\(a = k_1b + a'\) とすると、方程式を変形して係数がより小さい不定一次方程式に帰着できる。</p>
+<p>さて、方程式を変形して異なる係数の不定一次方程式に帰着できる。</p>
 <p>\[ (k_1b + a')x + by = 1 \Longleftrightarrow b(k_1x + y) + a'x = 1 \]</p>
-<p>「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) であることから、</p>
+<p>互除法列の生成過程で \(b = 1\) に帰着する。「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) となることから、</p>
 <p>\[\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} k_1x+y \\ 'x \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
 <p>となり示せた。</p>
 </blockquote>
-<p>というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
+<p>私の一次不定方程式の解き方を定式化してみたらこうなった。というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
 <h2 id="方程式がなす図形の変換"><a class="header" href="#方程式がなす図形の変換">方程式がなす図形の変換</a></h2>
 <p>条件 \(P(\v r)\) を満たす点がなす図形 \(D = \{\v r ~|~ P(\v r)\}\) について、全単射な写像 \(f\) で変換した図形 \(D'\) は</p>
 <p>\[
-D' = \{\v r' = f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
+D' = \{f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
 \]</p>
-<p>と表せる。すなわち \(f^{-1}(\v r')\) を条件に代入した図形は変換後の図形を表す。</p>
-<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\) を用いて</p>
+<p>と表せる。ただし \(\v r' = f(\v r)\) と置換した。すなわち \(f^{-1}(\v r')\) が条件 \(P\) を満たすような \(\v r'\) は変換後の図形を表す。</p>
+<p>このことを考えると、変換の合成</p>
+<p>\[\v r' = g \circ f(\v r) \Longleftrightarrow \v r = f^{-1} \circ g^{-1} (r')\]</p>
+<p>から、逆順に逆変換を適用させる必要があることが分かる。共テで出そう。</p>
+<br>
+<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\)</p>
 <p>\[
 A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix} ~ \mathrm{then} ~ A^{-1} = \begin{bmatrix} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{bmatrix}
 \]</p>
-<p>と表せるから、</p>
+<p>を用いれば、</p>
 <p>\[
-\left\{
-\begin{bmatrix} X \\ Y \end{bmatrix} = A \begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left( \begin{bmatrix} x \\ y \end{bmatrix} \right)
-\right\}
+\{ A \v r ~ | ~ P(\v r)\}
+= \{ \v r' ~ | ~ P(A^{-1} \v r') \}
 = \left\{
-\begin{bmatrix} X \\ Y \end{bmatrix} \bigg| ~ P\left(A^{-1}\begin{bmatrix} x \\ y \end{bmatrix}\right)
+\begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left(\begin{bmatrix} x\cos\theta + y\sin\theta \\ -x\sin\theta + y\cos\theta \end{bmatrix}\right)
 \right\}
 \]</p>
-<p>となる。\(\{(X,Y) ~|~ P(X\cos\theta + Y\sin\theta, -X\sin\theta + Y\cos\theta)\}\) は回転後の図形を表す。</p>
-<p>よく頭を壊しがちなので、式にできて嬉しい！</p>
+<p>となる。よく頭を壊しがちなので、式にできて嬉しい！</p>
+<h2 id="フェルマーの小定理とオイラーの定理"><a class="header" href="#フェルマーの小定理とオイラーの定理">フェルマーの小定理とオイラーの定理</a></h2>
+<p>ここでは、互いに素であることを \(a \perp b\) と書くことにする。</p>
+<p>\(1, 2, \cdots, m-1\) のうち \(m\) と互いに素な整数の集合を \(A_m\) と書くことにする。<br />
+この \(A_m\) の個数を返す関数を <strong>オイラーの totient 関数</strong> といい、\(\phi(m)\) と表す。</p>
+<p>\[ \phi(m) = |A_m| = \# \bigg\{ k \in \{1, 2, \cdots, m-1\} ~ \bigg| ~ k \perp m \bigg\} \]</p>
+<blockquote>
+<p><strong>totient 関数の乗法性</strong></p>
+<p>互いに素な自然数 \(m, n\) について \(\phi(mn) = \phi(m)\phi(n)\) が成立する。(乗法性)</p>
+<hr />
+<p>(証明)</p>
+<p>\(\disp \left\{ \begin{array}{} k \bmod m = r_m \\ k \bmod n = r_n \\ 0 \leq k &lt; mn \end{array} \right.\) を満たす整数 \(k\) を返す関数 \(f(r_m, r_n)\) は全単射である。(中国剰余定理)</p>
+<p>\[
+A_{mn} = \bigg\{ f(r_m, r_n) ~ \bigg| ~ r_m \in A_m, ~ r_n \in A_n \bigg\}
+\]</p>
+<p>であるから、\(|A_{mn}| = |A_m| \times |A_n|\)</p>
+</blockquote>
+<blockquote>
+<p><strong>totient 関数の素因数表示</strong></p>
+<p>素数のべき乗について、定義から \(\phi(p^e) = p^e \left(1 - \frac 1p\right)\) である。</p>
+<p>乗法性を用いると、\(\disp m = \prod {p_i}^{e_i}\) と素因数分解して</p>
+<p>\[ \phi(m) = \prod \phi({p_i}^{e_i}) = m \times \prod \left( 1 - \frac{1}{p_i} \right)\]</p>
+<p>となる。</p>
+</blockquote>
+<p>さて、素数 \(p\) と整数 \(a\) に対して</p>
+<p>\[ a^p \equiv a \quad \therefore ~ a \perp p \Longrightarrow a^{p-1} \equiv 1 \pmod p\]</p>
+<p>が成立するというのは有名で、これは <strong>フェルマーの小定理</strong> と呼ばれる。</p>
+<details id="admonition-フェルマーの小定理の証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-フェルマーの小定理の証明-title">
+<summary class="admonition-title">
+<div id="admonition-フェルマーの小定理の証明-title">
+<p>フェルマーの小定理の証明</p>
+</div>
+<a class="admonition-anchor-link" href="#admonition-フェルマーの小定理の証明"></a>
+</summary>
+<div>
+<p>様々な証明があるが、シンプルで好きなやつ。</p>
+<p>二項係数 \(\disp \binom{p}{k} = \frac{p!}{k! ~ (p-k)!}\) は \(k = 1, 2, \cdots, p-1\) で \(p\) の倍数である。</p>
+<p>二項定理から \(^\forall k, ~ k^p - (k-1)^p \equiv 1\) で、この式を \(k = 1, 2, \cdots, a\) まで足し上げると題意を得る。</p>
+</div>
+</details>
+<p>この拡張として <strong>オイラーの定理</strong> がある。</p>
+<blockquote>
+<p><strong>オイラーの定理</strong></p>
+<p>\[ a \perp m \Longrightarrow a^{\phi(m)} \equiv 1 \pmod m\]</p>
+<hr />
+<p>(証明)</p>
+<p>\(\{x_1 , x_2, \cdots, x_{\phi(m)}\} = A_m\) とおく。各要素に \(a\) を掛けたものを考える。</p>
+<p>\((ax_i \bmod m) \in A_m\) かつ \(ax_i \not\equiv ax_j\) (単射性) より、</p>
+<p>\(ax_1, ax_2, \cdots, ax_{\phi(m)}\) を \(m\) で割った余りは \(x_1, x_2, \cdots, x_{\phi(m)}\) がちょうど一個ずつ現れる。</p>
+<p>よって、この総積は \(\mathrm{mod} ~ m\) で一致する。両辺を \(x_1x_2 \cdots x_{\phi(m)}\) で割って題意を得る。</p>
+</blockquote>
+<p>もちろん、この議論でフェルマーの小定理を証明することもできる。</p>
 
                     </main>
 

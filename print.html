@@ -213,14 +213,14 @@
 <p>と表せる。なす角 \(\alpha - \beta\) に具体値を入れれば、条件式を得ることができた。</p>
 <p>直線の方向ベクトルの内積から式を作ることもできる。</p>
 <h2 id="一次不定方程式の解を一つ求める方法"><a class="header" href="#一次不定方程式の解を一つ求める方法">一次不定方程式の解を一つ求める方法</a></h2>
-<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(a &gt; b &gt; 0\) かつ \(\gcd(a,b) = 1\) とする。</p>
-<p>ここで、「 \((a,b)\) による互除法列」を、大きい方を小さい方の余りで更新するやつでの 0 でない商の列と定義する。例えば、\((144, 43)\) のとき</p>
+<p>\(x, y\) を変数とする一次不定方程式 \(ax + by = 1\) を考える。ただし \(\gcd(a,b) = 1\) とする。</p>
+<p>ここで、「 \((a,b)\) による互除法列」を「\((b, a \mod b)\) で \((*, 1)\) になるまで更新するときの商の列」と定義する。例えば、\((144, 43)\) のとき</p>
 <p>\[
 \begin{align}
 144 &amp;= 43 \times \boldsymbol 3 + 15 \\
 43 &amp;= 15 \times \boldsymbol 2 + 13 \\
 15 &amp;= 13 \times \boldsymbol 1 + 2 \\
-13 &amp;= 2 \times \boldsymbol 6 + 1
+13 &amp;= 2 \times \boldsymbol 6 + 1 \\
 \end{align}
 \]</p>
 <p>となるから、互除法列は \(3, 2, 1, 6\) となる。</p>
@@ -231,34 +231,87 @@
 <hr />
 <p>(証明)</p>
 <p>\(b = 1\) のとき \(\displaystyle \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\) とすればよい。</p>
-<p>係数がより小さい不定一次方程式について成り立つとする。\(a = k_1b + a'\) とすると、方程式を変形して係数がより小さい不定一次方程式に帰着できる。</p>
+<p>さて、方程式を変形して異なる係数の不定一次方程式に帰着できる。</p>
 <p>\[ (k_1b + a')x + by = 1 \Longleftrightarrow b(k_1x + y) + a'x = 1 \]</p>
-<p>「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) であることから、</p>
+<p>互除法列の生成過程で \(b = 1\) に帰着する。「 \((b', a)\) の互除法列」は \(k_2, k_3, \cdots\) となることから、</p>
 <p>\[\begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} k_1x+y \\ 'x \end{bmatrix} = \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_1 \end{bmatrix} \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_2 \end{bmatrix} \cdots \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; -k_n \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} \]</p>
 <p>となり示せた。</p>
 </blockquote>
-<p>というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
+<p>私の一次不定方程式の解き方を定式化してみたらこうなった。というか、教科書による一次不定方程式の解き方が煩雑すぎる。もう少し簡潔な方法はないのだろうか…。</p>
 <h2 id="方程式がなす図形の変換"><a class="header" href="#方程式がなす図形の変換">方程式がなす図形の変換</a></h2>
 <p>条件 \(P(\v r)\) を満たす点がなす図形 \(D = \{\v r ~|~ P(\v r)\}\) について、全単射な写像 \(f\) で変換した図形 \(D'\) は</p>
 <p>\[
-D' = \{\v r' = f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
+D' = \{f(\v r) ~|~ P(\v r)\} = \{\v r' ~|~ P(f^{-1}(\v r'))\}
 \]</p>
-<p>と表せる。すなわち \(f^{-1}(\v r')\) を条件に代入した図形は変換後の図形を表す。</p>
-<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\) を用いて</p>
+<p>と表せる。ただし \(\v r' = f(\v r)\) と置換した。すなわち \(f^{-1}(\v r')\) が条件 \(P\) を満たすような \(\v r'\) は変換後の図形を表す。</p>
+<p>このことを考えると、変換の合成</p>
+<p>\[\v r' = g \circ f(\v r) \Longleftrightarrow \v r = f^{-1} \circ g^{-1} (r')\]</p>
+<p>から、逆順に逆変換を適用させる必要があることが分かる。共テで出そう。</p>
+<br>
+<p>例えば、原点まわりに \(\theta\) 回転させる変換は、回転行列 \(A\)</p>
 <p>\[
 A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta \end{bmatrix} ~ \mathrm{then} ~ A^{-1} = \begin{bmatrix} \cos\theta &amp; \sin\theta \\ -\sin\theta &amp; \cos\theta \end{bmatrix}
 \]</p>
-<p>と表せるから、</p>
+<p>を用いれば、</p>
 <p>\[
-\left\{
-\begin{bmatrix} X \\ Y \end{bmatrix} = A \begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left( \begin{bmatrix} x \\ y \end{bmatrix} \right)
-\right\}
+\{ A \v r ~ | ~ P(\v r)\}
+= \{ \v r' ~ | ~ P(A^{-1} \v r') \}
 = \left\{
-\begin{bmatrix} X \\ Y \end{bmatrix} \bigg| ~ P\left(A^{-1}\begin{bmatrix} x \\ y \end{bmatrix}\right)
+\begin{bmatrix} x \\ y \end{bmatrix} \bigg| ~ P\left(\begin{bmatrix} x\cos\theta + y\sin\theta \\ -x\sin\theta + y\cos\theta \end{bmatrix}\right)
 \right\}
 \]</p>
-<p>となる。\(\{(X,Y) ~|~ P(X\cos\theta + Y\sin\theta, -X\sin\theta + Y\cos\theta)\}\) は回転後の図形を表す。</p>
-<p>よく頭を壊しがちなので、式にできて嬉しい！</p>
+<p>となる。よく頭を壊しがちなので、式にできて嬉しい！</p>
+<h2 id="フェルマーの小定理とオイラーの定理"><a class="header" href="#フェルマーの小定理とオイラーの定理">フェルマーの小定理とオイラーの定理</a></h2>
+<p>ここでは、互いに素であることを \(a \perp b\) と書くことにする。</p>
+<p>\(1, 2, \cdots, m-1\) のうち \(m\) と互いに素な整数の集合を \(A_m\) と書くことにする。<br />
+この \(A_m\) の個数を返す関数を <strong>オイラーの totient 関数</strong> といい、\(\phi(m)\) と表す。</p>
+<p>\[ \phi(m) = |A_m| = \# \bigg\{ k \in \{1, 2, \cdots, m-1\} ~ \bigg| ~ k \perp m \bigg\} \]</p>
+<blockquote>
+<p><strong>totient 関数の乗法性</strong></p>
+<p>互いに素な自然数 \(m, n\) について \(\phi(mn) = \phi(m)\phi(n)\) が成立する。(乗法性)</p>
+<hr />
+<p>(証明)</p>
+<p>\(\disp \left\{ \begin{array}{} k \bmod m = r_m \\ k \bmod n = r_n \\ 0 \leq k &lt; mn \end{array} \right.\) を満たす整数 \(k\) を返す関数 \(f(r_m, r_n)\) は全単射である。(中国剰余定理)</p>
+<p>\[
+A_{mn} = \bigg\{ f(r_m, r_n) ~ \bigg| ~ r_m \in A_m, ~ r_n \in A_n \bigg\}
+\]</p>
+<p>であるから、\(|A_{mn}| = |A_m| \times |A_n|\)</p>
+</blockquote>
+<blockquote>
+<p><strong>totient 関数の素因数表示</strong></p>
+<p>素数のべき乗について、定義から \(\phi(p^e) = p^e \left(1 - \frac 1p\right)\) である。</p>
+<p>乗法性を用いると、\(\disp m = \prod {p_i}^{e_i}\) と素因数分解して</p>
+<p>\[ \phi(m) = \prod \phi({p_i}^{e_i}) = m \times \prod \left( 1 - \frac{1}{p_i} \right)\]</p>
+<p>となる。</p>
+</blockquote>
+<p>さて、素数 \(p\) と整数 \(a\) に対して</p>
+<p>\[ a^p \equiv a \quad \therefore ~ a \perp p \Longrightarrow a^{p-1} \equiv 1 \pmod p\]</p>
+<p>が成立するというのは有名で、これは <strong>フェルマーの小定理</strong> と呼ばれる。</p>
+<details id="admonition-フェルマーの小定理の証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-フェルマーの小定理の証明-title">
+<summary class="admonition-title">
+<div id="admonition-フェルマーの小定理の証明-title">
+<p>フェルマーの小定理の証明</p>
+</div>
+<a class="admonition-anchor-link" href="math/techniques/index.html#admonition-フェルマーの小定理の証明"></a>
+</summary>
+<div>
+<p>様々な証明があるが、シンプルで好きなやつ。</p>
+<p>二項係数 \(\disp \binom{p}{k} = \frac{p!}{k! ~ (p-k)!}\) は \(k = 1, 2, \cdots, p-1\) で \(p\) の倍数である。</p>
+<p>二項定理から \(^\forall k, ~ k^p - (k-1)^p \equiv 1\) で、この式を \(k = 1, 2, \cdots, a\) まで足し上げると題意を得る。</p>
+</div>
+</details>
+<p>この拡張として <strong>オイラーの定理</strong> がある。</p>
+<blockquote>
+<p><strong>オイラーの定理</strong></p>
+<p>\[ a \perp m \Longrightarrow a^{\phi(m)} \equiv 1 \pmod m\]</p>
+<hr />
+<p>(証明)</p>
+<p>\(\{x_1 , x_2, \cdots, x_{\phi(m)}\} = A_m\) とおく。各要素に \(a\) を掛けたものを考える。</p>
+<p>\((ax_i \bmod m) \in A_m\) かつ \(ax_i \not\equiv ax_j\) (単射性) より、</p>
+<p>\(ax_1, ax_2, \cdots, ax_{\phi(m)}\) を \(m\) で割った余りは \(x_1, x_2, \cdots, x_{\phi(m)}\) がちょうど一個ずつ現れる。</p>
+<p>よって、この総積は \(\mathrm{mod} ~ m\) で一致する。両辺を \(x_1x_2 \cdots x_{\phi(m)}\) で割って題意を得る。</p>
+</blockquote>
+<p>もちろん、この議論でフェルマーの小定理を証明することもできる。</p>
 <div style="break-before: page; page-break-before: always;"></div><p>\(
 \newcommand{\disp}{\displaystyle}
 \newcommand{\v}[1]{\boldsymbol #1}
@@ -267,13 +320,13 @@ A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta 
 \)</p>
 <h1 id="凸不等式系"><a class="header" href="#凸不等式系">凸不等式系</a></h1>
 <p>凸不等式は非常に強い道具である。まさに凸不等式を問う問題から、これを知らないと難しい問題もある。ここから様々な不等式が導ける。</p>
-<p>参考記事: <a href="https://mathlandscape.com/convex-func">数学の景色</a></p>
+<p>参考: <a href="https://mathlandscape.com/convex-func">数学の景色</a></p>
 <h2 id="凸性"><a class="header" href="#凸性">凸性</a></h2>
 <p>高校数学でいう「下に凸・上に凸」を、ここでは単に「凸・凹」と呼ぶことにする。<br />
 \(f\) が凹関数ならば \(-f\) は凸関数である。以下では凸関数に関する不等式を紹介するが、凹関数では逆向きの不等式が成立する。(たぶんそう)</p>
 <p>関数 \(f(x) \colon I \to \mathbb{R}\) が、任意の区間 \([a,b] \in I\) について</p>
 <p>\[
-^\forall x \in (a,b) ~ \bigg[ f(x) &lt; f(a) + \frac{\{f(b)-f(a)\}(x-a)}{b-a} \bigg] \\
+^\forall x \in (a,b) ~ \bigg[ f(x) &lt; \frac{f(b)-f(a)}{b-a} (x-a) + f(a) \bigg] \\
 \Longleftrightarrow {}^\forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-\lambda)b\right) &lt; \lambda f(a) + (1-\lambda) f(b) \bigg]
 \]</p>
 <p>が成り立つとき「<strong>狭義凸関数</strong>である」という。\(x = \lambda a + (1-\lambda)b\) について、左辺は曲線上の高さ、右辺は二点を結ぶ線分上の高さを表している。すなわち、曲線上の二点を結ぶ線分が必ず曲線より上側を通ることである。</p>
@@ -288,7 +341,7 @@ A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta 
 <p>\[
 \forall \lambda \in (0, 1) ~ \bigg[ f\left(\lambda a + (1-x)b\right) \leq \lambda f(a) + (1-\lambda) f(b) \bigg]
 \]</p>
-<p>が成立するとき「 \(f(x)\) は広義凸関数である」という。これは曲線の一部として直線を持つということであり、問題設定的に登場しない。</p>
+<p>が成立するとき「 \(f(x)\) は広義凸関数である」という。これは曲線の一部として直線を持つことを許したものであり、出題されることは無いだろう。</p>
 </div>
 </details>
 <div id="admonition-memo" class="admonition admonish-note" role="note" aria-labelledby="admonition-memo-title">
@@ -299,22 +352,28 @@ A = \begin{bmatrix} \cos\theta &amp; -\sin\theta \\ \sin\theta &amp; \cos\theta 
 <a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-memo"></a>
 </div>
 <div>
-<p>後述する凸不等式の弱い系ではあるが、単に \(\lambda = 1/2\) とした式</p>
+<p>後述する凸不等式の弱い系ではあるが、\(\lambda = 1/2\) とした式</p>
 <p>\[
-f\left(\frac{x_1+x_2}{2}\right) \leq \frac{f(x_1)+f(x_2)}{2}
+f\left(\frac{x_1+x_2}{2}\right) &lt; \frac{f(x_1)+f(x_2)}{2}
 \]</p>
 <p>を用いて解き進めることがある。等号成立条件は \(x_1 = x_2\) である。</p>
 </div>
 </div>
-<h2 id="断り書き"><a class="header" href="#断り書き">断り書き</a></h2>
-<p>実用性と証明の簡略化のため、以下では \(C^2\) <strong>級の(狭義凸)関数についてのみ</strong>考える。</p>
-<p>「 \(f'\) が狭義単調増加 \(\Longleftrightarrow\) \(f\) が狭義凸」が知られている。特に \(f''(x) &gt; 0\) ならば十分である。</p>
-<p>問題を解くときは十分性しか使わないので、ここでは十分性だけ書く。</p>
+<p>\(f'\) が狭義単調増加ならば \(f\) が狭義凸であることが知られている。特に \(f''(x) &gt; 0\) ならば十分である。</p>
+<p>これを問う問題でなければ、周知の事実としてよいだろう。</p>
+<div id="admonition-凸性の証明" class="admonition admonish-note" role="note" aria-labelledby="admonition-凸性の証明-title">
+<div class="admonition-title">
+<div id="admonition-凸性の証明-title">
+<p>凸性の証明</p>
+</div>
+<a class="admonition-anchor-link" href="math/techniques/jensens-inequality.html#admonition-凸性の証明"></a>
+</div>
+<div>
 <p>\[
 g(x) = f(x) - \left\{ \frac{f(b)-f(a)}{b-a} (x-a) + f(a) \right\}
 \]</p>
-<p>と定義し、\((a, b)\) の範囲で \(g(x) &lt; 0\) が成り立つことを示せばよい。</p>
-<p>\(g(a)=g(b)=0\) かつ \(g'\) は狭義単調増加である。ロルの定理から \(g'(k) = 0\) となる \(k \in (a, b)\) が存在し、増減表は</p>
+<p>と置く。\(a &lt; x &lt; b \Longrightarrow g(x) &lt; 0\) を示せばよい。</p>
+<p>\(g(a)=g(b)=0\) かつ \(g'\) は狭義単調増加であるから、ロルの定理より \(g'(k) = 0\) なる \(k \in (a, b)\) が存在し、増減表は</p>
 <p>\[
 \begin{array}{c|ccccc}
 x &amp; a &amp; \cdots &amp; k &amp; \cdots &amp; b \\ \hline
@@ -323,18 +382,20 @@ g'(x) &amp; &amp; - &amp; 0 &amp; +
 \end{array}
 \]</p>
 <p>となるから、示せた。</p>
+</div>
+</div>
 <h2 id="凸不等式"><a class="header" href="#凸不等式">凸不等式</a></h2>
-<p>本題の凸不等式とも呼ばれる、根幹を為す不等式である。イェンセン・イェンゼンの表記揺れがそこそこある。</p>
+<p>このページの根幹を為す不等式である。Jensen はイェンセン・イェンゼンの表記揺れがネット上に存在する。</p>
 <blockquote>
-<p><strong>Jensen の不等式</strong></p>
+<p><strong>凸不等式 (Jensen の不等式)</strong></p>
 <p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の列 \((x_i)\), 和が \(1\) である正実数列 \((w_i)\) について</p>
 <p>\[ f \left( \sum w_i x_i \right) \leq \sum w_i f(x_i) \]</p>
 <p>が成立する。等号成立条件は \(^\forall x_i = \mathrm{const.}\) である。</p>
 <hr />
 <p>(証明)</p>
-<p>\(\disp m = \sum w_i x_i\) と置く。曲線 \(y = f(x)\) の \(x = m\) での接線は、曲線より下側を通るから<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>\(\disp m = \sum w_i x_i\) と置く。曲線 \(y = f(x)\) の \(x = m\) での接線は曲線より下側を通るから<sup class="footnote-reference"><a href="#1">1</a></sup></p>
 <p>\[
-^\forall x, ~ f'(m) (x-m) + f(m) \leq f(x)
+^\forall x \in I, ~ f'(m) (x-m) + f(m) \leq f(x)
 \]</p>
 <p>が成立する。等号成立条件は \(x = m\) である。\(x = x_i\) での式を \(w_i\) 倍して足し上げると、</p>
 <p>\[
@@ -343,23 +404,23 @@ f'(m) \underbrace{\sum w_i(x_i-m)}_{=0} + f(m) \underbrace{\sum w_i}_{=1} \leq \
 <p>より不等式を得る。等号成立条件は \(^\forall x_i = m\) であり、\(^\forall x_i = \mathrm{const.}\) と同値である。</p>
 <p>接線が \(y\) 軸と平行であるときは上の議論はできないが、そのような点 \(x = k\) は区間の端のみである。\(m = k\) となるのは \(^\forall x_i = k\) であるときに限るから、この場合も不等式は成り立つ。</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>曲線 \(g(x) = f(x) - f(m) - f'(m)(x-m)\) は \(g(m) = g'(m) = 0\) かつ \(g'\) が狭義単調増加であるから、明らかに \(g(x) \geq 0\) であり、示せた。</p>
+<p>\(g(x) = f(x) - f(m) - f'(m)(x-m)\) と置いてロルの定理・増減表から明らか。</p>
 </div>
 </blockquote>
 <br>
-<p>重みを \(^\forall w_i = 1/n\) と設定することがしばしばある。ここでは「平均凸不等式」と呼ぼう。</p>
+<p>重みを \(^\forall w_i = 1/n\) と設定することがしばしばある。</p>
 <blockquote>
-<p><strong>平均凸不等式</strong></p>
+<p><strong>均一重み凸不等式</strong></p>
 <p>狭義凸関数 \(f \colon I \to \mathbb{R}\), 区間 \(I\) 上の実数列 \((x_i)\) について</p>
 <p>\[
 f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \cdots + f(x_n)}{n}
 \]</p>
 <p>が成立する。</p>
 </blockquote>
-<p>また、log を使うと積についての不等式が得られる。</p>
+<p>また、log を使うと積の不等式が得られる。</p>
 <blockquote>
-<p><strong>log の平均凸不等式</strong></p>
-<p>\(\log f(x) \colon I \to \mathbb{R}\) が狭義凸関数であるとき、区間 \(I\) 上の実数列 \((x_i)\) について</p>
+<p><strong>log の均一重み凸不等式</strong></p>
+<p>\(\log f(x)\) が狭義凸関数であるとき、</p>
 <p>\[
 \log f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{\log \left\{f(x_1)f(x_2) \cdots f(x_n)\right\}}{n} \\
 \Longleftrightarrow \quad f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \sqrt[n]{f(x_1)f(x_2) \cdots f(x_n)}
@@ -370,7 +431,7 @@ f\left(\frac{x_1 + x_2 + \cdots + x_n}{n}\right) \leq \frac{f(x_1) + f(x_2) + \c
 <h2 id="系となる不等式"><a class="header" href="#系となる不等式">系となる不等式</a></h2>
 <blockquote>
 <p><strong>任意個の項の相加相乗平均</strong></p>
-<p>\(f(x) = \log x\) は凹関数である。正の実数列 \((x_i)\) について、log の平均凸不等式から</p>
+<p>\(f(x) = \log x\) は凹関数である。正の実数列 \((x_i)\) について、log の均一重み凸不等式から</p>
 <p>\[
 \frac{x_1 + x_2 + \cdots + x_n}{n} \geq \sqrt[n]{x_1x_2 \cdots x_n}
 \]</p>
@@ -435,16 +496,16 @@ g(x,y,z) = 9x^2 + 4y^2 + z^2 - 1, ~ \nabla g = \left[ 18x, 8y, 2z \right]
 <p><strong>ラグランジュの平均値の定理</strong></p>
 <p>\(f(x)\) は \([a,b]\) で連続かつ \((a,b)\) で微分可能であるとする。このとき、</p>
 <p>\[ f'(k) = \frac{f(b) - f(a)}{b-a} \quad \Longleftrightarrow \quad f(b) - f(a) = (b-a) \times f'(k) \]</p>
-<p>を満たす実数 \(k \in (a,b)\) が存在する。特に \(\min f' \leq f(k) \leq \max f'\) として</p>
+<p>を満たす実数 \(k \in (a,b)\) が存在する。特に \(\min f' \leq f'(x) \leq \max f'\) として</p>
 <p>\[ (b-a) \times \min f' \leq f(b)-f(a) \leq (b-a) \times \max f' \]</p>
-<p>という不等式が成り立つ。</p>
+<p>のような不等式で使うこともある。</p>
 </blockquote>
 <p>値の存在性以外でいうと、\(b-a, ~ f(b)-f(a)\) のもう一方が評価しやすいときに</p>
 <p>\[
 |f(b) - f(a)| \leq (b-a) \times \max \{ |\min f'|, |\max f'| \} \\
 b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'|}\right\}
 \]</p>
-<p>と評価できる。特に \(f'(x)\) は単調であることが多い。</p>
+<p>と評価するのに使える。\(f'(x)\) は単調であることが多い。</p>
 <h2 id="積分についての平均値の定理"><a class="header" href="#積分についての平均値の定理">積分についての平均値の定理</a></h2>
 <blockquote>
 <p><strong>積分についての平均値の定理</strong></p>
@@ -462,6 +523,64 @@ b-a \leq |f(b) - f(a)| \times \max\left\{ \frac{1}{|\min f'|}, \frac{1}{|\max f'
 <p>\[ |a_{n+1} - \alpha| = |f(a_n) - \alpha| \leq r \times |a_n - \alpha| \]</p>
 <p>が成立するから、\(|a_n - \alpha| \leq r^n |a_0 - \alpha| \to 0\) より \(a_n \to \alpha\) を得る。</p>
 </blockquote>
+<div style="break-before: page; page-break-before: always;"></div><p>\(
+\let\eps=\varepsilon
+\)</p>
+<h1 id="評価"><a class="header" href="#評価">評価</a></h1>
+<h2 id="eの指数関数"><a class="header" href="#eの指数関数">eの指数関数</a></h2>
+<p>主に \(x = 0, \infty\) まわりの評価しか使わない。</p>
+<p>まずマクローリン展開。覚えておきたい。</p>
+<p>\[
+e^x = 1 + x + \frac{1}{2}x^2 + \frac{1}{6}x^3 + \cdots + \frac{1}{n!}x^n + \cdots
+\]</p>
+<p>（この無限級数は任意の実数 \(x\) について収束することが知られている。cf. 収束半径）</p>
+<p>次に \(0 \leq x\) の範囲を考える。\(\displaystyle 1 + \int_0^{x'} \circ ~ dx \quad (0 \leq x')\) をとる操作を繰り返すことで</p>
+<p>\[
+\begin{align}
+0 \leq x ~ \Longrightarrow ~ &amp;1 \leq e^x \\[6px]
+\Longrightarrow ~ &amp;1 + x \leq e^x \quad \\[6px]
+\Longrightarrow ~ &amp;1 + x + \frac{1}{2}x^2 \leq e^x \\[6px]
+\Longrightarrow ~ &amp;1 + x + \frac{1}{2}x^2 + \cdots + \frac{1}{n!}x^n \leq e^x
+\end{align}
+\]</p>
+<p>が分かる。これより \(\displaystyle \lim_{x \to \infty} \frac{e^x}{x^n} = 0\) が示せる。また、正の実数 \(\eps\) を適当に決めると、同様に</p>
+<p>\[
+\begin{align}
+0 \leq x \leq \log(1+\eps) ~ \Longrightarrow ~ &amp;e^x \leq 1+\eps \\
+\Longrightarrow ~ &amp;e^x \leq 1 + x + \frac{1}{2}x^2 + \cdots + \frac{1+\eps}{n!}x^n
+\end{align}
+\]</p>
+<p>となるから、\(x = +0\) まわりで挟むことができる。これより</p>
+<p>\[
+\lim_{x \to +0} \frac{e^x - 1 - x - \cdots - \frac{1}{(n-1)!}x^{n-1}}{x^n} = \frac{1}{n!}
+\]</p>
+<p>であることが示せる。</p>
+<p>最後に \(x \leq 0\) の範囲を考える。\(\displaystyle \int_{x'}^0 \circ ~ dx \quad (x' \leq 0)\) をとって整理する操作を繰り返すことで</p>
+<p>\[
+\begin{align}
+x \leq 0 ~ \Longrightarrow ~ &amp;e^x \leq 1 \\
+\Longrightarrow ~ &amp;1 + x \leq e^x \\
+\Longrightarrow ~ &amp;e^x \leq 1 + x + \frac{1}{2}x^2 \\
+\Longrightarrow ~ &amp;
+\left\{ \begin{array}{l}
+1 + x + \cdots + \dfrac{1}{n!} x^n \leq e^x \quad (n: \mathrm{odd}) \\
+e^x \leq 1 + x + \cdots + \dfrac{1}{n!} x^n \quad (n: \mathrm{even})
+\end{array} \right.
+\end{align}
+\]</p>
+<p>が分かる。\(x = -0\) まわりで挟めるので</p>
+<p>\[
+\lim_{x \to -0} \frac{e^x - 1 - x - \cdots - \frac{1}{(n-1)!}x^{n-1}}{x^n} = \frac{1}{n!}
+\]</p>
+<p>であることが示せる。</p>
+<h2 id="階乗"><a class="header" href="#階乗">階乗</a></h2>
+<p>\(\displaystyle \int_{k-1}^k \log t ~ dt &lt; \log k &lt; \int_k^{k+1} \log t ~ dt \quad (\mathrm{for} ~ 2 \leq k)\) より</p>
+<p>\[
+\int_1^n \log t ~ dt \leq \log{n!} &lt; \int_1^{n+1} \log t ~ dt \\[10px]
+\therefore ~ n\log n - n + 1 \leq \log{n!} &lt; (n+1)\log(n+1) - n \\
+\therefore ~ e \left(\frac{n}{e}\right)^n \leq \log{n!} &lt; e \left(\frac{n+1}{e}\right)^{n+1}
+\]</p>
+<p>が分かる。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="微積分"><a class="header" href="#微積分">微積分</a></h1>
 <p>ほとんど積分。\(
 \newcommand{\disp}{\displaystyle}
@@ -715,7 +834,7 @@ I_n
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \left\{ \int_a^{g(x+h)} f(x, t) ~ dt - \int_a^{g(x)} f(x, t) ~ dt \right\} \\
 &amp;= \lim_{h \to 0} \int_a^{g(x+h)} \frac{f(x+h, t) - f(x, t)}{h} ~ dt \\
 &amp; \quad \quad + \lim_{h \to 0} \frac 1h \int_{g(x)}^{g(x+h)} f(x, t) ~ dt \\
-&amp;= \int_a^x \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
+&amp;= \int_a^{g(x)} \frac{\partial}{\partial x} f(x, t) ~ dt + f(x, g(x)) \cdot g'(x)
 \end{align}
 \]</p>
 <p>が成り立つ。6 行目は<a href="math/calculus/../../math/techniques/mean-value-theorem.html#%E7%A9%8D%E5%88%86%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E5%B9%B3%E5%9D%87%E5%80%A4%E3%81%AE%E5%AE%9A%E7%90%86">積分についての平均値の定理</a>を用いた。</p>
@@ -786,7 +905,7 @@ I_n
 <p>を満たす。\(A, B\) を求めよ。</p>
 </div>
 </div>
-<p>関数 \(f\) に関する性質が何も示されていないので、\(f(xy)\) の部分を解決するためにどう置換したらよいだろうか。</p>
+<p>関数 \(f\) に関する性質が何も示されていないので \(f(xy)\) の部分を解決したい。どう置換したら上手くいくだろうか。</p>
 <details id="admonition-解答-1" class="admonition admonish-note" role="note" aria-labelledby="admonition-解答-1-title">
 <summary class="admonition-title">
 <div id="admonition-解答-1-title">
@@ -795,13 +914,13 @@ I_n
 <a class="admonition-anchor-link" href="math/calculus/integral_equation.html#admonition-解答-1"></a>
 </summary>
 <div>
-<p>\(xy = t\) と置換する。両辺に \(x\) を掛け、絶対値を外すために積分区間を \(t = x\) で分けると</p>
+<p>\(xy = t\) と置換する。両辺に \(x\) を掛け、絶対値を外すために積分区間を \(t = x\) で分けて整理すると</p>
 <p>\[
-\int_1^x -(\log t - \log x) f(t) ~ dt + \int_x^2 (\log t - \log x) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
+\left(\int_1^x + \int_2^x\right) (\log x - \log t) f(t) ~ dt = 3x^2(\log x - 1) + Ax + B \tag{1}
 \]</p>
-<p>を得る。両辺微分し \(x\) を掛けて</p>
+<p>を得る (入り切らなかったので被積分関数が同じ積分は略記)。両辺微分し \(x\) を掛けて</p>
 <p>\[
-\int_1^x f(t) ~ dt - \int_x^2 f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
+\left(\int_1^x + \int_2^x\right) f(t) ~ dt = 6x^2\log x - 3x^2 + Ax \tag{2}
 \]</p>
 <p>を得る。もう一度両辺微分して 2 で割ると</p>
 <p>\[
@@ -1005,9 +1124,9 @@ f_3(x) = \left( \frac{1}{3m} x + \frac{3m-1}{3m} \right)^m \left( \frac{2}{3m} x
 <h1 id="複素数"><a class="header" href="#複素数">複素数</a></h1>
 <h2 id="覚えるもの"><a class="header" href="#覚えるもの">覚えるもの</a></h2>
 <p>複素数は極座標表示・複素共役系・成分表示の三通りの表し方がある。どちらのほうが解きやすくなるか常に考えよう。</p>
-<p>極座標表示は、原点などのある一点中心で問題が展開されている場合や、絶対値・偏角が登場した場合にはまず考えたい。複素共役・累乗とは相性がよいものの、一般の足し引きとは相性が悪いことも。「実は有名三角形になっていた」なこともあるため、なんとなくでも図を描こう。有向角度の向きや \(2\pi\) の差にも注意。</p>
-<p>複素共役系は \(z, \bar{z}\) を中心に式変形でなんとかする方法。1~2 次式にはめっぽう強いが、一般の累乗とは相性が悪い。\(\pm 1\) の \(n\) 乗根は定番。答えはだいたい直線 or 円がち。</p>
-<p>成分表示は、万能ではあるが、他の表し方の良さをほぼ全て潰してしまう欠点がある。本当に困ったときに使うイメージかも。</p>
+<p>極座標表示は、原点などのある一点中心で問題が展開されている場合や、絶対値・偏角が登場した場合にはまず考えたい。角度・原点からの距離・複素共役・累乗とは相性がよいが、一般の足し引きとは相性が悪いことも。「実は有名三角形になっていた」なこともあるため、なんとなくでも図を描こう。有向角度の向きや \(2\pi\) の差にも注意。</p>
+<p>複素共役系は \(z, \bar{z}\) を中心に式変形でなんとかする方法。\(z, \bar{z}, z\bar{z}\) だけの式や幾何的な条件には強いが、一般の累乗とは相性が悪い。\(\pm 1\) の \(n\) 乗根は定番。図示系の答えはだいたい直線 or 円 がちなので、気合いで帰着させることも多い。</p>
+<p>成分表示は、万能ではあるが、他の表し方の良さをほぼ全て潰してしまう欠点がある。次数が大きくなってしんどいがち。本当に困ったときに使うイメージかも。</p>
 <h2 id="円の複素数表示"><a class="header" href="#円の複素数表示">円の複素数表示</a></h2>
 <p>円の方程式は、中心 \(\alpha\), 半径 \(r\) とすると、複素共役を用いて</p>
 <p>\[
@@ -1551,6 +1670,9 @@ F_{\text{向心方向}} = m \cdot r{\dot\theta}^2 = m \cdot \frac{v^2}{r}
 \]</p>
 <p>が成立する。特に、はたらく力に非保存力が含まれていても成立する。</p>
 <p>単振動では \(\theta\) を用いて考える問題もあるが、誘導が無ければ使わずに解けることが多い。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="重心系"><a class="header" href="#重心系">重心系</a></h1>
+<p>二体問題と呼ばれる、二物体間</p>
+<p>// TODO: 書く</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="電磁気"><a class="header" href="#電磁気">電磁気</a></h1>
 <p>\(
 \newcommand{\disp}{\displaystyle}
@@ -2376,62 +2498,17 @@ p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_
 <tr><td style="text-align: center">mono-</td><td style="text-align: center">di-</td><td style="text-align: center">tri-</td><td style="text-align: center">tetra-</td><td style="text-align: center">penta-</td><td style="text-align: center">hexa-</td><td style="text-align: center">hepta-</td><td style="text-align: center">octa-</td></tr>
 </tbody></table>
 </div>
-<h2 id="有機化合物の種類"><a class="header" href="#有機化合物の種類">有機化合物の種類</a></h2>
-<h3 id="脂肪族炭化水素"><a class="header" href="#脂肪族炭化水素">脂肪族炭化水素</a></h3>
-<p>不飽和結合を持たないものを <strong>アルカン</strong> 、C-C 二重結合を持つものを <strong>アルケン</strong> 、C-C 三重結合を持つものを <strong>アルキン</strong> という。環構造を持つとき <strong>シクロ-</strong> が付く。</p>
-<p>親水基を持たないため、水に解けない。</p>
-<p>結合の長さは <u>C-C 三重結合 &lt; C-C 二重結合 &lt; (ベンゼン環の C-C 結合)<sup class="footnote-reference"><a href="#1">1</a></sup> &lt; C-C 単結合</u> である<sup class="footnote-reference"><a href="#2">2</a></sup>。</p>
-<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>ベンゼン環の C-C 結合は <u>C-C 1.5 重結合</u> だと思うとしっくりくる。</p>
-</div>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
-<p>「多重結合は曲がっていて、結合数が多いほどきつく曲がっているため、結合の長さが短い。」というイメージ。</p>
-</div>
-<h3 id="アルコールフェノール"><a class="header" href="#アルコールフェノール">アルコール・フェノール</a></h3>
-<p>ヒドロキシ基を持つ化合物。ヒドロキシ基は親水基であり、1 つのヒドロキシ基に対して炭素 3 つ程度なら水に溶ける。</p>
-<p>通常のヒドロキシ基は電離せず、中性を示す。しかし、フェノール性ヒドロキシ基はベンゼン環の働きによって弱く電離し、非常に弱い弱酸を示す。</p>
-<p>アルコールはヒドロキシ基の周りの水素数により 第 1 ~ 3 級アルコールに分類される。それぞれ酸化剤に対する反応が異なる。</p>
-<div class="table-wrapper"><table><thead><tr><th style="text-align: center">種類</th><th style="text-align: center">酸化させた結果</th></tr></thead><tbody>
-<tr><td style="text-align: center">第 1 級アルコール (R-CH2OH)</td><td style="text-align: center">アルデヒド (R-CHO) → カルボン酸 (R-COOH)</td></tr>
-<tr><td style="text-align: center">第 2 級アルコール (R-CHOH-R')</td><td style="text-align: center">エーテル (R-CO-R')</td></tr>
-<tr><td style="text-align: center">第 3 級アルコール</td><td style="text-align: center">(酸化されない)</td></tr>
+<p>6 まではすぐ出てくるようにしたい。penta が思い出せないがち…</p>
+<h2 id="慣用名を持つ化合物"><a class="header" href="#慣用名を持つ化合物">慣用名を持つ化合物</a></h2>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: center">名称</th><th style="text-align: center">構造</th><th style="text-align: center">説明</th></tr></thead><tbody>
+<tr><td style="text-align: center">エチレン</td><td style="text-align: center">C=C</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">アセチレン</td><td style="text-align: center">C≡C</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">シュウ酸</td><td style="text-align: center">(COOH)2</td><td style="text-align: center">還元性を持つ</td></tr>
+<tr><td style="text-align: center">ギ酸</td><td style="text-align: center">H-COOH</td><td style="text-align: center">還元性を持つカルボン酸</td></tr>
+<tr><td style="text-align: center">酢酸</td><td style="text-align: center">CH3-COOH</td><td style="text-align: center"></td></tr>
+<tr><td style="text-align: center">尿素</td><td style="text-align: center">NH2-CO-NH2</td><td style="text-align: center">尿素樹脂とか？</td></tr>
 </tbody></table>
-</div>
-<ul>
-<li>アルコール + カルボン酸・無水カルボン酸 → エーテル</li>
-</ul>
-<div id="admonition-アルコールフェノールの検出" class="admonition admonish-note" role="note" aria-labelledby="admonition-アルコールフェノールの検出-title">
-<div class="admonition-title">
-<div id="admonition-アルコールフェノールの検出-title">
-<p>アルコール・フェノールの検出</p>
-</div>
-<a class="admonition-anchor-link" href="chemistry/organic/index.html#admonition-アルコールフェノールの検出"></a>
-</div>
-<div>
-<ul>
-<li>\(Na\) を入れる → アルコール・フェノールと反応し \(\mathrm{H_2}\) が発生する。
-<ul>
-<li>-OH が -ONa になる。反応後の物質は <u>ナトリウムアルコキシド・ナトリウムフェノキシド</u> と呼ばれる。</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<h3 id="芳香族アミン"><a class="header" href="#芳香族アミン">芳香族アミン</a></h3>
-<p>アミノ基を持つ化合物。アミノ基は電離できて、弱塩基性を示す。</p>
-<div id="admonition-アニリン周辺" class="admonition admonish-note" role="note" aria-labelledby="admonition-アニリン周辺-title">
-<div class="admonition-title">
-<div id="admonition-アニリン周辺-title">
-<p>アニリン周辺</p>
-</div>
-<a class="admonition-anchor-link" href="chemistry/organic/index.html#admonition-アニリン周辺"></a>
-</div>
-<div>
-<p>ベンゼン環にアミノ基が付いたものを <strong>アニリン</strong> と呼ぶ。</p>
-<p>アニリンの製法: ニトロベンゼン + 濃 \(\mathrm{NaCl}\) + \(\mathrm{Sn}\) (還元剤) → アニリン塩酸塩</p>
-</div>
-</div>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="糖類"><a class="header" href="#糖類">糖類</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="糖類"><a class="header" href="#糖類">糖類</a></h1>
 <p>アルデヒド基の還元性の式: \(\mathrm{CHO + O^{2-} \to COOH + (-2)}\)</p>
 <p>\(\mathrm{O-CH-OH}\) の部分を <uj>ヘミアセタール構造</uj> と呼ぶ。\(\mathrm{OH, CHO}\) と平衡の関係にあり、実質的に還元性を持つ。</p>
 <h2 id="単糖"><a class="header" href="#単糖">単糖</a></h2>
@@ -2452,7 +2529,30 @@ p_1\mathrm{[A_1]} + p_2\mathrm{[A_2]} + \cdots \rightleftharpoons q_1\mathrm{[B_
 <tr><td style="text-align: center">ラクトース(乳糖)</td><td style="text-align: center">βグル, βガラク (表裏)</td><td style="text-align: center">ラクターゼ</td><td style="text-align: center"></td></tr>
 <tr><td style="text-align: center">スクロース(ショ糖)</td><td style="text-align: center">αグル, βフルク (表裏)</td><td style="text-align: center">インベルターゼ</td><td style="text-align: center"><strong>還元性を持たない</strong></td></tr>
 </tbody></table>
-</div><div style="break-before: page; page-break-before: always;"></div><h1 id="ノート"><a class="header" href="#ノート">ノート</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="高分子"><a class="header" href="#高分子">高分子</a></h1>
+<p>主に <strong>合成繊維・熱可塑性樹脂・熱硬化性樹脂・ゴム系・機能性高分子化合物系</strong> に分かれる。</p>
+<p>高分子化合物は分子量が大きく、溶媒に溶けにくい。モル濃度が小さいので凝固点降下や沸点上昇での分子量の測定は向いていない。浸透圧は可能。</p>
+<pre class="mermaid">---
+config:
+    themeVariables:
+        fontSize: 12px
+    flowchart:
+        nodeSpacing: 10
+---
+
+graph LR
+
+a1[合成繊維] --&gt; a2[再生繊維] --&gt; a7(&quot;ビスコースレーヨン&lt;br&gt;銅アンモニアレーヨン(キュプラ)&quot;)
+a1 --&gt; a3[半合成繊維] --&gt; a8(&quot;トリニトロセルロース&lt;br&gt;ジアセチルセルロース&quot;)
+a1 --&gt; a4[&quot;ポリエステル&lt;br&gt;(樹脂としても利用)&quot;] --&gt; a5(&quot;PET&quot;)
+a1 --&gt; a9[ポリアミド] --&gt; a10(&quot;ナイロン66&lt;br&gt;ナイロン6&quot;)
+a1 --&gt; a11[その他] --&gt; a12(&quot;ポリアクリロニトリル → 炭素繊維&quot;)
+a11 --&gt; a13(&quot;酢酸ビニル → PVA → ビニロン&quot;)
+
+b1[熱硬化性樹脂] --&gt; b2[&quot;a&quot;]
+</pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="高分子-1"><a class="header" href="#高分子-1">高分子</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ノート"><a class="header" href="#ノート">ノート</a></h1>
 <p>英語の授業のノートです。</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="特講---短文和訳"><a class="header" href="#特講---短文和訳">特講 - 短文和訳</a></h1>
 <p>N 先生に感謝しつつ、無断で公開しています。（シーッ！）</p>
